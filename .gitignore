@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Node (planned frontend)
+node_modules/
+.next/
+
+# Env / secrets
+.env
+.env.local
+*.key
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
