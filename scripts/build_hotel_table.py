@@ -14,12 +14,10 @@ Run: .venv/bin/python scripts/build_hotel_table.py
 from __future__ import annotations
 
 import json
-import sys
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from nginep.matching import match_hotels_blocked
 from nginep.osm import fetch_hotels, geocode
 

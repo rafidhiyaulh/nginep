@@ -1,0 +1,15 @@
+[project]
+name = "nginep"
+version = "0.1.0"
+description = "TanyaInap -- natural-language hotel search for Bali (Traveloka DS portfolio project)"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

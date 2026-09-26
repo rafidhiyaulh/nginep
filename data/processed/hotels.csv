@@ -1,4 +1,5 @@
 hotel_id,name,area,lat,lon,source,match_status,review_count,avg_rating,has_reviews,match_score,coord_precision
+atanaya-hotel,Atanaya Hotel,Kuta Bali,-8.7031544,115.1804265,mendeley+osm,matched,460,4.62,True,100.0,exact
 le-meridien-bali-jimbaran,Le Meridien Bali Jimbaran,Jimbaran Bali,-8.7812684,115.1658384,mendeley+osm,matched,2,4.5,True,96.0,exact
 maya-sanur-resort-and-spa,Maya Sanur Resort & Spa,Sanur Denpasar Bali,-8.697475,115.2638238,mendeley+osm,matched,451,4.84,True,100.0,exact
 nusa-dua-beach-hotel-and-spa,Nusa Dua Beach Hotel & Spa,Nusa Dua Bali,-8.794123,115.2299877,mendeley+osm,matched,228,4.69,True,90.2,exact
@@ -6,7 +7,6 @@ the-apurva-kempinski,The Apurva Kempinski,Nusa Dua Bali,-8.8293119,115.2167281,m
 ulaman-eco-retreat,Ulaman Eco Retreat,Tabanan Bali,-8.5929464,115.1305421,mendeley+osm,matched,95,4.96,True,100.0,exact
 adiwana-bisma-ubud,Adiwana Bisma Ubud,Ubud Bali,-8.5167898,115.2576164,mendeley+nominatim_direct,osm_review_then_direct_geocode,331,4.97,True,,street_level
 anantara-uluwatu-bali-resort,Anantara Uluwatu Bali Resort,Pecatu Bali,-8.8088718,115.1085807,mendeley+nominatim_direct,osm_review_then_direct_geocode,116,4.8,True,,exact
-atanaya-hotel,Atanaya Hotel,Kuta Bali,-8.7031544,115.1804265,mendeley+nominatim_direct,osm_review_then_direct_geocode,460,4.62,True,,exact
 blue-lagon-avia-villas,Blue Lagon Avia Villas,Nusa Ceningan Bali,,,mendeley_no_coords,needs_manual_geocode,82,4.95,True,,
 hideaway-villas-bali,Hideaway Villas Bali,Pecatu Bali,,,mendeley_no_coords,needs_manual_geocode,79,4.81,True,,
 merccure-bali-legian,Merccure Bali Legian,Legian Kuta Bali,-8.7081978,115.1721247,mendeley+nominatim_direct,osm_review_then_direct_geocode,1472,4.56,True,,exact
@@ -732,7 +732,6 @@ osm-4409290589,Amaroossa Suite Bali,Nusa Dua,-8.7901831,115.2062834,osm_only,n/a
 osm-4409294960,Ananta Legian Hotel,"Legian, Bali, Indonesia",-8.6975432,115.1642289,osm_only,n/a,0,,False,,exact
 osm-4409417472,Asa Bali Luxury Villas & Spa,"Kuta, Kabupaten Badung, Bali, Indonesia",-8.6910441,115.1749365,osm_only,n/a,0,,False,,exact
 osm-4409436608,Astana Pengembak,"Sanur Kauh, South Denpasar, Bali",-8.7063864,115.2501687,osm_only,n/a,0,,False,,exact
-osm-4409533818,Atanaya Hotel,"Kuta, Kabupaten Badung, Bali, Indonesia",-8.7031544,115.1804265,osm_only,n/a,0,,False,,exact
 osm-4410775468,Hotel Kumala,"Legian, Kuta, Badung, Bali",-8.6980882,115.1646128,osm_only,n/a,0,,False,,exact
 osm-4410781059,Bakung Sari Hotel,"Kuta, Badung, Bali",-8.7253055,115.1750152,osm_only,n/a,0,,False,,exact
 osm-4410781408,Hotel Puri Nusa Indah 3,Denpasar Timur,-8.65087,115.2503865,osm_only,n/a,0,,False,,exact

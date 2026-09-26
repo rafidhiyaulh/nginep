@@ -12,10 +12,17 @@
   - Ratings are heavily skewed positive (99.8% are 4-5 stars).
   - Hotel coverage is concentrated: Legian/Kuta alone is ~61% of all reviews; Ubud has exactly one hotel (Adiwana Bisma Ubud).
 
-## HoASA (planned — evaluation benchmark only, not demo inventory)
-- Source: IndoNLU benchmark, `indonlp/indonlu` on Hugging Face (HoASA subset)
+## HoASA (evaluation benchmark only, not demo inventory)
+- Files: `hoasa/train.csv`, `hoasa/valid.csv`, `hoasa/test.csv` (2283/285/286 rows)
+- Source: IndoNLU benchmark. The Hugging Face dataset page (`indonlp/indonlu`)
+  ships a loading script rather than plain files, so these were pulled from
+  the script's own upstream source instead: https://github.com/IndoNLP/indonlu,
+  `dataset/hoasa_absa-airy/{train,valid,test}_preprocess.csv`.
 - License: MIT
-- Contents: 2,854 examples, 10 aspects, sourced from AiryRooms reviews, no hotel identifiers.
+- Contents: 2,854 examples, 10 aspects (`ac, air_panas, bau, general,
+  kebersihan, linen, service, sunrise_meal, tv, wifi`), each labeled
+  `neg`/`neut`/`pos`/`neg_pos`, sourced from AiryRooms reviews, no hotel
+  identifiers.
 - Role: secondary cross-lingual robustness check for the aspect extractor. The primary eval set will be a hand-labeled sample of the Bali CSV above, since that's the actual production-language (English) corpus — HoASA alone would test the wrong language distribution.
 
 ## OpenStreetMap (planned — location/POI enrichment only)

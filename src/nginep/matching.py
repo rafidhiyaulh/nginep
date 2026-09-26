@@ -36,6 +36,18 @@ def match_one(
     if not candidates:
         return {"status": "unmatched", "osm": None, "score": None, "gap_to_runner_up": None, "n_candidates": 0}
 
+    # Exact (case/whitespace-insensitive) matches short-circuit the fuzzy
+    # scorer entirely. Without this, an exact match can *tie* a completely
+    # wrong but generically-worded candidate — token_set_ratio scores 100
+    # whenever one name's tokens are a subset of the other's (e.g. a bare
+    # "Hotel" entry vs "Nusa Dua Beach Hotel & Spa"), and which of two
+    # tied-at-100 candidates process.extract() returns first isn't something
+    # to depend on. An exact string match has no such ambiguity.
+    normalized = name.strip().lower()
+    exact = [c for c in candidates if c["name"].strip().lower() == normalized]
+    if exact:
+        return {"status": "matched", "osm": exact[0], "score": 100.0, "gap_to_runner_up": 100.0, "n_candidates": len(candidates)}
+
     names = [c["name"] for c in candidates]
     results = process.extract(name, names, scorer=fuzz.token_set_ratio, limit=2)
     if not results:
