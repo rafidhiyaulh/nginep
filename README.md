@@ -27,10 +27,6 @@ Covers a limited set of real hotels, no live pricing or booking.
 
 <img src="docs/images/02-search-results.png" alt="Ranked results with real quotes" width="520" />
 
-**3. Works on phone too**
-
-<img src="docs/images/03-mobile-responsive.png" alt="Responsive layout" width="260" />
-
 ## The numbers
 
 | What | Result |

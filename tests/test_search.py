@@ -1,4 +1,4 @@
-from nginep.search import _area_matches, _explain, _score_hotel
+from nginep.search import _area_matches, _explain, _score_hotel, aspect_evidence
 
 
 class TestAreaMatches:
@@ -79,3 +79,34 @@ class TestExplain:
         hits = {"wifi": {"mentioned": 5, "pos": 1, "pos_quotes": [], "neg_quotes": ["wifi lemot"]}}
         explanation = _explain(hits)
         assert "wifi lemot" in explanation
+
+
+class TestAspectEvidence:
+    def test_empty_hits_gives_empty_list(self):
+        assert aspect_evidence({}) == []
+
+    def test_uses_friendly_label_not_raw_key(self):
+        hits = {"sunrise_meal": {"mentioned": 10, "pos": 8, "pos_quotes": ["enak"], "neg_quotes": []}}
+        rows = aspect_evidence(hits)
+        assert rows[0]["label"] == "sarapan"
+
+    def test_positive_flag_matches_the_verb(self):
+        hits = {"wifi": {"mentioned": 10, "pos": 9, "pos_quotes": ["kencang"], "neg_quotes": []}}
+        row = aspect_evidence(hits)[0]
+        assert row["positive"] is True
+        assert row["verb"] == "dipuji"
+
+    def test_negative_leaning_uses_dikeluhkan(self):
+        hits = {"wifi": {"mentioned": 10, "pos": 2, "pos_quotes": [], "neg_quotes": ["lemot banget"]}}
+        row = aspect_evidence(hits)[0]
+        assert row["positive"] is False
+        assert row["verb"] == "dikeluhkan"
+        assert row["quote"] == "lemot banget"
+
+    def test_sorted_by_pct_descending(self):
+        hits = {
+            "wifi": {"mentioned": 10, "pos": 2, "pos_quotes": [], "neg_quotes": ["a"]},
+            "service": {"mentioned": 10, "pos": 9, "pos_quotes": ["b"], "neg_quotes": []},
+        }
+        rows = aspect_evidence(hits)
+        assert [r["label"] for r in rows] == ["pelayanan", "wifi"]

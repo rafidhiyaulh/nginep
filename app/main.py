@@ -42,19 +42,20 @@ app = FastAPI(title="TanyaInap API", lifespan=lifespan)
 
 @app.get("/api/search", dependencies=[Depends(rate_limit)])
 def api_search(q: str = Query(..., min_length=1, max_length=300), top_k: int = Query(10, ge=1, le=30)):
-    parsed, results = search(_state["client"], q, _state["hotels"], _state["aspect_scores"], top_k=top_k)
+    parsed, results, also_nearby = search(_state["client"], q, _state["hotels"], _state["aspect_scores"], top_k=top_k)
     return {
         "query": q,
         "parsed": parsed.model_dump(),
         "results": [
             {
                 "hotel_id": r.hotel_id, "name": r.name, "area": r.area,
-                "has_reviews": r.has_reviews, "score": round(r.score, 3),
+                "score": round(r.score, 3),
                 "avg_rating": r.avg_rating, "review_count": r.review_count,
-                "explanation": r.explanation,
+                "evidence": r.evidence,
             }
             for r in results
         ],
+        "also_nearby": also_nearby,
     }
 
 

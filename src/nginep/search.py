@@ -42,6 +42,7 @@ class HotelResult:
     review_count: int
     aspect_hits: dict = field(default_factory=dict)  # aspect -> aggregated stats used
     explanation: str = ""
+    evidence: list = field(default_factory=list)  # structured form of explanation, for the API/frontend
 
 
 def _area_matches(query_area: str | None, hotel_area: str) -> bool:
@@ -86,27 +87,46 @@ def _score_hotel(wanted_aspects: list[str], hotel_aspects: dict) -> tuple[float,
     return total / n, used
 
 
-def _explain(aspect_hits: dict) -> str:
-    """Built only from aggregated counts + real quotes -- no free generation.
-    Uses friendly Indonesian aspect labels (never the raw internal key like
-    "sunrise_meal") and picks "dipuji"/"dikeluhkan" based on which way the
-    sentiment actually leans, so the wording never says "praised" while
-    quoting a complaint."""
-    if not aspect_hits:
-        return "Belum ada cukup ulasan yang membahas apa yang kamu cari."
-    parts = []
+def aspect_evidence(aspect_hits: dict) -> list[dict]:
+    """One structured row per requested aspect that has evidence -- built
+    only from aggregated counts + real quotes, no free generation. Each row
+    picks "dipuji"/"dikeluhkan" based on which way the sentiment actually
+    leans, so the label never says "praised" while quoting a complaint.
+    Kept separate from any string formatting so the API can hand the
+    frontend real structure instead of one dense run-on sentence."""
+    rows = []
     for aspect, stats in aspect_hits.items():
         label = ASPECT_LABELS_ID.get(aspect, aspect)
         pct_pos = stats["pos"] / stats["mentioned"] if stats["mentioned"] else 0
-        if pct_pos >= 0.5:
-            verb, quote = "dipuji", (stats["pos_quotes"] or stats["neg_quotes"] or [None])[0]
-        else:
-            verb, quote = "dikeluhkan", (stats["neg_quotes"] or stats["pos_quotes"] or [None])[0]
-        line = f"{label} {verb} di {stats['pos']} dari {stats['mentioned']} ulasan ({pct_pos:.0%})"
-        if quote:
-            line += f': "{quote}"'
-        parts.append(line)
-    return " · ".join(parts)
+        positive = pct_pos >= 0.5
+        quote = (stats["pos_quotes"] or stats["neg_quotes"] or [None])[0] if positive else (stats["neg_quotes"] or stats["pos_quotes"] or [None])[0]
+        rows.append({
+            "label": label,
+            "positive": positive,
+            "verb": "dipuji" if positive else "dikeluhkan",
+            "pct": round(pct_pos * 100),
+            "pos": stats["pos"],
+            "mentioned": stats["mentioned"],
+            "quote": quote,
+        })
+    rows.sort(key=lambda r: r["pct"], reverse=True)
+    return rows
+
+
+def _explain(aspect_hits: dict) -> str:
+    """Plain-text join of aspect_evidence, for the CLI script."""
+    rows = aspect_evidence(aspect_hits)
+    if not rows:
+        return "Belum ada cukup ulasan yang membahas apa yang kamu cari."
+    parts = [
+        f"{r['label']} {r['verb']} di {r['pos']} dari {r['mentioned']} ulasan ({r['pct']}%)"
+        + (f": '{r['quote']}'" if r["quote"] else "")
+        for r in rows
+    ]
+    return ", ".join(parts)
+
+
+MAX_ALSO_NEARBY = 8
 
 
 def search(
@@ -115,9 +135,16 @@ def search(
     hotels: list[dict],
     aspect_scores: dict,
     top_k: int = 10,
-) -> tuple[ParsedQuery, list[HotelResult]]:
+) -> tuple[ParsedQuery, list[HotelResult], list[dict]]:
     """hotels: rows from data/processed/hotels.csv as dicts.
     aspect_scores: parsed data/processed/hotel_aspect_scores.json.
+
+    Returns (parsed_query, ranked_results, also_nearby). `also_nearby` is a
+    short list of {hotel_id, name, area} for hotels in the matched area with
+    no review data -- kept separate from `ranked_results` on purpose, rather
+    than padded in as identical-looking cards with no evidence to show. One
+    real hotel with no data is a useful "also exists here" mention; five of
+    them as full repeated cards is just noise.
     """
     parsed = make_client_and_parse(client, query_text)
 
@@ -138,19 +165,14 @@ def search(
             hotel_id=hotel["hotel_id"], name=hotel["name"], area=hotel["area"],
             has_reviews=True, score=score, avg_rating=hotel.get("avg_rating"),
             review_count=int(hotel.get("review_count") or 0),
-            aspect_hits=hits, explanation=_explain(hits),
+            aspect_hits=hits, explanation=_explain(hits), evidence=aspect_evidence(hits),
         ))
     # secondary sort by avg_rating so equal-aspect-score hotels aren't ordered arbitrarily
     scored.sort(key=lambda r: (r.score, r.avg_rating or 0), reverse=True)
 
     results = scored[:top_k]
-    if len(results) < top_k and unreviewed:
-        # fill remaining slots with no-review-data hotels, clearly marked --
-        # never blended into the ranked/scored list above.
-        for hotel in unreviewed[: top_k - len(results)]:
-            results.append(HotelResult(
-                hotel_id=hotel["hotel_id"], name=hotel["name"], area=hotel["area"],
-                has_reviews=False, score=0.0, avg_rating=None, review_count=0,
-                explanation="Belum ada data ulasan untuk hotel ini.",
-            ))
-    return parsed, results
+    also_nearby = [
+        {"hotel_id": h["hotel_id"], "name": h["name"], "area": h["area"]}
+        for h in unreviewed[:MAX_ALSO_NEARBY]
+    ]
+    return parsed, results, also_nearby

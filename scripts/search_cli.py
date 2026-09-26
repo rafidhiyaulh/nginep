@@ -27,16 +27,19 @@ def main() -> None:
     aspect_scores = json.loads((ROOT / "data" / "processed" / "hotel_aspect_scores.json").read_text())
 
     client = make_client(GCP_PROJECT)
-    parsed, results = search(client, query_text, hotels, aspect_scores, top_k=5)
+    parsed, results, also_nearby = search(client, query_text, hotels, aspect_scores, top_k=5)
 
     print(f"Query: {query_text!r}")
     print(f"Parsed: {parsed.model_dump()}")
     print()
     for i, r in enumerate(results, 1):
-        badge = "" if r.has_reviews else "  [belum ada ulasan]"
-        print(f"{i}. {r.name} ({r.area}) -- score={r.score:.2f}{badge}")
+        print(f"{i}. {r.name} ({r.area}) -- score={r.score:.2f}")
         print(f"   {r.explanation}")
         print()
+    if also_nearby:
+        print("Also in this area, no review data yet:")
+        for h in also_nearby:
+            print(f"  - {h['name']} ({h['area']})")
 
 
 if __name__ == "__main__":

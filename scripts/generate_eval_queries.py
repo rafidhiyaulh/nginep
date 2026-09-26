@@ -104,23 +104,35 @@ def main() -> None:
 
     out = []
     for i, q in enumerate(QUERIES):
-        parsed, results = search(client, q, hotels, aspect_scores, top_k=TOP_K)
+        parsed, results, also_nearby = search(client, q, hotels, aspect_scores, top_k=TOP_K)
+        candidates = [
+            {
+                "hotel_id": r.hotel_id, "name": r.name, "area": r.area,
+                "has_reviews": True, "score": round(r.score, 3),
+                "avg_rating": r.avg_rating, "review_count": r.review_count,
+                "explanation": r.explanation,
+                "relevance": None,  # <- filled in by the labeling tool, not here
+            }
+            for r in results
+        ]
+        # pad with no-review hotels up to TOP_K, same as the eval set this
+        # was originally generated against -- keeps the eval methodology
+        # (and the already-labeled data) comparable across reruns.
+        for h in also_nearby[: max(0, TOP_K - len(candidates))]:
+            candidates.append({
+                "hotel_id": h["hotel_id"], "name": h["name"], "area": h["area"],
+                "has_reviews": False, "score": 0.0,
+                "avg_rating": None, "review_count": 0,
+                "explanation": "Belum ada data ulasan untuk hotel ini.",
+                "relevance": None,
+            })
         out.append({
             "query_id": f"q{i:02d}",
             "query_text": q,
             "parsed": parsed.model_dump(),
-            "candidates": [
-                {
-                    "hotel_id": r.hotel_id, "name": r.name, "area": r.area,
-                    "has_reviews": r.has_reviews, "score": round(r.score, 3),
-                    "avg_rating": r.avg_rating, "review_count": r.review_count,
-                    "explanation": r.explanation,
-                    "relevance": None,  # <- filled in by the labeling tool, not here
-                }
-                for r in results
-            ],
+            "candidates": candidates,
         })
-        print(f"  [{i+1}/{len(QUERIES)}] {q!r} -> {len(results)} candidates")
+        print(f"  [{i+1}/{len(QUERIES)}] {q!r} -> {len(candidates)} candidates")
 
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")

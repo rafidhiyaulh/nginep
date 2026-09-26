@@ -9,6 +9,7 @@
     --ink: #0b0b0b; --ink-secondary: #52514e; --ink-muted: #898781;
     --surface: #fcfcfb; --page: #f4f3f0; --border: #e1e0d9;
     --blue: #2a78d6; --blue-dark: #184f95;
+    --good: #0ca30c; --warn: #c77700;
   }
   * { box-sizing: border-box; }
   body {
@@ -48,14 +49,35 @@
   .result-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
   .result-name { font-weight: 600; font-size: 1.05rem; }
   .result-area { color: var(--ink-muted); font-size: 0.85rem; }
+  .result-meta {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 10px;
+    margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);
+  }
   .score { font-variant-numeric: tabular-nums; color: var(--blue-dark); font-weight: 600; }
   .badge {
     display: inline-block; font-size: 0.72rem; color: var(--ink-secondary);
     background: var(--page); border: 1px solid var(--border); border-radius: 999px;
-    padding: 2px 8px; margin-left: 8px;
+    padding: 3px 10px;
   }
-  .explanation { margin-top: 8px; font-size: 0.9rem; color: var(--ink-secondary); line-height: 1.5; }
+  .evidence { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+  .evidence-stat { display: flex; align-items: center; gap: 7px; font-size: 0.87rem; }
+  .dot { width: 8px; height: 8px; min-width: 8px; border-radius: 50%; }
+  .dot-pos { background: var(--good); }
+  .dot-neg { background: var(--warn); }
+  .evidence-label { font-weight: 600; }
+  .evidence-detail { color: var(--ink-muted); }
+  .evidence-quote {
+    margin: 4px 0 0 15px; padding-left: 10px; border-left: 2px solid var(--border);
+    font-size: 0.85rem; color: var(--ink-secondary); font-style: italic; line-height: 1.4;
+  }
+  .no-evidence { margin-top: 8px; font-size: 0.87rem; color: var(--ink-muted); }
   .empty { color: var(--ink-muted); text-align: center; padding: 32px 0; }
+  .also-nearby {
+    background: var(--surface); border: 1px dashed var(--border); border-radius: 10px;
+    padding: 14px 16px; margin-top: 4px; font-size: 0.85rem;
+  }
+  .also-nearby-title { color: var(--ink-muted); margin-bottom: 6px; }
+  .also-nearby-list { color: var(--ink-secondary); line-height: 1.6; }
   footer { text-align: center; color: var(--ink-muted); font-size: 0.8rem; margin-top: 32px; }
 </style>
 </head>
@@ -68,12 +90,12 @@
     <input type="text" id="q" placeholder="hotel tenang di Ubud, wifi kencang, sarapan enak" autocomplete="off">
     <button type="submit" id="submitBtn">Cari</button>
   </form>
-  <p class="hint">Contoh: "hotel di Legian, servicenya ramah" &middot; "quiet hotel in Sanur with good breakfast"</p>
+  <p class="hint">Contoh: 'hotel di Legian, servicenya ramah' atau 'quiet hotel in Sanur with good breakfast'</p>
 
   <div class="parsed" id="parsed"></div>
   <div id="results"></div>
 </div>
-<footer>Data ulasan: Mendeley Bali Hotel Reviews (CC BY 4.0) &middot; lokasi: OpenStreetMap</footer>
+<footer>Data ulasan: Mendeley Bali Hotel Reviews (CC BY 4.0), lokasi: OpenStreetMap</footer>
 
 <script>
 const form = document.getElementById('searchForm');
@@ -95,7 +117,7 @@ form.addEventListener('submit', async (e) => {
     if (!res.ok) throw new Error('Request failed: ' + res.status);
     const data = await res.json();
     renderParsed(data.parsed);
-    renderResults(data.results);
+    renderResults(data.results, data.also_nearby || []);
   } catch (err) {
     resultsBox.innerHTML = '<p class="empty">Ada masalah saat mencari, coba lagi ya.</p>';
     console.error(err);
@@ -122,12 +144,12 @@ function renderParsed(p) {
   if (p.purpose) bits.push(`<b>konteks:</b> ${escapeHtml(p.purpose)}`);
   if (p.price_max_idr) bits.push(`<b>maks harga:</b> Rp${p.price_max_idr.toLocaleString('id-ID')} (harga belum tersedia di data ini)`);
   if (!bits.length) { parsedBox.style.display = 'none'; return; }
-  parsedBox.innerHTML = 'Dipahami sebagai: ' + bits.join(' &middot; ');
+  parsedBox.innerHTML = 'Dipahami sebagai: ' + bits.join(', ');
   parsedBox.style.display = 'block';
 }
 
-function renderResults(results) {
-  if (!results.length) {
+function renderResults(results, alsoNearby) {
+  if (!results.length && !alsoNearby.length) {
     resultsBox.innerHTML = '<p class="empty">Belum ada hotel yang cocok.</p>';
     return;
   }
@@ -137,15 +159,41 @@ function renderResults(results) {
         <span class="result-name">${escapeHtml(r.name)}</span>
         <span class="result-area">${escapeHtml(r.area || '')}</span>
       </div>
-      <div>
-        ${r.has_reviews ? `<span class="score">${(r.score * 100).toFixed(0)}%</span> cocok` : ''}
-        ${!r.has_reviews ? '<span class="badge">belum ada ulasan</span>' : ''}
+      <div class="result-meta">
+        <span><span class="score">${(r.score * 100).toFixed(0)}%</span> cocok</span>
         ${r.avg_rating ? `<span class="badge">rating ${r.avg_rating}/5</span>` : ''}
         ${r.review_count ? `<span class="badge">${r.review_count} ulasan</span>` : ''}
       </div>
-      <div class="explanation">${escapeHtml(r.explanation)}</div>
+      ${renderEvidence(r.evidence)}
     </div>
-  `).join('');
+  `).join('') + renderAlsoNearby(alsoNearby);
+}
+
+function renderEvidence(evidence) {
+  if (!evidence || !evidence.length) {
+    return '<div class="no-evidence">Belum ada cukup ulasan yang membahas apa yang kamu cari.</div>';
+  }
+  return '<div class="evidence">' + evidence.map(ev => `
+    <div>
+      <div class="evidence-stat">
+        <span class="dot ${ev.positive ? 'dot-pos' : 'dot-neg'}"></span>
+        <span class="evidence-label">${escapeHtml(ev.label)}</span>
+        <span class="evidence-detail">${ev.verb} ${ev.pct}% (${ev.pos}/${ev.mentioned})</span>
+      </div>
+      ${ev.quote ? `<div class="evidence-quote">'${escapeHtml(ev.quote)}'</div>` : ''}
+    </div>
+  `).join('') + '</div>';
+}
+
+function renderAlsoNearby(hotels) {
+  if (!hotels.length) return '';
+  const names = hotels.map(h => escapeHtml(h.name)).join(', ');
+  return `
+    <div class="also-nearby">
+      <div class="also-nearby-title">Juga ada di area ini, belum ada ulasan:</div>
+      <div class="also-nearby-list">${names}</div>
+    </div>
+  `;
 }
 
 function escapeHtml(s) {
