@@ -9,7 +9,6 @@
     --ink: #0b0b0b; --ink-secondary: #52514e; --ink-muted: #898781;
     --surface: #fcfcfb; --page: #f4f3f0; --border: #e1e0d9;
     --blue: #2a78d6; --blue-dark: #184f95;
-    --good: #0ca30c; --warn: #c77700;
   }
   * { box-sizing: border-box; }
   body {
@@ -64,9 +63,6 @@
   .badge-maps svg { width: 11px; height: 11px; flex-shrink: 0; }
   .evidence { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
   .evidence-stat { display: flex; align-items: center; gap: 7px; font-size: 0.87rem; }
-  .dot { width: 8px; height: 8px; min-width: 8px; border-radius: 50%; }
-  .dot-pos { background: var(--good); }
-  .dot-neg { background: var(--warn); }
   .evidence-label { font-weight: 600; }
   .evidence-detail { color: var(--ink-muted); }
   .evidence-quote {
@@ -118,8 +114,9 @@ form.addEventListener('submit', async (e) => {
     const res = await fetch('/api/search?q=' + encodeURIComponent(q));
     if (!res.ok) throw new Error('Request failed: ' + res.status);
     const data = await res.json();
+    const lang = data.parsed.language === 'en' ? 'en' : 'id';
     renderParsed(data.parsed);
-    renderResults(data.results, data.also_nearby || []);
+    renderResults(data.results, data.also_nearby || [], lang);
   } catch (err) {
     resultsBox.innerHTML = '<p class="empty">ada masalah saat mencari, coba lagi ya</p>';
     console.error(err);
@@ -129,30 +126,66 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-const ASPECT_LABELS_ID = {
-  ac: 'AC', air_panas: 'air panas', bau: 'bau kamar', general: 'kesan umum',
-  kebersihan: 'kebersihan', linen: 'sprei & handuk', service: 'pelayanan',
-  sunrise_meal: 'sarapan', tv: 'TV', wifi: 'wifi', value: 'harga',
-  accessibility: 'lokasi & akses', sleep_quality: 'ketenangan',
+// Static page chrome (tagline, placeholder, footer) stays Indonesian
+// always -- it's fixed before any query exists, so there's nothing to
+// match yet. Everything below is about the SEARCH RESULT for one query,
+// which does switch to match whatever language that query was asked in
+// (detected server-side, see ParsedQuery.language) -- answering an
+// English question with Indonesian labels is its own kind of confusing.
+const STRINGS = {
+  id: {
+    youWant: 'yang kamu cari', area: 'area', aspek: 'aspek', konteks: 'konteks',
+    match: 'cocok', rating: 'rating', reviews: 'ulasan', of: 'dari',
+    viewLocation: 'lihat lokasi',
+    noMatch: 'belum nemu yang cocok, coba kata lain ya',
+    noEvidence: 'ulasannya belum membahas ini secara spesifik',
+    alsoNearby: 'hotel lain di sini, belum sempat dianalisis:',
+  },
+  en: {
+    youWant: 'what you want', area: 'area', aspek: 'aspects', konteks: 'context',
+    match: 'match', rating: 'rating', reviews: 'reviews', of: 'of',
+    viewLocation: 'view location',
+    noMatch: 'no matches found, try different words',
+    noEvidence: "reviews haven't covered this specifically",
+    alsoNearby: 'other hotels here, not analyzed yet:',
+  },
+};
+
+const ASPECT_LABELS = {
+  id: {
+    ac: 'AC', air_panas: 'air panas', bau: 'bau kamar', general: 'kesan umum',
+    kebersihan: 'kebersihan', linen: 'sprei & handuk', service: 'pelayanan',
+    sunrise_meal: 'sarapan', tv: 'TV', wifi: 'wifi', value: 'harga',
+    accessibility: 'lokasi & akses', sleep_quality: 'ketenangan',
+  },
+  en: {
+    ac: 'AC', air_panas: 'hot water', bau: 'room smell', general: 'overall',
+    kebersihan: 'cleanliness', linen: 'linen', service: 'service',
+    sunrise_meal: 'breakfast', tv: 'TV', wifi: 'wifi', value: 'value',
+    accessibility: 'location', sleep_quality: 'quietness',
+  },
 };
 
 function renderParsed(p) {
+  const lang = p.language === 'en' ? 'en' : 'id';
+  const t = STRINGS[lang];
+  document.documentElement.lang = lang;
   const bits = [];
-  if (p.area) bits.push(`<b>area:</b> ${escapeHtml(p.area)}`);
+  if (p.area) bits.push(`<b>${t.area}:</b> ${escapeHtml(p.area)}`);
   if (p.aspects_wanted && p.aspects_wanted.length) {
-    const labels = p.aspects_wanted.map(a => ASPECT_LABELS_ID[a] || a);
-    bits.push(`<b>aspek:</b> ${escapeHtml(labels.join(', '))}`);
+    const labels = p.aspects_wanted.map(a => ASPECT_LABELS[lang][a] || a);
+    bits.push(`<b>${t.aspek}:</b> ${escapeHtml(labels.join(', '))}`);
   }
-  if (p.purpose) bits.push(`<b>konteks:</b> ${escapeHtml(p.purpose)}`);
-  if (p.price_max_idr) bits.push(`<b>maks harga:</b> Rp${p.price_max_idr.toLocaleString('id-ID')} (harga belum tersedia di data ini)`);
+  if (p.purpose) bits.push(`<b>${t.konteks}:</b> ${escapeHtml(p.purpose)}`);
   if (!bits.length) { parsedBox.style.display = 'none'; return; }
-  parsedBox.innerHTML = 'yang kamu cari: ' + bits.join(', ');
+  parsedBox.innerHTML = `${t.youWant}: ` + bits.join(', ');
   parsedBox.style.display = 'block';
 }
 
-function renderResults(results, alsoNearby) {
+function renderResults(results, alsoNearby, lang) {
+  const t = STRINGS[lang];
   if (!results.length && !alsoNearby.length) {
-    resultsBox.innerHTML = '<p class="empty">belum nemu yang cocok, coba kata lain ya</p>';
+    resultsBox.innerHTML = `<p class="empty">${t.noMatch}</p>`;
     return;
   }
   resultsBox.innerHTML = results.map(r => `
@@ -162,38 +195,39 @@ function renderResults(results, alsoNearby) {
         <span class="result-area">${escapeHtml(r.area || '')}</span>
       </div>
       <div class="result-meta">
-        <span><span class="score">${(r.score * 100).toFixed(0)}%</span> cocok</span>
-        ${r.avg_rating ? `<span class="badge">rating ${r.avg_rating}/5</span>` : ''}
-        ${r.review_count ? `<span class="badge">${r.review_count} ulasan</span>` : ''}
-        ${mapsLink(r.lat, r.lon)}
+        <span><span class="score">${(r.score * 100).toFixed(0)}%</span> ${t.match}</span>
+        ${r.avg_rating ? `<span class="badge">${t.rating} ${r.avg_rating}/5</span>` : ''}
+        ${r.review_count ? `<span class="badge">${r.review_count} ${t.reviews}</span>` : ''}
+        ${mapsLink(r.lat, r.lon, lang)}
       </div>
-      ${renderEvidence(r.evidence)}
+      ${renderEvidence(r.evidence, lang)}
     </div>
-  `).join('') + renderAlsoNearby(alsoNearby);
+  `).join('') + renderAlsoNearby(alsoNearby, lang);
 }
 
-function renderEvidence(evidence) {
+function renderEvidence(evidence, lang) {
+  const t = STRINGS[lang];
   if (!evidence || !evidence.length) {
-    return '<div class="no-evidence">ulasannya belum membahas ini secara spesifik</div>';
+    return `<div class="no-evidence">${t.noEvidence}</div>`;
   }
   return '<div class="evidence">' + evidence.map(ev => `
     <div>
       <div class="evidence-stat">
-        <span class="dot ${ev.positive ? 'dot-pos' : 'dot-neg'}"></span>
-        <span class="evidence-label">${escapeHtml(ev.label)}</span>
-        <span class="evidence-detail">${ev.verb} ${ev.pct}% (${ev.pos} dari ${ev.mentioned} ulasan)</span>
+        <span class="evidence-label">${escapeHtml(ASPECT_LABELS[lang][ev.aspect] || ev.aspect)}</span>
+        <span class="evidence-detail">${ev.pct}% (${ev.pos} ${t.of} ${ev.mentioned} ${t.reviews})</span>
       </div>
       ${ev.quote ? `<div class="evidence-quote">'${escapeHtml(ev.quote)}'</div>` : ''}
     </div>
   `).join('') + '</div>';
 }
 
-function renderAlsoNearby(hotels) {
+function renderAlsoNearby(hotels, lang) {
   if (!hotels.length) return '';
+  const t = STRINGS[lang];
   const names = hotels.map(h => escapeHtml(h.name)).join(', ');
   return `
     <div class="also-nearby">
-      <div class="also-nearby-title">hotel lain di sini, belum sempat dianalisis:</div>
+      <div class="also-nearby-title">${t.alsoNearby}</div>
       <div class="also-nearby-list">${names}</div>
     </div>
   `;
@@ -201,10 +235,10 @@ function renderAlsoNearby(hotels) {
 
 const PIN_SVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>';
 
-function mapsLink(lat, lon) {
+function mapsLink(lat, lon, lang) {
   if (lat == null || lon == null) return '';
   const url = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
-  return `<a class="badge badge-maps" href="${url}" target="_blank" rel="noopener">${PIN_SVG} lihat lokasi</a>`;
+  return `<a class="badge badge-maps" href="${url}" target="_blank" rel="noopener">${PIN_SVG} ${STRINGS[lang].viewLocation}</a>`;
 }
 
 function escapeHtml(s) {

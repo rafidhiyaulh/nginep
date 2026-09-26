@@ -102,21 +102,20 @@ def _score_hotel(wanted_aspects: list[str], hotel_aspects: dict) -> tuple[float,
 
 def aspect_evidence(aspect_hits: dict) -> list[dict]:
     """One structured row per requested aspect that has evidence -- built
-    only from aggregated counts + real quotes, no free generation. Each row
-    picks "dipuji"/"dikeluhkan" based on which way the sentiment actually
-    leans, so the label never says "praised" while quoting a complaint.
-    Kept separate from any string formatting so the API can hand the
-    frontend real structure instead of one dense run-on sentence."""
+    only from aggregated counts + real quotes, no free generation. Returns
+    the raw aspect key (e.g. "sleep_quality"), not a pre-localized label --
+    the frontend picks the label in whatever language the query was asked
+    in. No "praised"/"complained" framing either: that turned out to read
+    as an extra concept to learn rather than a help, so the row is just the
+    aspect, a percentage, and the real count behind it; the quote carries
+    whatever nuance the percentage alone can't."""
     rows = []
     for aspect, stats in aspect_hits.items():
-        label = ASPECT_LABELS_ID.get(aspect, aspect)
         pct_pos = stats["pos"] / stats["mentioned"] if stats["mentioned"] else 0
         positive = pct_pos >= 0.5
         quote = (stats["pos_quotes"] or stats["neg_quotes"] or [None])[0] if positive else (stats["neg_quotes"] or stats["pos_quotes"] or [None])[0]
         rows.append({
-            "label": label,
-            "positive": positive,
-            "verb": "dipuji" if positive else "dikeluhkan",
+            "aspect": aspect,
             "pct": round(pct_pos * 100),
             "pos": stats["pos"],
             "mentioned": stats["mentioned"],
@@ -127,13 +126,14 @@ def aspect_evidence(aspect_hits: dict) -> list[dict]:
 
 
 def _explain(aspect_hits: dict) -> str:
-    """Plain-text join of aspect_evidence, for the CLI script."""
+    """Plain-text join of aspect_evidence, for the CLI script (Indonesian
+    labels always -- the CLI is a dev tool, not the bilingual frontend)."""
     rows = aspect_evidence(aspect_hits)
     if not rows:
         return "Belum ada cukup ulasan yang membahas apa yang kamu cari."
     parts = [
-        f"{r['label']} {r['verb']} di {r['pos']} dari {r['mentioned']} ulasan ({r['pct']}%)"
-        + (f": '{r['quote']}'" if r["quote"] else "")
+        f"{ASPECT_LABELS_ID.get(r['aspect'], r['aspect'])}: {r['pct']}% ({r['pos']} dari {r['mentioned']} ulasan)"
+        + (f" - '{r['quote']}'" if r["quote"] else "")
         for r in rows
     ]
     return ", ".join(parts)

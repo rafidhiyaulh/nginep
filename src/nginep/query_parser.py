@@ -30,6 +30,7 @@ class ParsedQuery(BaseModel):
     aspects_wanted: list[AspectName] = Field(default_factory=list, description="Which aspects the user explicitly cares about, from the fixed aspect list only.")
     purpose: Optional[str] = Field(None, description="Short free-text context if stated, e.g. 'kerja remote', 'bulan madu'. Null if not stated.")
     price_max_idr: Optional[int] = Field(None, description="Max price in Indonesian Rupiah if mentioned (e.g. 'di bawah 500 ribu' -> 500000). Null if not mentioned.")
+    language: Literal["id", "en"] = Field("id", description="Dominant language of the query text itself -- 'id' for Indonesian, 'en' for English. Used to answer back in the same language the user asked in.")
 
 
 _SYSTEM_INSTRUCTION = f"""Parse a hotel-search query (Indonesian or English) into structured filters.
@@ -43,6 +44,10 @@ Don't guess at aspects the query doesn't mention.
 area should be the location phrase as the user wrote it (don't normalize/
 translate it) -- the retrieval step handles fuzzy-matching it against real
 hotel areas, not this parser.
+
+language: detect whether the query itself is written in Indonesian or
+English, so the answer can come back in the same language the person asked
+in. A query with only a place/hotel name and no other words defaults to "id".
 """
 
 

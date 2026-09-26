@@ -85,22 +85,24 @@ class TestAspectEvidence:
     def test_empty_hits_gives_empty_list(self):
         assert aspect_evidence({}) == []
 
-    def test_uses_friendly_label_not_raw_key(self):
+    def test_returns_raw_aspect_key_not_a_localized_label(self):
+        # localization is the frontend's job now (it needs to pick the
+        # label language based on the query's detected language), not
+        # something baked into the backend response
         hits = {"sunrise_meal": {"mentioned": 10, "pos": 8, "pos_quotes": ["enak"], "neg_quotes": []}}
         rows = aspect_evidence(hits)
-        assert rows[0]["label"] == "sarapan"
+        assert rows[0]["aspect"] == "sunrise_meal"
 
-    def test_positive_flag_matches_the_verb(self):
+    def test_pct_reflects_positive_share(self):
         hits = {"wifi": {"mentioned": 10, "pos": 9, "pos_quotes": ["kencang"], "neg_quotes": []}}
         row = aspect_evidence(hits)[0]
-        assert row["positive"] is True
-        assert row["verb"] == "dipuji"
+        assert row["pct"] == 90
+        assert row["quote"] == "kencang"
 
-    def test_negative_leaning_uses_dikeluhkan(self):
+    def test_negative_leaning_uses_a_negative_quote(self):
         hits = {"wifi": {"mentioned": 10, "pos": 2, "pos_quotes": [], "neg_quotes": ["lemot banget"]}}
         row = aspect_evidence(hits)[0]
-        assert row["positive"] is False
-        assert row["verb"] == "dikeluhkan"
+        assert row["pct"] == 20
         assert row["quote"] == "lemot banget"
 
     def test_sorted_by_pct_descending(self):
@@ -109,4 +111,4 @@ class TestAspectEvidence:
             "service": {"mentioned": 10, "pos": 9, "pos_quotes": ["b"], "neg_quotes": []},
         }
         rows = aspect_evidence(hits)
-        assert [r["label"] for r in rows] == ["pelayanan", "wifi"]
+        assert [r["aspect"] for r in rows] == ["service", "wifi"]
