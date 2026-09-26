@@ -59,6 +59,13 @@
     background: var(--page); border: 1px solid var(--border); border-radius: 999px;
     padding: 3px 10px;
   }
+  .badge-maps {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--blue-dark); background: var(--surface); border: 1px solid var(--blue);
+    text-decoration: none; cursor: pointer;
+  }
+  .badge-maps:hover { background: var(--page); }
+  .badge-maps svg { width: 11px; height: 11px; flex-shrink: 0; }
   .evidence { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
   .evidence-stat { display: flex; align-items: center; gap: 7px; font-size: 0.87rem; }
   .dot { width: 8px; height: 8px; min-width: 8px; border-radius: 50%; }
@@ -163,6 +170,7 @@ function renderResults(results, alsoNearby) {
         <span><span class="score">${(r.score * 100).toFixed(0)}%</span> cocok</span>
         ${r.avg_rating ? `<span class="badge">rating ${r.avg_rating}/5</span>` : ''}
         ${r.review_count ? `<span class="badge">${r.review_count} ulasan</span>` : ''}
+        ${mapsLink(r.lat, r.lon)}
       </div>
       ${renderEvidence(r.evidence)}
     </div>
@@ -194,6 +202,14 @@ function renderAlsoNearby(hotels) {
       <div class="also-nearby-list">${names}</div>
     </div>
   `;
+}
+
+const PIN_SVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>';
+
+function mapsLink(lat, lon) {
+  if (lat == null || lon == null) return '';
+  const url = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
+  return `<a class="badge badge-maps" href="${url}" target="_blank" rel="noopener">${PIN_SVG} Lihat lokasi</a>`;
 }
 
 function escapeHtml(s) {

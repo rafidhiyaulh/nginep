@@ -51,6 +51,7 @@ def api_search(q: str = Query(..., min_length=1, max_length=300), top_k: int = Q
                 "hotel_id": r.hotel_id, "name": r.name, "area": r.area,
                 "score": round(r.score, 3),
                 "avg_rating": r.avg_rating, "review_count": r.review_count,
+                "lat": r.lat, "lon": r.lon,
                 "evidence": r.evidence,
             }
             for r in results

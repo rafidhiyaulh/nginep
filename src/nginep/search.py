@@ -40,9 +40,22 @@ class HotelResult:
     score: float
     avg_rating: float | None
     review_count: int
+    lat: float | None = None
+    lon: float | None = None
     aspect_hits: dict = field(default_factory=dict)  # aspect -> aggregated stats used
     explanation: str = ""
     evidence: list = field(default_factory=list)  # structured form of explanation, for the API/frontend
+
+
+def _clean_float(x) -> float | None:
+    """hotels.csv loads missing lat/lon as NaN (via pandas), not None -- and
+    NaN is truthy in Python, so a plain `x or None` silently keeps it. The
+    `x == x` check is the standard NaN-detection trick (NaN is the only
+    value that isn't equal to itself), used here instead of importing
+    pandas/math into this module just for one null check."""
+    if x is None or x != x:
+        return None
+    return float(x)
 
 
 def _area_matches(query_area: str | None, hotel_area: str) -> bool:
@@ -165,6 +178,7 @@ def search(
             hotel_id=hotel["hotel_id"], name=hotel["name"], area=hotel["area"],
             has_reviews=True, score=score, avg_rating=hotel.get("avg_rating"),
             review_count=int(hotel.get("review_count") or 0),
+            lat=_clean_float(hotel.get("lat")), lon=_clean_float(hotel.get("lon")),
             aspect_hits=hits, explanation=_explain(hits), evidence=aspect_evidence(hits),
         ))
     # secondary sort by avg_rating so equal-aspect-score hotels aren't ordered arbitrarily
@@ -172,7 +186,10 @@ def search(
 
     results = scored[:top_k]
     also_nearby = [
-        {"hotel_id": h["hotel_id"], "name": h["name"], "area": h["area"]}
+        {
+            "hotel_id": h["hotel_id"], "name": h["name"], "area": h["area"],
+            "lat": _clean_float(h.get("lat")), "lon": _clean_float(h.get("lon")),
+        }
         for h in unreviewed[:MAX_ALSO_NEARBY]
     ]
     return parsed, results, also_nearby
