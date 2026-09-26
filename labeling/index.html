@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Label relevansi — TanyaInap eval</title>
+<style>
+  :root {
+    --ink: #0b0b0b; --ink-secondary: #52514e; --ink-muted: #898781;
+    --surface: #fcfcfb; --page: #f4f3f0; --border: #e1e0d9;
+    --blue: #2a78d6; --blue-dark: #184f95; --green: #0ca30c;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page); color: var(--ink); font-family: system-ui, sans-serif; padding: 20px 16px 80px; }
+  .wrap { max-width: 800px; margin: 0 auto; }
+  h1 { font-size: 1.3rem; margin: 0 0 4px; }
+  .sub { color: var(--ink-secondary); font-size: 0.9rem; margin: 0 0 16px; }
+  #loader { background: var(--surface); border: 1px dashed var(--border); border-radius: 10px; padding: 24px; text-align: center; }
+  #loader input { margin-top: 12px; }
+  .progress-bar { height: 6px; background: var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 16px; }
+  .progress-fill { height: 100%; background: var(--blue); transition: width .2s; }
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .nav button { padding: 8px 16px; border: 1px solid var(--border); background: var(--surface); border-radius: 6px; cursor: pointer; }
+  .nav button:disabled { opacity: 0.4; cursor: default; }
+  .qcount { font-size: 0.85rem; color: var(--ink-muted); }
+  .query-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+  .query-text { font-size: 1.1rem; font-weight: 600; margin-bottom: 6px; }
+  .query-parsed { font-size: 0.82rem; color: var(--ink-secondary); }
+  .candidate { border-bottom: 1px solid var(--border); padding: 12px 0; }
+  .candidate:last-child { border-bottom: none; }
+  .cand-head { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+  .cand-name { font-weight: 600; }
+  .cand-area { color: var(--ink-muted); font-size: 0.82rem; }
+  .cand-explain { font-size: 0.85rem; color: var(--ink-secondary); margin: 4px 0 8px; }
+  .rel-buttons { display: flex; gap: 6px; }
+  .rel-buttons button {
+    flex: 1; padding: 8px 4px; border: 1px solid var(--border); background: var(--surface);
+    border-radius: 6px; cursor: pointer; font-size: 0.78rem; color: var(--ink-secondary);
+  }
+  .rel-buttons button.active { background: var(--blue); color: white; border-color: var(--blue-dark); }
+  .toolbar { position: sticky; bottom: 0; background: var(--page); padding: 12px 0 0; display: flex; gap: 8px; justify-content: center; }
+  .toolbar button { padding: 10px 18px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; }
+  .toolbar button.primary { background: var(--green); color: white; border-color: var(--green); }
+  #status { text-align: center; font-size: 0.8rem; color: var(--ink-muted); margin-top: 6px; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Label relevansi hasil pencarian</h1>
+  <p class="sub">
+    Untuk tiap pasangan (query, kandidat hotel): apakah hotel ini benar-benar cocok untuk kebutuhan di query itu?
+    Ini yang jadi ground truth NDCG ranker — nilai jujur sesuai penilaianmu, bukan asal klik.
+  </p>
+
+  <div id="loader">
+    <div>Muat <code>query_candidates.json</code> (hasil <code>scripts/generate_eval_queries.py</code>), atau lanjutkan progres tersimpan.</div>
+    <input type="file" id="fileInput" accept="application/json">
+    <div id="resumeNote" class="hidden" style="margin-top:10px; font-size:0.85rem; color:var(--ink-secondary);"></div>
+  </div>
+
+  <div id="labelUI" class="hidden">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="nav">
+      <button id="prevBtn">&larr; Sebelumnya</button>
+      <span class="qcount" id="qcount"></span>
+      <button id="nextBtn">Selanjutnya &rarr;</button>
+    </div>
+    <div class="query-box">
+      <div class="query-text" id="queryText"></div>
+      <div class="query-parsed" id="queryParsed"></div>
+    </div>
+    <div id="candidateList"></div>
+    <div class="toolbar">
+      <button id="exportBtn" class="primary">Export hasil label (JSON)</button>
+      <button id="clearBtn">Reset progres</button>
+    </div>
+    <div id="status"></div>
+  </div>
+</div>
+
+<script>
+const RELEVANCE_LEVELS = [
+  {v: 0, label: "0 · Tidak cocok"},
+  {v: 1, label: "1 · Agak cocok"},
+  {v: 2, label: "2 · Cocok"},
+  {v: 3, label: "3 · Sangat cocok"},
+];
+const STORAGE_KEY = "tanyainap_labeling_progress_v1";
+
+let data = null;      // array of {query_id, query_text, parsed, candidates:[...]}
+let currentIdx = 0;
+
+const loaderEl = document.getElementById('loader');
+const labelUIEl = document.getElementById('labelUI');
+const fileInput = document.getElementById('fileInput');
+const resumeNote = document.getElementById('resumeNote');
+
+// Offer to resume from localStorage if present
+const saved = localStorage.getItem(STORAGE_KEY);
+if (saved) {
+  try {
+    const parsedSave = JSON.parse(saved);
+    if (parsedSave && parsedSave.data) {
+      resumeNote.classList.remove('hidden');
+      resumeNote.innerHTML = `Ada progres tersimpan (${countLabeled(parsedSave.data)} kandidat sudah dilabel). <button id="resumeBtn">Lanjutkan progres ini</button>`;
+      document.getElementById('resumeBtn').addEventListener('click', () => {
+        data = parsedSave.data;
+        currentIdx = parsedSave.currentIdx || 0;
+        start();
+      });
+    }
+  } catch (e) { /* ignore corrupt save */ }
+}
+
+fileInput.addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const text = await file.text();
+  data = JSON.parse(text);
+  currentIdx = 0;
+  saveProgress();
+  start();
+});
+
+function start() {
+  loaderEl.classList.add('hidden');
+  labelUIEl.classList.remove('hidden');
+  render();
+}
+
+function countLabeled(d) {
+  let n = 0;
+  for (const q of d) for (const c of q.candidates) if (c.relevance !== null && c.relevance !== undefined) n++;
+  return n;
+}
+
+function saveProgress() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({data, currentIdx}));
+  const total = data.reduce((s, q) => s + q.candidates.length, 0);
+  document.getElementById('status').textContent = `Tersimpan otomatis di browser ini — ${countLabeled(data)}/${total} kandidat sudah dilabel.`;
+}
+
+function render() {
+  const q = data[currentIdx];
+  document.getElementById('qcount').textContent = `Query ${currentIdx + 1} / ${data.length}`;
+  document.getElementById('progressFill').style.width = `${((currentIdx + 1) / data.length) * 100}%`;
+  document.getElementById('prevBtn').disabled = currentIdx === 0;
+  document.getElementById('nextBtn').disabled = currentIdx === data.length - 1;
+
+  document.getElementById('queryText').textContent = q.query_text;
+  const p = q.parsed || {};
+  const bits = [];
+  if (p.area) bits.push(`area: ${p.area}`);
+  if (p.aspects_wanted && p.aspects_wanted.length) bits.push(`aspek: ${p.aspects_wanted.join(', ')}`);
+  if (p.purpose) bits.push(`konteks: ${p.purpose}`);
+  document.getElementById('queryParsed').textContent = bits.join(' · ');
+
+  const list = document.getElementById('candidateList');
+  list.innerHTML = q.candidates.map((c, ci) => `
+    <div class="candidate">
+      <div class="cand-head">
+        <span class="cand-name">${escapeHtml(c.name)}</span>
+        <span class="cand-area">${escapeHtml(c.area || '')}${c.has_reviews ? '' : ' · belum ada ulasan'}</span>
+      </div>
+      <div class="cand-explain">${escapeHtml(c.explanation || '')}</div>
+      <div class="rel-buttons" data-ci="${ci}">
+        ${RELEVANCE_LEVELS.map(lvl => `<button data-v="${lvl.v}" class="${c.relevance === lvl.v ? 'active' : ''}">${lvl.label}</button>`).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  list.querySelectorAll('.rel-buttons').forEach(group => {
+    const ci = parseInt(group.dataset.ci, 10);
+    group.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        q.candidates[ci].relevance = parseInt(btn.dataset.v, 10);
+        saveProgress();
+        render();
+      });
+    });
+  });
+
+  saveProgress();
+}
+
+document.getElementById('prevBtn').addEventListener('click', () => { currentIdx = Math.max(0, currentIdx - 1); render(); });
+document.getElementById('nextBtn').addEventListener('click', () => { currentIdx = Math.min(data.length - 1, currentIdx + 1); render(); });
+
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'query_candidates_labeled.json';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById('clearBtn').addEventListener('click', () => {
+  if (confirm('Hapus semua progres label tersimpan di browser ini?')) {
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  }
+});
+
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s ?? '';
+  return d.innerHTML;
+}
+</script>
+</body>
+</html>
