@@ -6,6 +6,7 @@
 - License: CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ (attribution required, satisfied by the citation above)
 - Retrieved: 2026-09-26
 - Contents: 5,798 reviews, 16 hotels, 12 sub-areas of Bali. Columns: `Location, Hotel, UserID, Title, Review, Rating, Value, Accessibility, Service, Room, Cleanliness, Sleep Quality`.
+- Original collection method (per the Mendeley dataset page): "acquired through a web scraping process using the Google Chrome's Web Scraper Extension on the Tripadvisor platform." This project did not do any scraping itself — it consumes the dataset's official CC BY 4.0 release, not TripAdvisor directly — but the upstream collection method is disclosed here for transparency.
 - Caveats found during audit:
   - The six aspect columns (`Value, Accessibility, Service, Room, Cleanliness, Sleep Quality`) are binary presence flags (0/1), not sentiment scores. Annotation method is undocumented upstream — treat as unverified until spot-checked by hand.
   - Reviews are ~100% English despite covering Bali hotels.
@@ -23,7 +24,7 @@
   kebersihan, linen, service, sunrise_meal, tv, wifi`), each labeled
   `neg`/`neut`/`pos`/`neg_pos`, sourced from AiryRooms reviews, no hotel
   identifiers.
-- Role: secondary cross-lingual robustness check for the aspect extractor. The primary eval set will be a hand-labeled sample of the Bali CSV above, since that's the actual production-language (English) corpus — HoASA alone would test the wrong language distribution.
+- Role: primary accuracy benchmark for the aspect extractor, since it's human-labeled and independent of the pipeline being measured. Caveat: it's Indonesian-language, while the Bali CSV above (the actual production corpus) is English — this is a cross-lingual robustness check, not same-language validation. A hand-labeled sample of the Bali CSV itself would close that gap; not done yet, see the README's known limitations.
 
 ## OpenStreetMap (planned — location/POI enrichment only)
 - Source: Overpass API
@@ -35,4 +36,4 @@
 - ~1,000 US hotels, English-only. Only a fallback if the pipeline needs a larger corpus for engineering/testing; not part of the Bali product scope.
 
 ## Explicitly excluded
-Traveloka and Google review/listing data are not used anywhere in this project — scraping either would violate their Terms of Service.
+Traveloka and Google review/listing data are not used anywhere in this project, and this project did not scrape any source itself — scraping either of those platforms directly would violate their Terms of Service. The Bali Hotel Reviews dataset above was collected by its original authors, not by this project; see the collection-method note in that section above.
