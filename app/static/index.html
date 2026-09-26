@@ -18,6 +18,9 @@
   }
   .wrap { max-width: 720px; margin: 0 auto; }
   h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  /* bold system-ui renders capital I almost identical to lowercase l --
+     "TanyaInap" reads as "Tanyalnap" at a glance without this */
+  .brand-i { color: var(--blue); }
   .tagline { color: var(--ink-secondary); margin: 0 0 24px; font-size: 0.95rem; }
   form { display: flex; gap: 8px; margin-bottom: 8px; }
   input[type=text] {
@@ -58,8 +61,8 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>TanyaInap</h1>
-  <p class="tagline">Cari hotel di Bali pakai bahasa sehari-hari — alasan hasilnya diambil dari ulasan asli.</p>
+  <h1>Tanya<span class="brand-i">I</span>nap</h1>
+  <p class="tagline">Cari hotel di Bali pakai bahasa sehari-hari, lengkap dengan bukti dari ulasan asli.</p>
 
   <form id="searchForm">
     <input type="text" id="q" placeholder="hotel tenang di Ubud, wifi kencang, sarapan enak" autocomplete="off">
@@ -94,7 +97,7 @@ form.addEventListener('submit', async (e) => {
     renderParsed(data.parsed);
     renderResults(data.results);
   } catch (err) {
-    resultsBox.innerHTML = '<p class="empty">Ada masalah saat mencari. Coba lagi.</p>';
+    resultsBox.innerHTML = '<p class="empty">Ada masalah saat mencari, coba lagi ya.</p>';
     console.error(err);
   } finally {
     btn.disabled = false;
@@ -102,12 +105,22 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
+const ASPECT_LABELS_ID = {
+  ac: 'AC', air_panas: 'air panas', bau: 'aroma kamar', general: 'kesan umum',
+  kebersihan: 'kebersihan', linen: 'sprei & handuk', service: 'pelayanan',
+  sunrise_meal: 'sarapan', tv: 'TV', wifi: 'wifi', value: 'harga',
+  accessibility: 'lokasi & akses', sleep_quality: 'ketenangan',
+};
+
 function renderParsed(p) {
   const bits = [];
   if (p.area) bits.push(`<b>area:</b> ${escapeHtml(p.area)}`);
-  if (p.aspects_wanted && p.aspects_wanted.length) bits.push(`<b>aspek:</b> ${p.aspects_wanted.map(escapeHtml).join(', ')}`);
+  if (p.aspects_wanted && p.aspects_wanted.length) {
+    const labels = p.aspects_wanted.map(a => ASPECT_LABELS_ID[a] || a);
+    bits.push(`<b>aspek:</b> ${escapeHtml(labels.join(', '))}`);
+  }
   if (p.purpose) bits.push(`<b>konteks:</b> ${escapeHtml(p.purpose)}`);
-  if (p.price_max_idr) bits.push(`<b>maks harga:</b> Rp${p.price_max_idr.toLocaleString('id-ID')} (belum ada data harga di dataset ini)`);
+  if (p.price_max_idr) bits.push(`<b>maks harga:</b> Rp${p.price_max_idr.toLocaleString('id-ID')} (harga belum tersedia di data ini)`);
   if (!bits.length) { parsedBox.style.display = 'none'; return; }
   parsedBox.innerHTML = 'Dipahami sebagai: ' + bits.join(' &middot; ');
   parsedBox.style.display = 'block';
@@ -115,7 +128,7 @@ function renderParsed(p) {
 
 function renderResults(results) {
   if (!results.length) {
-    resultsBox.innerHTML = '<p class="empty">Tidak ada hotel yang cocok.</p>';
+    resultsBox.innerHTML = '<p class="empty">Belum ada hotel yang cocok.</p>';
     return;
   }
   resultsBox.innerHTML = results.map(r => `

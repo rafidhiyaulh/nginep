@@ -36,7 +36,7 @@ def rate_limit(request: Request) -> None:
     if len(hits) >= MAX_REQUESTS_PER_WINDOW:
         raise HTTPException(
             status_code=429,
-            detail=f"Terlalu banyak permintaan. Maks {MAX_REQUESTS_PER_WINDOW} pencarian per jam -- coba lagi nanti.",
+            detail=f"Terlalu banyak permintaan. Maksimal {MAX_REQUESTS_PER_WINDOW} pencarian per jam, coba lagi nanti ya.",
         )
     hits.append(now)
     _hits[ip] = hits

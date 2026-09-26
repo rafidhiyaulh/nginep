@@ -43,6 +43,26 @@ ASPECT_MEANINGS = {
 }
 
 
+# Friendly Indonesian labels for showing an aspect to an end user -- the
+# raw keys above ("sunrise_meal", "sleep_quality") are internal taxonomy
+# names, not words a user should ever see on screen.
+ASPECT_LABELS_ID = {
+    "ac": "AC",
+    "air_panas": "air panas",
+    "bau": "aroma kamar",
+    "general": "kesan umum",
+    "kebersihan": "kebersihan",
+    "linen": "sprei & handuk",
+    "service": "pelayanan",
+    "sunrise_meal": "sarapan",
+    "tv": "TV",
+    "wifi": "wifi",
+    "value": "harga",
+    "accessibility": "lokasi & akses",
+    "sleep_quality": "ketenangan",
+}
+
+
 class Sentiment(str, Enum):
     neg = "neg"
     neut = "neut"

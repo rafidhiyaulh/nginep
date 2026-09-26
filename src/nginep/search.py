@@ -11,6 +11,7 @@ from dataclasses import dataclass, field
 
 from rapidfuzz import fuzz
 
+from .aspects import ASPECT_LABELS_ID
 from .query_parser import ParsedQuery, make_client_and_parse
 
 # Filler words stripped from the query side before area matching -- NOT
@@ -86,18 +87,26 @@ def _score_hotel(wanted_aspects: list[str], hotel_aspects: dict) -> tuple[float,
 
 
 def _explain(aspect_hits: dict) -> str:
-    """Built only from aggregated counts + real quotes -- no free generation."""
+    """Built only from aggregated counts + real quotes -- no free generation.
+    Uses friendly Indonesian aspect labels (never the raw internal key like
+    "sunrise_meal") and picks "dipuji"/"dikeluhkan" based on which way the
+    sentiment actually leans, so the wording never says "praised" while
+    quoting a complaint."""
     if not aspect_hits:
-        return "Belum ada cukup ulasan yang membahas aspek yang kamu cari."
+        return "Belum ada cukup ulasan yang membahas apa yang kamu cari."
     parts = []
     for aspect, stats in aspect_hits.items():
+        label = ASPECT_LABELS_ID.get(aspect, aspect)
         pct_pos = stats["pos"] / stats["mentioned"] if stats["mentioned"] else 0
-        line = f"{aspect}: dipuji di {stats['pos']} dari {stats['mentioned']} ulasan yang membahasnya ({pct_pos:.0%})"
-        quote = (stats["pos_quotes"] or stats["neg_quotes"] or [None])[0]
+        if pct_pos >= 0.5:
+            verb, quote = "dipuji", (stats["pos_quotes"] or stats["neg_quotes"] or [None])[0]
+        else:
+            verb, quote = "dikeluhkan", (stats["neg_quotes"] or stats["pos_quotes"] or [None])[0]
+        line = f"{label} {verb} di {stats['pos']} dari {stats['mentioned']} ulasan ({pct_pos:.0%})"
         if quote:
-            line += f'. Kutipan: "{quote}"'
+            line += f': "{quote}"'
         parts.append(line)
-    return " | ".join(parts)
+    return " · ".join(parts)
 
 
 def search(
