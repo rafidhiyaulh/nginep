@@ -19,13 +19,17 @@ Cakupannya masih terbatas ke sejumlah hotel asli, belum ada harga live atau book
 
 ## Lihat langsung cara kerjanya
 
-**1. ketik yang kamu butuhkan**
+**cari pakai bahasa indonesia**
 
-<img src="docs/images/01-search-empty.png" alt="Halaman pencarian" width="520" />
+<img src="docs/images/01-search-id.png" alt="Hasil pencarian bahasa Indonesia" width="520" />
 
-**2. dapat bukti, bukan tebakan**
+**cari pakai bahasa inggris**
 
-<img src="docs/images/02-search-results.png" alt="Hasil terurut dengan kutipan asli" width="520" />
+<img src="docs/images/02-search-en.png" alt="Hasil pencarian bahasa Inggris" width="520" />
+
+**jujur kalau tidak ketemu**
+
+Contoh: 'hotel murah di jakarta' dijawab apa adanya, tidak ada hasil yang dipaksakan.
 
 ## Angka-angkanya
 
