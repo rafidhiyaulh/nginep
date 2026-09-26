@@ -15,7 +15,7 @@ Hotel search is usually checkboxes. What people actually want is more specific, 
 - Anyone planning a Bali trip who wants proof, not just a star rating.
 - Traveloka's hiring team: this is the job posting's asks, working, not just listed on a resume.
 
-Covers a limited set of real hotels, no live pricing or booking. A focused demo, not a finished product. Real user testing: in progress, results TBD.
+Covers a limited set of real hotels, no live pricing or booking.
 
 ## See it in action
 
