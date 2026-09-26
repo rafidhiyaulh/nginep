@@ -6,6 +6,9 @@ __pycache__/
 venv/
 .ipynb_checkpoints/
 
+# Local dev caches (regenerable — e.g. raw Overpass API responses)
+.cache/
+
 # Node (planned frontend)
 node_modules/
 .next/
