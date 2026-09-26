@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Label aspek ulasan Bali - Nginep eval</title>
+<style>
+  :root {
+    --ink: #0b0b0b; --ink-secondary: #52514e; --ink-muted: #898781;
+    --surface: #fcfcfb; --page: #f4f3f0; --border: #e1e0d9;
+    --blue: #2a78d6; --blue-dark: #184f95; --green: #0ca30c; --red: #c23b3b;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page); color: var(--ink); font-family: system-ui, sans-serif; padding: 20px 16px 80px; }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 1.3rem; margin: 0 0 4px; }
+  .sub { color: var(--ink-secondary); font-size: 0.9rem; margin: 0 0 16px; line-height: 1.5; }
+  #loader { background: var(--surface); border: 1px dashed var(--border); border-radius: 10px; padding: 24px; text-align: center; }
+  #loader input { margin-top: 12px; }
+  .progress-bar { height: 6px; background: var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 16px; }
+  .progress-fill { height: 100%; background: var(--blue); transition: width .2s; }
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .nav button { padding: 8px 16px; border: 1px solid var(--border); background: var(--surface); border-radius: 6px; cursor: pointer; }
+  .nav button:disabled { opacity: 0.4; cursor: default; }
+  .qcount { font-size: 0.85rem; color: var(--ink-muted); }
+  .review-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+  .review-hotel { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 6px; }
+  .review-text { font-size: 0.98rem; line-height: 1.55; white-space: pre-wrap; }
+  .aspect-row { border-bottom: 1px solid var(--border); padding: 10px 0; display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .aspect-row:last-child { border-bottom: none; }
+  .aspect-name { font-weight: 600; font-size: 0.92rem; min-width: 130px; }
+  .sent-buttons { display: flex; gap: 6px; }
+  .sent-buttons button {
+    padding: 7px 10px; border: 1px solid var(--border); background: var(--surface);
+    border-radius: 6px; cursor: pointer; font-size: 0.78rem; color: var(--ink-secondary);
+  }
+  .sent-buttons button.active-neut { background: var(--border); color: var(--ink); border-color: var(--ink-muted); }
+  .sent-buttons button.active-pos { background: var(--green); color: white; border-color: var(--green); }
+  .sent-buttons button.active-neg { background: var(--red); color: white; border-color: var(--red); }
+  .sent-buttons button.active-neg_pos { background: var(--blue); color: white; border-color: var(--blue-dark); }
+  .toolbar { position: sticky; bottom: 0; background: var(--page); padding: 12px 0 0; display: flex; gap: 8px; justify-content: center; }
+  .toolbar button { padding: 10px 18px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; }
+  .toolbar button.primary { background: var(--green); color: white; border-color: var(--green); }
+  #status { text-align: center; font-size: 0.8rem; color: var(--ink-muted); margin-top: 6px; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Label aspek per ulasan (bahasa Inggris, data Bali asli)</h1>
+  <p class="sub">
+    Untuk tiap ulasan: baca teksnya, lalu untuk 13 aspek di bawah tandai apakah aspek itu disebut, dan kalau ya, positif/negatif/campuran.
+    Setiap aspek defaultnya "tidak disebut" -- cuma perlu diubah untuk aspek yang benar-benar dibahas di ulasan itu.
+    Ini pelabelan buta: tidak ada hasil ekstraksi LLM yang ditampilkan di sini, biar hasilnya bisa dipakai untuk menguji akurasi LLM itu sendiri secara jujur.
+  </p>
+
+  <div id="loader">
+    <div>Muat <code>bali_english_sample.json</code> (hasil <code>scripts/sample_bali_labeling_set.py</code>), atau lanjutkan progres tersimpan.</div>
+    <input type="file" id="fileInput" accept="application/json">
+    <div id="resumeNote" class="hidden" style="margin-top:10px; font-size:0.85rem; color:var(--ink-secondary);"></div>
+  </div>
+
+  <div id="labelUI" class="hidden">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="nav">
+      <button id="prevBtn">&larr; Sebelumnya</button>
+      <span class="qcount" id="qcount"></span>
+      <button id="nextBtn">Selanjutnya &rarr;</button>
+    </div>
+    <div class="review-box">
+      <div class="review-hotel" id="reviewHotel"></div>
+      <div class="review-text" id="reviewText"></div>
+    </div>
+    <div id="aspectList"></div>
+    <div class="toolbar">
+      <button id="exportBtn" class="primary">Export hasil label (JSON)</button>
+      <button id="clearBtn">Reset progres</button>
+    </div>
+    <div id="status"></div>
+  </div>
+</div>
+
+<script>
+const ASPECTS = [
+  "ac", "air_panas", "bau", "general", "kebersihan",
+  "linen", "service", "sunrise_meal", "tv", "wifi",
+  "value", "accessibility", "sleep_quality",
+];
+const ASPECT_LABELS = {
+  ac: "AC", air_panas: "air panas", bau: "bau/aroma kamar", general: "kesan umum (eksplisit)",
+  kebersihan: "kebersihan", linen: "sprei & handuk", service: "pelayanan",
+  sunrise_meal: "sarapan", tv: "TV", wifi: "wifi", value: "harga/value",
+  accessibility: "lokasi & akses", sleep_quality: "ketenangan/tidur",
+};
+const SENTIMENTS = [
+  {v: "neut", label: "tidak disebut"},
+  {v: "pos", label: "positif"},
+  {v: "neg", label: "negatif"},
+  {v: "neg_pos", label: "campuran"},
+];
+const STORAGE_KEY = "nginep_bali_aspect_labeling_v1";
+
+let data = null;   // array of {sample_id, row_id, hotel, review, labels?}
+let currentIdx = 0;
+
+const loaderEl = document.getElementById('loader');
+const labelUIEl = document.getElementById('labelUI');
+const fileInput = document.getElementById('fileInput');
+const resumeNote = document.getElementById('resumeNote');
+
+const saved = localStorage.getItem(STORAGE_KEY);
+if (saved) {
+  try {
+    const parsedSave = JSON.parse(saved);
+    if (parsedSave && parsedSave.data) {
+      resumeNote.classList.remove('hidden');
+      resumeNote.innerHTML = `Ada progres tersimpan (${countLabeled(parsedSave.data)} / ${parsedSave.data.length} ulasan sudah disentuh). <button id="resumeBtn">Lanjutkan progres ini</button>`;
+      document.getElementById('resumeBtn').addEventListener('click', () => {
+        data = parsedSave.data;
+        currentIdx = parsedSave.currentIdx || 0;
+        start();
+      });
+    }
+  } catch (e) { /* ignore corrupt save */ }
+}
+
+fileInput.addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const text = await file.text();
+  data = JSON.parse(text).map(r => ({...r, labels: r.labels || Object.fromEntries(ASPECTS.map(a => [a, 'neut']))}));
+  currentIdx = 0;
+  saveProgress();
+  start();
+});
+
+function start() {
+  loaderEl.classList.add('hidden');
+  labelUIEl.classList.remove('hidden');
+  render();
+}
+
+// "labeled" here means at least one aspect was touched (moved off the
+// all-neut default) -- a review with everything genuinely neut still
+// counts once the labeler has actually looked at it and clicked something,
+// but there's no reliable way to distinguish "skipped" from "confirmed all
+// neut" other than trusting the labeler to go in order, which the nav UI
+// encourages (prev/next, no skip-ahead).
+function countLabeled(d) {
+  return d.filter(r => r._touched).length;
+}
+
+function saveProgress() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({data, currentIdx}));
+  document.getElementById('status').textContent = `Tersimpan otomatis di browser ini -- ${countLabeled(data)}/${data.length} ulasan sudah disentuh.`;
+}
+
+function render() {
+  const r = data[currentIdx];
+  document.getElementById('qcount').textContent = `Ulasan ${currentIdx + 1} / ${data.length}`;
+  document.getElementById('progressFill').style.width = `${((currentIdx + 1) / data.length) * 100}%`;
+  document.getElementById('prevBtn').disabled = currentIdx === 0;
+  document.getElementById('nextBtn').disabled = currentIdx === data.length - 1;
+
+  document.getElementById('reviewHotel').textContent = r.hotel;
+  document.getElementById('reviewText').textContent = r.review;
+
+  const list = document.getElementById('aspectList');
+  list.innerHTML = ASPECTS.map(aspect => `
+    <div class="aspect-row">
+      <span class="aspect-name">${ASPECT_LABELS[aspect]}</span>
+      <div class="sent-buttons" data-aspect="${aspect}">
+        ${SENTIMENTS.map(s => `<button data-v="${s.v}" class="${r.labels[aspect] === s.v ? 'active-' + s.v : ''}">${s.label}</button>`).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  list.querySelectorAll('.sent-buttons').forEach(group => {
+    const aspect = group.dataset.aspect;
+    group.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        r.labels[aspect] = btn.dataset.v;
+        r._touched = true;
+        saveProgress();
+        render();
+      });
+    });
+  });
+
+  saveProgress();
+}
+
+document.getElementById('prevBtn').addEventListener('click', () => { currentIdx = Math.max(0, currentIdx - 1); render(); });
+document.getElementById('nextBtn').addEventListener('click', () => {
+  data[currentIdx]._touched = data[currentIdx]._touched || true; // visiting + moving on counts as "confirmed all-neut" if untouched
+  currentIdx = Math.min(data.length - 1, currentIdx + 1);
+  render();
+});
+
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const clean = data.map(({sample_id, row_id, hotel, review, labels}) => ({sample_id, row_id, hotel, review, labels}));
+  const blob = new Blob([JSON.stringify(clean, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'bali_aspect_labels.json';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById('clearBtn').addEventListener('click', () => {
+  if (confirm('Hapus semua progres label tersimpan di browser ini?')) {
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  }
+});
+</script>
+</body>
+</html>
