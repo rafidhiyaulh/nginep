@@ -23,17 +23,17 @@ Worth saying plainly: this covers a limited set of real Bali hotels, not the who
 
 **1. Ask in plain language, the way you'd ask a friend**
 
-![Search page](docs/images/01-search-empty.jpg)
+<img src="docs/images/01-search-empty.png" alt="Search page" width="560" />
 
 **2. Get ranked results with real evidence, not a guess**
 
-![Search results with evidence based explanations](docs/images/02-search-results.jpg)
+<img src="docs/images/02-search-results.png" alt="Search results with evidence based explanations" width="560" />
 
-The box at the top shows exactly how the query was understood (area, what you asked about, the context). Each hotel shows how many reviews actually mention what you asked for, and a real quote as proof.
+The box near the top shows exactly how the query was understood (area, what you asked about, the context). Each hotel shows how many reviews actually mention what you asked for, and a real quote as proof. "Belum ada ulasan" means the hotel is real and in the right area, just without review data yet, and it's never mixed into the ranked results.
 
 **3. Works on a phone too**
 
-<img src="docs/images/03-mobile-responsive.png" alt="Responsive layout on a narrow screen" width="320" />
+<img src="docs/images/03-mobile-responsive.png" alt="Responsive layout on a narrow screen" width="280" />
 
 ## The numbers, not just a demo
 
