@@ -10,12 +10,14 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 import pandas as pd
-from fastapi import FastAPI, Query
+from fastapi import Depends, FastAPI, Query
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from nginep.extraction import make_client
 from nginep.search import search
+
+from .rate_limit import rate_limit
 
 ROOT = Path(__file__).resolve().parents[1]
 GCP_PROJECT = "nginep-tanyainap"
@@ -38,8 +40,8 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="TanyaInap API", lifespan=lifespan)
 
 
-@app.get("/api/search")
-def api_search(q: str = Query(..., min_length=1), top_k: int = 10):
+@app.get("/api/search", dependencies=[Depends(rate_limit)])
+def api_search(q: str = Query(..., min_length=1, max_length=300), top_k: int = Query(10, ge=1, le=30)):
     parsed, results = search(_state["client"], q, _state["hotels"], _state["aspect_scores"], top_k=top_k)
     return {
         "query": q,

@@ -1,0 +1,16 @@
+.git/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/raw/
+data/processed/bali_aspect_extractions.jsonl
+labeling/
+reports/
+notebooks/
+docs/
+tests/
+scripts/
+.env
+.env.local
+*.egg-info/
