@@ -1,53 +1,53 @@
 # Nginep
 
-Natural language hotel search for Bali. Type what you need, get hotels ranked with real proof from real reviews.
+Cari hotel di Bali pakai bahasa sehari-hari. Ketik yang kamu butuhkan, dapatkan hotel yang diurutkan dengan bukti nyata dari ulasan asli.
 
-Try it: **https://nginep-610631276830.asia-southeast2.run.app**
+Coba sekarang: **https://nginep-610631276830.asia-southeast2.run.app**
 
-## Why this exists
+## Kenapa project ini dibuat
 
-I'm applying for a Data Science role at Traveloka. Their job posting asks for LLM based structured extraction, ranking, and real evaluation, not just a slide deck about it. So I built a real, working product instead.
+Saya melamar posisi Data Science di Traveloka. Lowongan mereka minta pengalaman LLM based structured extraction, ranking, dan evaluasi yang benar-benar diukur, bukan cuma slide presentasi. Jadi saya bikin produk yang benar-benar jalan, bukan cuma cerita di slide.
 
-Hotel search is usually checkboxes. What people actually want is more specific, like "quiet hotel in Ubud for remote work, fast wifi." Reading a hundred reviews yourself to check takes forever. Nginep does that reading for you, and shows the real quote as proof, not a made up summary.
+Pencarian hotel biasanya cuma checkbox. Yang orang benar-benar mau adalah sesuatu yang lebih spesifik, seperti 'hotel tenang di Ubud buat kerja remote, wifi kencang'. Baca ratusan ulasan sendiri buat mengecek itu butuh waktu lama. Nginep yang membaca semuanya untukmu, dan menunjukkan kutipan asli sebagai bukti, bukan ringkasan karangan.
 
-## Who this is for
+## Buat siapa project ini
 
-- Anyone planning a Bali trip who wants proof, not just a star rating.
-- Traveloka's hiring team: this is the job posting's asks, working, not just listed on a resume.
+- Siapa saja yang mau liburan ke Bali dan mau bukti nyata, bukan cuma rating bintang.
+- Tim rekrutmen Traveloka: ini jawaban langsung dari lowongan mereka yang benar-benar jalan, bukan cuma ditulis di CV.
 
-Covers a limited set of real hotels, no live pricing or booking.
+Cakupannya masih terbatas ke sejumlah hotel asli, belum ada harga live atau booking.
 
-## See it in action
+## Lihat langsung cara kerjanya
 
-**1. Type what you need**
+**1. ketik yang kamu butuhkan**
 
-<img src="docs/images/01-search-empty.png" alt="Search page" width="520" />
+<img src="docs/images/01-search-empty.png" alt="Halaman pencarian" width="520" />
 
-**2. Get proof, not guesses**
+**2. dapat bukti, bukan tebakan**
 
-<img src="docs/images/02-search-results.png" alt="Ranked results with real quotes" width="520" />
+<img src="docs/images/02-search-results.png" alt="Hasil terurut dengan kutipan asli" width="520" />
 
-## The numbers
+## Angka-angkanya
 
-| What | Result |
+| Yang diukur | Hasil |
 |---|---|
-| Aspect extraction vs. human labeled benchmark (HoASA) | 91.9% agreement, 0.856 F1 |
-| Ranking (NDCG@10), weighted score ranker | 0.992 |
-| Same, sorted by star rating only | 0.867 |
-| Same, keyword search | 0.753 |
-| Same, embedding similarity only | 0.798 |
-| LightGBM ranker, cross validated | 0.984, did not win |
+| Akurasi ekstraksi aspek vs benchmark manusia (HoASA) | 91,9% kesepakatan, 0,856 F1 |
+| Kualitas ranking (NDCG@10), skor berbobot | 0,992 |
+| Sama, diurutkan cuma berdasar rating bintang | 0,867 |
+| Sama, pencarian kata kunci | 0,753 |
+| Sama, cuma kemiripan embedding | 0,798 |
+| Ranker LightGBM, cross validated | 0,984, tidak menang |
 
-That last row is reported honestly, not hidden. Full detail: `reports/eval/`.
+Baris terakhir dilaporkan apa adanya, tidak disembunyikan. Detail lengkap ada di `reports/eval/`.
 
-## Known limitations
+## Keterbatasan yang diketahui
 
-- Only 16 hotels have real review data. Others show up for the area but aren't ranked.
-- Reviews are in English, queries can be Indonesian. By design.
-- Area matching is text based, not true geography.
-- No live pricing or booking yet.
-- Ranking labels were Claude assisted, not independently human verified. See `labeling/LABELING_METHOD.md`.
+- Cuma 16 hotel yang punya data ulasan asli. Hotel lain tetap muncul untuk areanya, tapi tidak diberi ranking.
+- Ulasannya berbahasa Inggris, query bisa bahasa Indonesia. Ini memang disengaja.
+- Pencocokan area berbasis teks, bukan geografi asli.
+- Belum ada harga live atau booking.
+- Label untuk evaluasi ranking dibantu Claude, bukan diverifikasi manusia secara independen. Lihat `labeling/LABELING_METHOD.md`.
 
-## More
+## Selengkapnya
 
-Technical details (architecture, setup, API): `docs/technical.md`. Code license: MIT. Data licenses: `data/raw/SOURCES.md`.
+Detail teknis (arsitektur, setup, API) ada di `docs/technical.md`. Lisensi kode: MIT. Lisensi data ada di `data/raw/SOURCES.md`.

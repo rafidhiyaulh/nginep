@@ -18,7 +18,6 @@
     padding: 24px 16px 64px;
   }
   .wrap { max-width: 720px; margin: 0 auto; }
-  h1 { font-size: 1.5rem; margin: 0 0 4px; color: var(--blue-dark); }
   .tagline { color: var(--ink-secondary); margin: 0 0 24px; font-size: 0.95rem; }
   form { display: flex; gap: 8px; margin-bottom: 8px; }
   input[type=text] {
@@ -87,8 +86,7 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>nginep</h1>
-  <p class="tagline">cari hotel di bali pakai bahasa sehari-hari, lengkap dengan bukti dari ulasan asli</p>
+  <p class="tagline">cari hotel di bali pakai bahasa sehari-hari, dengan bukti dari ulasan asli</p>
 
   <form id="searchForm">
     <input type="text" id="q" placeholder="hotel tenang di ubud" autocomplete="off">
@@ -132,7 +130,7 @@ form.addEventListener('submit', async (e) => {
 });
 
 const ASPECT_LABELS_ID = {
-  ac: 'AC', air_panas: 'air panas', bau: 'aroma kamar', general: 'kesan umum',
+  ac: 'AC', air_panas: 'air panas', bau: 'bau kamar', general: 'kesan umum',
   kebersihan: 'kebersihan', linen: 'sprei & handuk', service: 'pelayanan',
   sunrise_meal: 'sarapan', tv: 'TV', wifi: 'wifi', value: 'harga',
   accessibility: 'lokasi & akses', sleep_quality: 'ketenangan',
@@ -148,13 +146,13 @@ function renderParsed(p) {
   if (p.purpose) bits.push(`<b>konteks:</b> ${escapeHtml(p.purpose)}`);
   if (p.price_max_idr) bits.push(`<b>maks harga:</b> Rp${p.price_max_idr.toLocaleString('id-ID')} (harga belum tersedia di data ini)`);
   if (!bits.length) { parsedBox.style.display = 'none'; return; }
-  parsedBox.innerHTML = 'dipahami sebagai: ' + bits.join(', ');
+  parsedBox.innerHTML = 'yang kamu cari: ' + bits.join(', ');
   parsedBox.style.display = 'block';
 }
 
 function renderResults(results, alsoNearby) {
   if (!results.length && !alsoNearby.length) {
-    resultsBox.innerHTML = '<p class="empty">belum ada hotel yang cocok</p>';
+    resultsBox.innerHTML = '<p class="empty">belum nemu yang cocok, coba kata lain ya</p>';
     return;
   }
   resultsBox.innerHTML = results.map(r => `
@@ -176,14 +174,14 @@ function renderResults(results, alsoNearby) {
 
 function renderEvidence(evidence) {
   if (!evidence || !evidence.length) {
-    return '<div class="no-evidence">belum ada cukup ulasan yang membahas apa yang kamu cari</div>';
+    return '<div class="no-evidence">ulasannya belum membahas ini secara spesifik</div>';
   }
   return '<div class="evidence">' + evidence.map(ev => `
     <div>
       <div class="evidence-stat">
         <span class="dot ${ev.positive ? 'dot-pos' : 'dot-neg'}"></span>
         <span class="evidence-label">${escapeHtml(ev.label)}</span>
-        <span class="evidence-detail">${ev.verb} ${ev.pct}% (${ev.pos}/${ev.mentioned})</span>
+        <span class="evidence-detail">${ev.verb} ${ev.pct}% (${ev.pos} dari ${ev.mentioned} ulasan)</span>
       </div>
       ${ev.quote ? `<div class="evidence-quote">'${escapeHtml(ev.quote)}'</div>` : ''}
     </div>
@@ -195,7 +193,7 @@ function renderAlsoNearby(hotels) {
   const names = hotels.map(h => escapeHtml(h.name)).join(', ');
   return `
     <div class="also-nearby">
-      <div class="also-nearby-title">juga ada di area ini, belum ada ulasan:</div>
+      <div class="also-nearby-title">hotel lain di sini, belum sempat dianalisis:</div>
       <div class="also-nearby-list">${names}</div>
     </div>
   `;
