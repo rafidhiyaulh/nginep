@@ -16,18 +16,14 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-
 from nginep.extraction import make_client
 from nginep.metrics import mean_ndcg_at_k
+from nginep.ranking_features import embedding_similarities, tfidf_similarities
 
 ROOT = Path(__file__).resolve().parents[1]
 LABELED_JSON = ROOT / "labeling" / "query_candidates_labeled.json"
 OUT_MD = ROOT / "reports" / "eval" / "ranking_ablation.md"
 GCP_PROJECT = "nginep-tanyainap"
-EMBED_MODEL = "gemini-embedding-001"
 
 
 def _labeled_candidates(query: dict) -> list[dict]:
@@ -43,20 +39,12 @@ def order_rating(candidates: list[dict]) -> list[dict]:
 
 
 def order_tfidf(candidates: list[dict], query_text: str) -> list[dict]:
-    docs = [f"{c['name']} {c['area']} {c.get('explanation', '')}" for c in candidates]
-    vec = TfidfVectorizer().fit(docs + [query_text])
-    doc_vecs = vec.transform(docs)
-    q_vec = vec.transform([query_text])
-    sims = cosine_similarity(q_vec, doc_vecs)[0]
+    sims = tfidf_similarities(query_text, candidates)
     return [c for _, c in sorted(zip(sims, candidates), key=lambda x: x[0], reverse=True)]
 
 
 def order_embedding(candidates: list[dict], query_text: str, client) -> list[dict]:
-    docs = [f"{c['name']} {c['area']} {c.get('explanation', '')}" for c in candidates]
-    resp = client.models.embed_content(model=EMBED_MODEL, contents=[query_text] + docs)
-    vecs = np.array([e.values for e in resp.embeddings])
-    q_vec, doc_vecs = vecs[0:1], vecs[1:]
-    sims = cosine_similarity(q_vec, doc_vecs)[0]
+    sims = embedding_similarities(query_text, candidates, client)
     return [c for _, c in sorted(zip(sims, candidates), key=lambda x: x[0], reverse=True)]
 
 
