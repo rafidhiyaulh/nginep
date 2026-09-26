@@ -14,6 +14,26 @@ class TestAreaMatches:
     def test_phrase_with_landmark_still_matches_area_token(self):
         assert _area_matches("dekat pantai Kuta", "Kuta Bali") is True
 
+    def test_shared_generic_word_does_not_cause_false_match(self):
+        # found via real end-to-end testing: "Nusa Dua" (mainland resort
+        # area) was matching "Nusa Ceningan Bali" (a different island) at
+        # 66.7 under plain token_set_ratio, purely because both share the
+        # generic word "Nusa" -- same failure class as the OSM hotel-name
+        # matching bug, just a different call site.
+        assert _area_matches("Nusa Dua", "Nusa Ceningan Bali") is False
+        assert _area_matches("Nusa Dua", "Nusa Dua Bali") is True
+
+    def test_query_area_of_just_bali_matches_everything(self):
+        # after stripping the stopword "bali" nothing distinctive is left
+        # -- don't turn that into "matches nothing"
+        assert _area_matches("Bali", "Ubud Bali") is True
+
+    def test_known_synonym_matches(self):
+        # "Uluwatu" doesn't textually overlap with "Pecatu Bali" at all,
+        # but Uluwatu sits inside the Pecatu admin area in the real data
+        assert _area_matches("Uluwatu", "Pecatu Bali") is True
+        assert _area_matches("Uluwatu", "Labuan Sait Pecatu Bali") is True
+
 
 class TestScoreHotel:
     def test_no_wanted_aspects_gives_zero(self):

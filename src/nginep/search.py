@@ -6,13 +6,28 @@ the project plan calls for before a learned LightGBM ranker replaces it.
 """
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 
 from rapidfuzz import fuzz
 
 from .query_parser import ParsedQuery, make_client_and_parse
 
-AREA_MATCH_THRESHOLD = 60.0
+# Filler words stripped from the query side before area matching -- NOT
+# matched against the hotel side, since hotel area strings ("Nusa Dua Bali")
+# legitimately contain "Bali" in every single one.
+AREA_STOPWORDS = {"dekat", "pantai", "di", "area", "wilayah", "sekitar", "the", "near", "in", "at", "bali"}
+TOKEN_MATCH_THRESHOLD = 85.0
+
+# Colloquial area names that don't textually overlap with the area label
+# actually present in the data, found via real search queries (e.g.
+# "Uluwatu" matched only 1 hotel -- the one with a literal "Uluwatu" OSM
+# address tag -- because every other nearby hotel's area field says
+# "Pecatu Bali", the admin area Uluwatu sits inside). NOT an exhaustive
+# gazetteer of Bali place names -- just the gaps actually observed.
+AREA_SYNONYMS: dict[str, list[str]] = {
+    "uluwatu": ["pecatu"],
+}
 
 
 @dataclass
@@ -29,9 +44,25 @@ class HotelResult:
 
 
 def _area_matches(query_area: str | None, hotel_area: str) -> bool:
+    """Every distinctive word in the query area must find a close match
+    among the hotel area's words. A blended similarity score (like plain
+    token_set_ratio) isn't enough here -- it was scoring "Nusa Dua" a 66.7
+    match against "Nusa Ceningan Bali" (a different island entirely) purely
+    because both share the generic word "Nusa" -- see the regression test.
+    Requiring full coverage of the query's tokens, not just token overlap,
+    fixes that without needing to special-case "Nusa"."""
     if not query_area:
         return True
-    return fuzz.token_set_ratio(query_area, hotel_area) >= AREA_MATCH_THRESHOLD
+    query_tokens = [t for t in re.findall(r"\w+", query_area.lower()) if t not in AREA_STOPWORDS]
+    if not query_tokens:
+        return True  # nothing distinctive left (e.g. query area was just "Bali") -- don't over-filter
+    hotel_tokens = re.findall(r"\w+", hotel_area.lower())
+
+    def token_ok(qt: str) -> bool:
+        candidates = [qt, *AREA_SYNONYMS.get(qt, [])]
+        return any(fuzz.ratio(c, ht) >= TOKEN_MATCH_THRESHOLD for c in candidates for ht in hotel_tokens)
+
+    return all(token_ok(qt) for qt in query_tokens)
 
 
 def _score_hotel(wanted_aspects: list[str], hotel_aspects: dict) -> tuple[float, dict]:

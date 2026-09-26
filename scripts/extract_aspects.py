@@ -44,6 +44,10 @@ def load_rows(input_path: Path, csv_sep: str, text_col: str, id_col: str) -> pd.
 
 
 def already_done(output_path: Path) -> set[str]:
+    """IDs that succeeded. A row that exhausted retries and recorded an
+    error is deliberately NOT counted as done -- otherwise a transient
+    failure (e.g. a 429 rate-limit) would be permanently stuck, silently
+    skipped on every future re-run instead of retried."""
     if not output_path.exists():
         return set()
     done = set()
@@ -53,7 +57,9 @@ def already_done(output_path: Path) -> set[str]:
             if not line:
                 continue
             try:
-                done.add(json.loads(line)["id"])
+                rec = json.loads(line)
+                if rec.get("error") is None:
+                    done.add(rec["id"])
             except (json.JSONDecodeError, KeyError):
                 continue  # tolerate a truncated last line from a killed run
     return done

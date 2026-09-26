@@ -34,15 +34,19 @@ def main() -> None:
     hotels = pd.read_csv(HOTELS_CSV)
     name_to_hotel_id = dict(zip(hotels["name"], hotels["hotel_id"]))
 
+    # last occurrence per id wins, so a retried row correctly overrides an
+    # earlier failed attempt at the same id (extract_aspects.py appends
+    # retries rather than replacing lines in place)
     extractions = {}
-    n_failed = 0
-    with EXTRACTIONS_JSONL.open(encoding="utf-8") as f:
-        for line in f:
-            rec = json.loads(line)
-            if rec["aspects"] is None:
-                n_failed += 1
-                continue
-            extractions[int(rec["id"])] = rec["aspects"]
+    failed_ids = set()
+    for line in EXTRACTIONS_JSONL.open(encoding="utf-8"):
+        rec = json.loads(line)
+        if rec["aspects"] is None:
+            failed_ids.add(rec["id"])
+            continue
+        extractions[int(rec["id"])] = rec["aspects"]
+        failed_ids.discard(rec["id"])
+    n_failed = len(failed_ids)
 
     missing = set(reviews.index) - set(extractions)
     if missing:

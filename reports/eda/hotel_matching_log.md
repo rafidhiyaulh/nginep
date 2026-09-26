@@ -19,6 +19,6 @@ not auto-trusted, `unmatched` = fell back to a direct name geocode.
 | Merccure Bali Legian | Legian Kuta Bali | review -> direct geocode OK | The Legian Bali (rejected) | 84.6 | - | 1876 |
 | Radisson Blu Resort Bali Uluwatu | Labuan Sait Pecatu Bali | **NO MATCH, NO GEOCODE — manual needed** | - | - | - | - |
 | Ramayana Candidasa Bali | Candidasa Karangasem Bali | review -> direct geocode OK | Ramayana Candidasa Resort and Spa (rejected) | 87.8 | - | 55 |
-| Sun Suko Boutique Retreat | Buleleng Bali | unmatched -> direct geocode OK | The Raja Singha Boutique Resort Bali (rejected) | 52.5 | - | 62 |
+| Sun Suko Boutique Retreat | Buleleng Bali | unmatched -> direct geocode OK | New Sunari Lovina Beach Resort (rejected) | 47.3 | - | 57 |
 | The Anvaya Beach Resort | Kuta Bali | review -> direct geocode OK | The Seminyak Beach Resort & Spa (rejected) | 82.1 | - | 1933 |
 | The Stones Hotel Legian Bali | Legian Kuta Bali | matched -> direct geocode OK | The Legian Bali (rejected) | 100.0 | - | 1876 |

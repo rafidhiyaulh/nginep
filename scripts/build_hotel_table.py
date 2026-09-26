@@ -19,7 +19,7 @@ from pathlib import Path
 import pandas as pd
 
 from nginep.matching import match_hotels_blocked
-from nginep.osm import fetch_hotels, geocode
+from nginep.osm import fetch_hotels, geocode, haversine_km
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW_CSV = ROOT / "data" / "raw" / "bali_hotel_review.csv"
@@ -199,9 +199,21 @@ def main() -> None:
         key = osm["name"].strip().lower()
         if key in matched_osm_keys:
             continue
+        area = osm["addr_suburb"] or osm["addr_city"]
+        if not area:
+            # No address tag on this OSM entry -- most of them (~74% of the
+            # OSM-only pool) hit this. Falling back to "" would both crash
+            # the NaN-on-reload pandas gotcha AND make the hotel invisible
+            # to every area-filtered search, silently dropping most of the
+            # supplemental candidate pool the project explicitly wanted.
+            # Assign the nearest of the 12 known area centroids instead.
+            area = min(
+                area_centroids,
+                key=lambda a: haversine_km(area_centroids[a][0], area_centroids[a][1], osm["lat"], osm["lon"]),
+            ) if area_centroids else ""
         rows.append({
             "hotel_id": f"osm-{osm['osm_id']}", "name": osm["name"],
-            "area": osm["addr_suburb"] or osm["addr_city"] or "",
+            "area": area,
             "lat": osm["lat"], "lon": osm["lon"],
             "source": "osm_only", "match_status": "n/a",
             "review_count": 0, "avg_rating": None,

@@ -1,0 +1,3467 @@
+{
+  "merccure-bali-legian": {
+    "n_reviews_extracted": 1472,
+    "aspects": {
+      "ac": {
+        "pos": 78,
+        "neg": 23,
+        "neg_pos": 3,
+        "neut": 1368,
+        "mentioned": 104,
+        "mention_rate": 0.071,
+        "smoothed_pos_rate": 0.755,
+        "pos_quotes": [
+          "Great aircon",
+          "Excellent air circulation / central AC system.",
+          "The air conditioned rooms are clean, well appointed"
+        ],
+        "neg_quotes": [
+          "dilapidated room with non functioning air conditioning",
+          "Airconditioning needs serious repair... I had to call front desk almost everyday to get the aircond to a cool temperature.",
+          "the only downfall was when I turned the aircon off at night we found the room seemed q te damp the next morning"
+        ]
+      },
+      "air_panas": {
+        "pos": 26,
+        "neg": 21,
+        "neg_pos": 1,
+        "neut": 1424,
+        "mentioned": 48,
+        "mention_rate": 0.033,
+        "smoothed_pos_rate": 0.548,
+        "pos_quotes": [
+          "nice hot shower",
+          "lovely big shower with good water pressure",
+          "shower was massive and lots of water pressure which was lovely"
+        ],
+        "neg_quotes": [
+          "Water pressure is bad so It’s a little frustrating getting a good shower.",
+          "Water pressure could've been improved.",
+          "hot water for tea, scrambled eggs and self sliced bread for"
+        ]
+      },
+      "bau": {
+        "pos": 5,
+        "neg": 29,
+        "neg_pos": 2,
+        "neut": 1436,
+        "mentioned": 36,
+        "mention_rate": 0.024,
+        "smoothed_pos_rate": 0.2,
+        "pos_quotes": [
+          "no bali smell",
+          "no musky smell as a lot of Bali hotels do",
+          "no bad smells"
+        ],
+        "neg_quotes": [
+          "the room smelt a little mouldy on arrival",
+          "funky outdoor smells",
+          "The initial room we checked into was smelly"
+        ]
+      },
+      "general": {
+        "pos": 1068,
+        "neg": 11,
+        "neg_pos": 5,
+        "neut": 388,
+        "mentioned": 1084,
+        "mention_rate": 0.736,
+        "smoothed_pos_rate": 0.986,
+        "pos_quotes": [
+          "I’d still happily stay here again",
+          "We thoroughly enjoyed our stay at Mercure Legian",
+          "Staying at Mecure Legian was great."
+        ],
+        "neg_quotes": [
+          "We don't usually go to Bali in July/August, (wait until the end of the year) and won't do that again.",
+          "we dont think we would stay here again",
+          "Would not stay again as we like to try different hotels."
+        ]
+      },
+      "kebersihan": {
+        "pos": 566,
+        "neg": 51,
+        "neg_pos": 11,
+        "neut": 844,
+        "mentioned": 628,
+        "mention_rate": 0.427,
+        "smoothed_pos_rate": 0.907,
+        "pos_quotes": [
+          "The downstairs pool was very clean and great place to make new friends for us and him. The plunge pool room was large and very clean.",
+          "The rooms are always clean.",
+          "Maintenance was impeccable."
+        ],
+        "neg_quotes": [
+          "the upstairs pool had a lot of debris from sunscreen floating on the top and the water wasn’t very clear",
+          "the celling was dirty",
+          "I see some spots on the ceiling but not too noticeable with bare eyes. Pillow on the sofa need changing it looks dirty. Bed : 8/10 Very soft and i had good sleep during stays. Plunge Pool Cleanliness: 6/10 Theres so much leaves in the pool"
+        ]
+      },
+      "linen": {
+        "pos": 100,
+        "neg": 32,
+        "neg_pos": 8,
+        "neut": 1332,
+        "mentioned": 140,
+        "mention_rate": 0.095,
+        "smoothed_pos_rate": 0.736,
+        "pos_quotes": [
+          "they also want to change my bedsheet in the afternoon because my boy accidentaly drop his milk on the bed.",
+          "Beds were super comfy",
+          "High quality beddings."
+        ],
+        "neg_quotes": [
+          "Pillow on the sofa need changing it looks dirty.",
+          "Place is a bit tired including bed linen and towels.",
+          "There was no face washers in the room"
+        ]
+      },
+      "service": {
+        "pos": 1154,
+        "neg": 51,
+        "neg_pos": 68,
+        "neut": 199,
+        "mentioned": 1273,
+        "mention_rate": 0.865,
+        "smoothed_pos_rate": 0.932,
+        "pos_quotes": [
+          "Overall the staff here are very friendly and helpful",
+          "Special thanks to the Resident Manager Nengah Sudiarta who has made our stay spectacular with the attention to detail in the room and services within the hotel.",
+          "the reception staff were all kind"
+        ],
+        "neg_quotes": [
+          "we felt that it lost the 'Bali friendliness touch' that you get at the smaller hotels.",
+          "And when we check out, they will do the reconciliation before they let us off. We waited for q te abit.",
+          "first hotel out of 11 stays in Bali where we weren't shown to our room or offered help to take our bags to our room"
+        ]
+      },
+      "sunrise_meal": {
+        "pos": 730,
+        "neg": 52,
+        "neg_pos": 38,
+        "neut": 652,
+        "mentioned": 820,
+        "mention_rate": 0.557,
+        "smoothed_pos_rate": 0.911,
+        "pos_quotes": [
+          "Breakfast buffet is good with plenty to choose from.",
+          "We enjoyed the themed dinner on Tuesday nights with the Balanese dancers.",
+          "Breakfast was imaging"
+        ],
+        "neg_quotes": [
+          "The breakfast buffet could do with a little upgrade.",
+          "Ordered a room service, I am sorry to say that the taste still have some room",
+          "for the breakfast not really many choice and the taste is average"
+        ]
+      },
+      "tv": {
+        "pos": 28,
+        "neg": 18,
+        "neg_pos": 4,
+        "neut": 1422,
+        "mentioned": 50,
+        "mention_rate": 0.034,
+        "smoothed_pos_rate": 0.593,
+        "pos_quotes": [
+          "flat screen tv",
+          "Good size TV with many viewing channels, movies news sport etc.",
+          "tv"
+        ],
+        "neg_quotes": [
+          "the grandmother was paid to pay $320. Aust dollars for a TV you could probably buy for $80",
+          "the television channels hangs frequently",
+          "the TV was broken twice and needed maintenance"
+        ]
+      },
+      "wifi": {
+        "pos": 65,
+        "neg": 10,
+        "neg_pos": 0,
+        "neut": 1397,
+        "mentioned": 75,
+        "mention_rate": 0.051,
+        "smoothed_pos_rate": 0.848,
+        "pos_quotes": [
+          "Wifi was good.",
+          "The internet was fantastic.",
+          "decent WiFi available throughout the complex"
+        ],
+        "neg_quotes": [
+          "the internet must be upgraded because its slow when i use it",
+          "A bit disappointed with the way they handled their Internet breakdown.",
+          "they seriously need to improve on the internet /Wifi services as it was really very bad"
+        ]
+      },
+      "value": {
+        "pos": 341,
+        "neg": 32,
+        "neg_pos": 2,
+        "neut": 1097,
+        "mentioned": 375,
+        "mention_rate": 0.255,
+        "smoothed_pos_rate": 0.908,
+        "pos_quotes": [
+          "We have found the value exceeds many hotels we have experienced in Indonesia.",
+          "If you are looking for great value",
+          "love the value for money"
+        ],
+        "neg_quotes": [
+          "was probly overcharged with deposit on debit card",
+          "at 195rp($20 aus) was cheaper to go somewhere else for more choice",
+          "the grandmother was paid to pay $320. Aust dollars for a TV you could probably buy for $80"
+        ]
+      },
+      "accessibility": {
+        "pos": 930,
+        "neg": 17,
+        "neg_pos": 6,
+        "neut": 519,
+        "mentioned": 953,
+        "mention_rate": 0.647,
+        "smoothed_pos_rate": 0.977,
+        "pos_quotes": [
+          "Great location",
+          "Mercure is conveniently surrounded by convenience stores, laundry express, restaurants, souvenir & other shopping, and spas",
+          "The location is fantastic with lots around."
+        ],
+        "neg_quotes": [
+          "Surrounds in Legia are a bit boring.",
+          "there is no lift service available from the basement carpark to the main lobby.",
+          "One piece of neg point is the hotel location. The traffic is almost all the time crowded"
+        ]
+      },
+      "sleep_quality": {
+        "pos": 158,
+        "neg": 97,
+        "neg_pos": 40,
+        "neut": 1177,
+        "mentioned": 295,
+        "mention_rate": 0.2,
+        "smoothed_pos_rate": 0.602,
+        "pos_quotes": [
+          "bed was very comfortable.",
+          "had a massive wall around us kept the noise in",
+          "Very soft and i had good sleep during stays."
+        ],
+        "neg_quotes": [
+          "they having new restaurant & the noise is annoying.",
+          "It can be noisy with the outside traffic",
+          "it could get a little noisy"
+        ]
+      }
+    }
+  },
+  "ramayana-candidasa-bali": {
+    "n_reviews_extracted": 514,
+    "aspects": {
+      "ac": {
+        "pos": 21,
+        "neg": 2,
+        "neg_pos": 2,
+        "neut": 489,
+        "mentioned": 25,
+        "mention_rate": 0.049,
+        "smoothed_pos_rate": 0.828,
+        "pos_quotes": [
+          "The Aircon was good",
+          "cool, quiet airconditioning",
+          "The air-conditioner worked well."
+        ],
+        "neg_quotes": [
+          "noisy air-con in our room",
+          "the AC unit in the room is not adequate for the size of the room plus the humidity of the place"
+        ]
+      },
+      "air_panas": {
+        "pos": 3,
+        "neg": 4,
+        "neg_pos": 0,
+        "neut": 507,
+        "mentioned": 7,
+        "mention_rate": 0.014,
+        "smoothed_pos_rate": 0.455,
+        "pos_quotes": [
+          "Good shower",
+          "The shower was excellent.",
+          "Great shower in the bathroom"
+        ],
+        "neg_quotes": [
+          "There was also hardly any hot water.",
+          "we had to take a shower in the bath",
+          "the hot water took about 5 mins to come in"
+        ]
+      },
+      "bau": {
+        "pos": 2,
+        "neg": 2,
+        "neg_pos": 1,
+        "neut": 509,
+        "mentioned": 5,
+        "mention_rate": 0.01,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [
+          "smelled so fresh and fantastic",
+          "free of the city smell"
+        ],
+        "neg_quotes": [
+          "One morning the fruit tasted of onion",
+          "it was a bit smelly (mildew)"
+        ]
+      },
+      "general": {
+        "pos": 433,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 80,
+        "mentioned": 434,
+        "mention_rate": 0.844,
+        "smoothed_pos_rate": 0.993,
+        "pos_quotes": [
+          "in total we had a good experience with this hotel.",
+          "This was our second time at Ramayana and it was perfect, again.",
+          "Couldn’t fault anything about our stay !!!"
+        ],
+        "neg_quotes": [
+          "wouldn't come back"
+        ]
+      },
+      "kebersihan": {
+        "pos": 185,
+        "neg": 3,
+        "neg_pos": 0,
+        "neut": 326,
+        "mentioned": 188,
+        "mention_rate": 0.366,
+        "smoothed_pos_rate": 0.974,
+        "pos_quotes": [
+          "Hotel was clean and in good shape",
+          "The pool was super clean",
+          "The surrounding of the hotel is very well maintained."
+        ],
+        "neg_quotes": [
+          "chef clearly hadn’t cleaned his knife",
+          "the bathroom floor was slippery when wet and my partner even fell and slid into the glass wall of the shower bruising and cutting himself",
+          "our bathroom was dirty - bathtub"
+        ]
+      },
+      "linen": {
+        "pos": 24,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 489,
+        "mentioned": 25,
+        "mention_rate": 0.049,
+        "smoothed_pos_rate": 0.897,
+        "pos_quotes": [
+          "the beds were nice",
+          "There are lessons to make animals with the towels",
+          "really comfortable bed"
+        ],
+        "neg_quotes": [
+          "we wished our room had bathrobes and that the pillows were softer and thinner"
+        ]
+      },
+      "service": {
+        "pos": 468,
+        "neg": 2,
+        "neg_pos": 9,
+        "neut": 35,
+        "mentioned": 479,
+        "mention_rate": 0.932,
+        "smoothed_pos_rate": 0.982,
+        "pos_quotes": [
+          "I give it thought 5 stars for the service, the calm and the smiles of the staff :D",
+          "All of the staff are friendly, professional and very helpful.",
+          "This place has the friendliest , happiest and most obliging staff ever !!"
+        ],
+        "neg_quotes": [
+          "The staff at the restaurant is very unfriendly and ignoring you a lot.",
+          "the staff was asking us to hurry and grab everything that we needed as they wanted to clear the breakfast spread"
+        ]
+      },
+      "sunrise_meal": {
+        "pos": 263,
+        "neg": 14,
+        "neg_pos": 3,
+        "neut": 234,
+        "mentioned": 280,
+        "mention_rate": 0.545,
+        "smoothed_pos_rate": 0.938,
+        "pos_quotes": [
+          "Buffet breakfast was great.",
+          "We ate dinner 4 times int he hotel and each meal was very well made and presented",
+          "the food was good"
+        ],
+        "neg_quotes": [
+          "The hotel restaurant is ok, but the dishes could’ve been better.",
+          "The breakfast was average, especially the juices (it was maid of concentrate.... thought we had plenty of fruits around!)",
+          "the menu never changed"
+        ]
+      },
+      "tv": {
+        "pos": 3,
+        "neg": 0,
+        "neg_pos": 1,
+        "neut": 510,
+        "mentioned": 4,
+        "mention_rate": 0.008,
+        "smoothed_pos_rate": 0.688,
+        "pos_quotes": [
+          "television",
+          "They also provide different movie DVDs on rent.",
+          "All rooms had tv"
+        ],
+        "neg_quotes": []
+      },
+      "wifi": {
+        "pos": 8,
+        "neg": 4,
+        "neg_pos": 1,
+        "neut": 501,
+        "mentioned": 13,
+        "mention_rate": 0.025,
+        "smoothed_pos_rate": 0.618,
+        "pos_quotes": [
+          "best wifi connection",
+          "The internet worked consistently and well",
+          "Amenties include free wifi"
+        ],
+        "neg_quotes": [
+          "wifi could be better",
+          "Wi fi ... signal is bad.",
+          "Wi Fi connection which was inconsistent"
+        ]
+      },
+      "value": {
+        "pos": 66,
+        "neg": 8,
+        "neg_pos": 3,
+        "neut": 437,
+        "mentioned": 77,
+        "mention_rate": 0.15,
+        "smoothed_pos_rate": 0.858,
+        "pos_quotes": [
+          "We upgraded from a garden view to an ocean front, which was well worth it.",
+          "the signature menu was delicious and such great value.",
+          "The price is real value for money"
+        ],
+        "neg_quotes": [
+          "a bit pricey charges at its Garpul restaurant / Spa saloon",
+          "the hotel menu is more expensive than eating out locally.",
+          "a little more expensive than other places outside of the resort"
+        ]
+      },
+      "accessibility": {
+        "pos": 135,
+        "neg": 33,
+        "neg_pos": 7,
+        "neut": 339,
+        "mentioned": 175,
+        "mention_rate": 0.34,
+        "smoothed_pos_rate": 0.785,
+        "pos_quotes": [
+          "beutiful tropical location",
+          "The shuttle service to the town is so handy!",
+          "The hotel is next to the ocean"
+        ],
+        "neg_quotes": [
+          "There didn't seem to be access to the beach, which was the only thing that was slightly annoying.",
+          "I felt a bit isolated as it is off the main road",
+          "Only downside is it is in the east and far from the center and some activities"
+        ]
+      },
+      "sleep_quality": {
+        "pos": 121,
+        "neg": 4,
+        "neg_pos": 1,
+        "neut": 388,
+        "mentioned": 126,
+        "mention_rate": 0.245,
+        "smoothed_pos_rate": 0.95,
+        "pos_quotes": [
+          "I give it thought 5 stars for the service, the calm and the smiles of the staff :D",
+          "quiet with the most comfortable big bed",
+          "peaceful and relaxing stay"
+        ],
+        "neg_quotes": [
+          "Our room 216 was not in a great position as backed onto an alley that was a bit noisy.",
+          "The only thing to its detriment was the cockerels next door which meant that an early rise was virtually guarenteed",
+          "Only minus during our stay was the very loud noise (louspeakers with music?) from the temple next door for quite some hours the first day of our stay."
+        ]
+      }
+    }
+  },
+  "hideaway-villas-bali": {
+    "n_reviews_extracted": 79,
+    "aspects": {
+      "ac": {
+        "pos": 1,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 78,
+        "mentioned": 1,
+        "mention_rate": 0.013,
+        "smoothed_pos_rate": 0.6,
+        "pos_quotes": [
+          "air conditioning worked great"
+        ],
+        "neg_quotes": []
+      },
+      "air_panas": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 79,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "bau": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 79,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "general": {
+        "pos": 66,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 13,
+        "mentioned": 66,
+        "mention_rate": 0.835,
+        "smoothed_pos_rate": 0.971,
+        "pos_quotes": [
+          "We had an amazing stay.",
+          "What a gem!",
+          "Could not reccommend hideaway villas more, we’re hoping to come back again next year and stay for longer!"
+        ],
+        "neg_quotes": []
+      },
+      "kebersihan": {
+        "pos": 66,
+        "neg": 0,
+        "neg_pos": 2,
+        "neut": 11,
+        "mentioned": 68,
+        "mention_rate": 0.861,
+        "smoothed_pos_rate": 0.958,
+        "pos_quotes": [
+          "well maintained",
+          "The room and the interior are quite clean and comfort.",
+          "The room was beautiful and very clean."
+        ],
+        "neg_quotes": []
+      },
+      "linen": {
+        "pos": 5,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 73,
+        "mentioned": 6,
+        "mention_rate": 0.076,
+        "smoothed_pos_rate": 0.7,
+        "pos_quotes": [
+          "bed was soft",
+          "We loved the bedding",
+          "The bed was huge and comfortable."
+        ],
+        "neg_quotes": [
+          "one of the towels had a small stain"
+        ]
+      },
+      "service": {
+        "pos": 34,
+        "neg": 1,
+        "neg_pos": 1,
+        "neut": 43,
+        "mentioned": 36,
+        "mention_rate": 0.456,
+        "smoothed_pos_rate": 0.912,
+        "pos_quotes": [
+          "The staff were so helpful.",
+          "The villas managment was supportive and helpful. They went out of their way to help us.",
+          "the villa is very accomodating for all your needs including moped hire to get around the island"
+        ],
+        "neg_quotes": [
+          "They just do 1 mistakes when i ordered food by phone."
+        ]
+      },
+      "sunrise_meal": {
+        "pos": 24,
+        "neg": 1,
+        "neg_pos": 1,
+        "neut": 53,
+        "mentioned": 26,
+        "mention_rate": 0.329,
+        "smoothed_pos_rate": 0.883,
+        "pos_quotes": [
+          "Food was great.",
+          "The food is very tasty and fresh after visited so many places, we think their food is the best so far.",
+          "Breakfast was pretty good and sumptuous too."
+        ],
+        "neg_quotes": [
+          "Breakfast needs varieties or maybe buffet style, and we once order fish and chips but it wasn’t that good"
+        ]
+      },
+      "tv": {
+        "pos": 1,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 78,
+        "mentioned": 1,
+        "mention_rate": 0.013,
+        "smoothed_pos_rate": 0.6,
+        "pos_quotes": [
+          "the two tv's"
+        ],
+        "neg_quotes": []
+      },
+      "wifi": {
+        "pos": 1,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 78,
+        "mentioned": 1,
+        "mention_rate": 0.013,
+        "smoothed_pos_rate": 0.6,
+        "pos_quotes": [
+          "Internet was good"
+        ],
+        "neg_quotes": []
+      },
+      "value": {
+        "pos": 10,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 69,
+        "mentioned": 10,
+        "mention_rate": 0.127,
+        "smoothed_pos_rate": 0.857,
+        "pos_quotes": [
+          "the view is worth every extra penny",
+          "It was definitely worth it!",
+          "We hired a moped from the property for 2 days (reasonably priced)."
+        ],
+        "neg_quotes": []
+      },
+      "accessibility": {
+        "pos": 24,
+        "neg": 5,
+        "neg_pos": 0,
+        "neut": 50,
+        "mentioned": 29,
+        "mention_rate": 0.367,
+        "smoothed_pos_rate": 0.788,
+        "pos_quotes": [
+          "close to most of the attractions of uluwatu.. temple, bars, beaches and the clubs",
+          "Location is also 15 minutes away from Sundays Beach Club and Omnia, and 20 minutes away from Single Finn which was perfect.",
+          "Tucked away in a quaint location in Uluwatu, this villa offers a quiet escape from the busy sounds of Kuta or Seminyak."
+        ],
+        "neg_quotes": [
+          "it would be nice if the sign were bigger, because it is quite hard to find it especially during night time",
+          "Only negative thing we found was no shopping and eatery close to property",
+          "the villa is a bit difficult to go in"
+        ]
+      },
+      "sleep_quality": {
+        "pos": 19,
+        "neg": 2,
+        "neg_pos": 0,
+        "neut": 58,
+        "mentioned": 21,
+        "mention_rate": 0.266,
+        "smoothed_pos_rate": 0.84,
+        "pos_quotes": [
+          "Quiet and really private.",
+          "this villa offers a quiet escape from the busy sounds of Kuta or Seminyak.",
+          "The hotel is peaceful"
+        ],
+        "neg_quotes": [
+          "it may be noisy if the guests are loud",
+          "the cats make it so hard to sleep at night as they were noisy"
+        ]
+      }
+    }
+  },
+  "le-meridien-bali-jimbaran": {
+    "n_reviews_extracted": 2,
+    "aspects": {
+      "ac": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 2,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "air_panas": {
+        "pos": 0,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 1,
+        "mentioned": 1,
+        "mention_rate": 0.5,
+        "smoothed_pos_rate": 0.4,
+        "pos_quotes": [],
+        "neg_quotes": [
+          "please improve the shower quality"
+        ]
+      },
+      "bau": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 2,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "general": {
+        "pos": 1,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 1,
+        "mentioned": 1,
+        "mention_rate": 0.5,
+        "smoothed_pos_rate": 0.6,
+        "pos_quotes": [
+          "had a pleasant stay here"
+        ],
+        "neg_quotes": []
+      },
+      "kebersihan": {
+        "pos": 2,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 0,
+        "mentioned": 2,
+        "mention_rate": 1.0,
+        "smoothed_pos_rate": 0.667,
+        "pos_quotes": [
+          "room cleanliness was good",
+          "huge, clean rooms"
+        ],
+        "neg_quotes": []
+      },
+      "linen": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 2,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "service": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 2,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "sunrise_meal": {
+        "pos": 0,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 1,
+        "mentioned": 1,
+        "mention_rate": 0.5,
+        "smoothed_pos_rate": 0.4,
+        "pos_quotes": [],
+        "neg_quotes": [
+          "breakfast not really much options and the taste was okay"
+        ]
+      },
+      "tv": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 2,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "wifi": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 2,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "value": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 2,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "accessibility": {
+        "pos": 1,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 1,
+        "mentioned": 1,
+        "mention_rate": 0.5,
+        "smoothed_pos_rate": 0.6,
+        "pos_quotes": [
+          "Great location near restaurants of the beach and also some around the side roads."
+        ],
+        "neg_quotes": []
+      },
+      "sleep_quality": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 2,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      }
+    }
+  },
+  "radisson-blu-resort-bali-uluwatu": {
+    "n_reviews_extracted": 249,
+    "aspects": {
+      "ac": {
+        "pos": 2,
+        "neg": 3,
+        "neg_pos": 0,
+        "neut": 244,
+        "mentioned": 5,
+        "mention_rate": 0.02,
+        "smoothed_pos_rate": 0.444,
+        "pos_quotes": [
+          "had a simple A/C system easy to control",
+          "aircon"
+        ],
+        "neg_quotes": [
+          "the air conditioning in the top floor room was woefully inadequate",
+          "I have to ask the engineer to put the AC not in the Auto Mode because the Hotel SOP",
+          "the room temperature was flat 24 all the time which was really hot and uncomfortable"
+        ]
+      },
+      "air_panas": {
+        "pos": 5,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 243,
+        "mentioned": 6,
+        "mention_rate": 0.024,
+        "smoothed_pos_rate": 0.7,
+        "pos_quotes": [
+          "very powerful shower and hot water",
+          "Beautiful walk in shower with rain head",
+          "Great water pressure for showers"
+        ],
+        "neg_quotes": [
+          "the shower water temperature was not great and the water pressure was very poor on the shower main head"
+        ]
+      },
+      "bau": {
+        "pos": 2,
+        "neg": 2,
+        "neg_pos": 0,
+        "neut": 245,
+        "mentioned": 4,
+        "mention_rate": 0.016,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [
+          "toiletries are provided and smell amazing",
+          "calming earthy fragrance of bath amenities"
+        ],
+        "neg_quotes": [
+          "smell the cows",
+          "there is a bit of a pig smell from the neighbouring farm"
+        ]
+      },
+      "general": {
+        "pos": 198,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 51,
+        "mentioned": 198,
+        "mention_rate": 0.795,
+        "smoothed_pos_rate": 0.99,
+        "pos_quotes": [
+          "Beautiful hotel",
+          "A Beautiful hotel most definitely 5 Stars",
+          "One of the best hotels I have stayed at highly recommended for stay in Uluwatu."
+        ],
+        "neg_quotes": []
+      },
+      "kebersihan": {
+        "pos": 93,
+        "neg": 1,
+        "neg_pos": 1,
+        "neut": 154,
+        "mentioned": 95,
+        "mention_rate": 0.382,
+        "smoothed_pos_rate": 0.965,
+        "pos_quotes": [
+          "The room is very spacious , clean",
+          "Property is really beautiful and well-maintained.",
+          "clean hotel"
+        ],
+        "neg_quotes": [
+          "The room we stayed had a lizard"
+        ]
+      },
+      "linen": {
+        "pos": 17,
+        "neg": 2,
+        "neg_pos": 0,
+        "neut": 230,
+        "mentioned": 19,
+        "mention_rate": 0.076,
+        "smoothed_pos_rate": 0.826,
+        "pos_quotes": [
+          "beds are soo comfy",
+          "Superb mattress and pillows.",
+          "Comfortable beds and pillows."
+        ],
+        "neg_quotes": [
+          "Way to soft for someone with back pain.",
+          "I also wish the pillows weren't so big. They need to invest in thinner pillows"
+        ]
+      },
+      "service": {
+        "pos": 71,
+        "neg": 2,
+        "neg_pos": 1,
+        "neut": 175,
+        "mentioned": 74,
+        "mention_rate": 0.297,
+        "smoothed_pos_rate": 0.942,
+        "pos_quotes": [
+          "Check-In was super pleasant",
+          "Staff are friendly",
+          "the service was outstanding"
+        ],
+        "neg_quotes": [
+          "Maybe the receptionist should have told the guest first at the check-in proscess",
+          "lack of trust in customers"
+        ]
+      },
+      "sunrise_meal": {
+        "pos": 113,
+        "neg": 11,
+        "neg_pos": 4,
+        "neut": 121,
+        "mentioned": 128,
+        "mention_rate": 0.514,
+        "smoothed_pos_rate": 0.886,
+        "pos_quotes": [
+          "excellent variety at the breakfast buffet",
+          "The Breakfast had a big selection of different stuff and you could order almost everything to drink.",
+          "Scrumptious breakfast."
+        ],
+        "neg_quotes": [
+          "Food can be included with some Indian cuisine.",
+          "We just hope the hotel would provide more variety for the breakfast menus.",
+          "We were slightly disappointed with the selection of items in the buffet breakfast and the bread toaster was always burning the toast"
+        ]
+      },
+      "tv": {
+        "pos": 5,
+        "neg": 3,
+        "neg_pos": 0,
+        "neut": 241,
+        "mentioned": 8,
+        "mention_rate": 0.032,
+        "smoothed_pos_rate": 0.583,
+        "pos_quotes": [
+          "The tv also allowed casting of Netflix",
+          "Great TV with 50 odd channels",
+          "the cable TV free"
+        ],
+        "neg_quotes": [
+          "the playroom was just a bare room with few tables & a TV",
+          "the tv would lose reception fairly often",
+          "TV dropped in and out"
+        ]
+      },
+      "wifi": {
+        "pos": 5,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 244,
+        "mentioned": 5,
+        "mention_rate": 0.02,
+        "smoothed_pos_rate": 0.778,
+        "pos_quotes": [
+          "WiFi works very well even at the pool.",
+          "FREE & FAST INTERNET",
+          "good wifi connection"
+        ],
+        "neg_quotes": []
+      },
+      "value": {
+        "pos": 54,
+        "neg": 2,
+        "neg_pos": 1,
+        "neut": 192,
+        "mentioned": 57,
+        "mention_rate": 0.229,
+        "smoothed_pos_rate": 0.926,
+        "pos_quotes": [
+          "we booked in advance and got a very good price",
+          "Booked online after seeing a good deal, and we were not disappointed!",
+          "The Spa is an amazing place to relax and be pampered with some great deals available."
+        ],
+        "neg_quotes": [
+          "Transfer prices are expensive",
+          "Fare for taxi vendor is very costly."
+        ]
+      },
+      "accessibility": {
+        "pos": 83,
+        "neg": 19,
+        "neg_pos": 10,
+        "neut": 137,
+        "mentioned": 112,
+        "mention_rate": 0.45,
+        "smoothed_pos_rate": 0.776,
+        "pos_quotes": [
+          "Location is perfect, closed to beaches & restaurants.",
+          "Hotel is situated in a really good place.",
+          "Location is perfect, closed to beaches & restaurants."
+        ],
+        "neg_quotes": [
+          "Please note that you need car/scooter to move around",
+          "access to beach is very steep",
+          "The pathway to the room needed more lights as was scary during night."
+        ]
+      },
+      "sleep_quality": {
+        "pos": 53,
+        "neg": 7,
+        "neg_pos": 0,
+        "neut": 189,
+        "mentioned": 60,
+        "mention_rate": 0.241,
+        "smoothed_pos_rate": 0.859,
+        "pos_quotes": [
+          "Quiet and relaxing ambiance.",
+          "the bed very comfortable",
+          "beds are extremely comfortable"
+        ],
+        "neg_quotes": [
+          "we struggled with outside noise - we had noisy neighbours and the walls weren’t very thick, and could also hear external noises e.g. motorbikes etc.",
+          "making sounds which was uncomfortable",
+          "a lot of frogs was screaming outside in the night, little bit anoying"
+        ]
+      }
+    }
+  },
+  "blue-lagon-avia-villas": {
+    "n_reviews_extracted": 82,
+    "aspects": {
+      "ac": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 82,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "air_panas": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 82,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "bau": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 82,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "general": {
+        "pos": 76,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 6,
+        "mentioned": 76,
+        "mention_rate": 0.927,
+        "smoothed_pos_rate": 0.975,
+        "pos_quotes": [
+          "I regarded this instantly as the best place I ve stayed.",
+          "Highly recomended for stay or even just visit",
+          "10/10"
+        ],
+        "neg_quotes": []
+      },
+      "kebersihan": {
+        "pos": 18,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 63,
+        "mentioned": 19,
+        "mention_rate": 0.232,
+        "smoothed_pos_rate": 0.87,
+        "pos_quotes": [
+          "it well maintained and arranged.",
+          "Beautiful clean rooms",
+          "Very clean"
+        ],
+        "neg_quotes": [
+          "We had to request toilet paper, and also asked them to clean the room as sometimes all they did was make the bed. For instance found a dead crab in our pool. And had to remind them to toss our trash cans."
+        ]
+      },
+      "linen": {
+        "pos": 2,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 79,
+        "mentioned": 3,
+        "mention_rate": 0.037,
+        "smoothed_pos_rate": 0.571,
+        "pos_quotes": [
+          "the linen is fresh",
+          "the linen is fresh"
+        ],
+        "neg_quotes": [
+          "provide for towels for hotel guests at the beach club"
+        ]
+      },
+      "service": {
+        "pos": 63,
+        "neg": 1,
+        "neg_pos": 1,
+        "neut": 17,
+        "mentioned": 65,
+        "mention_rate": 0.793,
+        "smoothed_pos_rate": 0.949,
+        "pos_quotes": [
+          "Staff is the best we ve met in Bali area.",
+          "The satff also very helpfull",
+          "Everyone at Avia was super nice and friendly."
+        ],
+        "neg_quotes": [
+          "We had to request toilet paper, and also asked them to clean the room as sometimes all they did was make the bed."
+        ]
+      },
+      "sunrise_meal": {
+        "pos": 38,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 44,
+        "mentioned": 38,
+        "mention_rate": 0.463,
+        "smoothed_pos_rate": 0.952,
+        "pos_quotes": [
+          "The restaurant and pool near the restaurant are awesome too.",
+          "the food was very yummy",
+          "the floating breakfast was amazing"
+        ],
+        "neg_quotes": []
+      },
+      "tv": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 82,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "wifi": {
+        "pos": 1,
+        "neg": 2,
+        "neg_pos": 0,
+        "neut": 79,
+        "mentioned": 3,
+        "mention_rate": 0.037,
+        "smoothed_pos_rate": 0.429,
+        "pos_quotes": [
+          "Was also surprised that Wifi was good too."
+        ],
+        "neg_quotes": [
+          "There is no internet connection when you leave the hotel",
+          "it would be the WiFi. This is something that could be better"
+        ]
+      },
+      "value": {
+        "pos": 14,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 67,
+        "mentioned": 15,
+        "mention_rate": 0.183,
+        "smoothed_pos_rate": 0.842,
+        "pos_quotes": [
+          "score an incredible deal",
+          "Great value for money",
+          "value for money are all 10/10"
+        ],
+        "neg_quotes": [
+          "Scooter prices are expensive compared to Bali"
+        ]
+      },
+      "accessibility": {
+        "pos": 28,
+        "neg": 2,
+        "neg_pos": 1,
+        "neut": 51,
+        "mentioned": 31,
+        "mention_rate": 0.378,
+        "smoothed_pos_rate": 0.871,
+        "pos_quotes": [
+          "The location itself is breathtaking",
+          "The island is easy to get around",
+          "Such an incredible location!"
+        ],
+        "neg_quotes": [
+          "It’s a little challenging to get to if it’s your first time to Nusa Ceningan",
+          "it will be very difficult to navigate the islands"
+        ]
+      },
+      "sleep_quality": {
+        "pos": 11,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 70,
+        "mentioned": 12,
+        "mention_rate": 0.146,
+        "smoothed_pos_rate": 0.812,
+        "pos_quotes": [
+          "Nice and quiet place",
+          "the room totally comfortable with private pool, we feel more relaxing here",
+          "It’s very peaceful"
+        ],
+        "neg_quotes": [
+          "the electricity was suddenly off when 2am in the morning"
+        ]
+      }
+    }
+  },
+  "ulaman-eco-retreat": {
+    "n_reviews_extracted": 95,
+    "aspects": {
+      "ac": {
+        "pos": 2,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 93,
+        "mentioned": 2,
+        "mention_rate": 0.021,
+        "smoothed_pos_rate": 0.667,
+        "pos_quotes": [
+          "The room still uses AC which looks hidden because it is covered with wooden ornaments.",
+          "It has cold AC"
+        ],
+        "neg_quotes": []
+      },
+      "air_panas": {
+        "pos": 1,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 94,
+        "mentioned": 1,
+        "mention_rate": 0.011,
+        "smoothed_pos_rate": 0.6,
+        "pos_quotes": [
+          "hot springs"
+        ],
+        "neg_quotes": []
+      },
+      "bau": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 95,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "general": {
+        "pos": 84,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 11,
+        "mentioned": 84,
+        "mention_rate": 0.884,
+        "smoothed_pos_rate": 0.977,
+        "pos_quotes": [
+          "If you need a comfortable and spiritual pad to reflect about life and restore energy, this is your place <3",
+          "we had the most amazing time ever",
+          "Our stay at Ulaman was complete magic!"
+        ],
+        "neg_quotes": []
+      },
+      "kebersihan": {
+        "pos": 14,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 80,
+        "mentioned": 15,
+        "mention_rate": 0.158,
+        "smoothed_pos_rate": 0.842,
+        "pos_quotes": [
+          "the place is really clean",
+          "All stay facilities are very complete and clean.",
+          "The room was clean & hygiene"
+        ],
+        "neg_quotes": [
+          "the water was very dirty because of the property extension construction"
+        ]
+      },
+      "linen": {
+        "pos": 3,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 92,
+        "mentioned": 3,
+        "mention_rate": 0.032,
+        "smoothed_pos_rate": 0.714,
+        "pos_quotes": [
+          "The bedsheet is the softest bedsheet and bedcover I've ever wear.",
+          "most comfy bed I have ever slept in",
+          "make sure you keep a fresh bed"
+        ],
+        "neg_quotes": []
+      },
+      "service": {
+        "pos": 57,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 38,
+        "mentioned": 57,
+        "mention_rate": 0.6,
+        "smoothed_pos_rate": 0.967,
+        "pos_quotes": [
+          "Staff is super friendly and really care about you.",
+          "The staffs were friendly and very attentive to our needs.",
+          "service is amazing"
+        ],
+        "neg_quotes": []
+      },
+      "sunrise_meal": {
+        "pos": 55,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 40,
+        "mentioned": 55,
+        "mention_rate": 0.579,
+        "smoothed_pos_rate": 0.966,
+        "pos_quotes": [
+          "have insanely delicious/healthy food",
+          "we enjoyed a lovely Floating Breakfast in the morning",
+          "the food was delicious"
+        ],
+        "neg_quotes": []
+      },
+      "tv": {
+        "pos": 3,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 92,
+        "mentioned": 3,
+        "mention_rate": 0.032,
+        "smoothed_pos_rate": 0.714,
+        "pos_quotes": [
+          "And the TV has NETFLIX, so we can relax in the room.",
+          "a flatscreen tv to watch my Netflix",
+          "they provide Netflix in the room"
+        ],
+        "neg_quotes": []
+      },
+      "wifi": {
+        "pos": 1,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 94,
+        "mentioned": 1,
+        "mention_rate": 0.011,
+        "smoothed_pos_rate": 0.6,
+        "pos_quotes": [
+          "with the very strong wifi could also stay connected"
+        ],
+        "neg_quotes": []
+      },
+      "value": {
+        "pos": 6,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 89,
+        "mentioned": 6,
+        "mention_rate": 0.063,
+        "smoothed_pos_rate": 0.8,
+        "pos_quotes": [
+          "Affordable price compared to the quality.",
+          "we tried the Balinese massage 1 hour only for 15$ its so relaxing",
+          "9 out of 10 values ​​I gave."
+        ],
+        "neg_quotes": []
+      },
+      "accessibility": {
+        "pos": 16,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 78,
+        "mentioned": 17,
+        "mention_rate": 0.179,
+        "smoothed_pos_rate": 0.857,
+        "pos_quotes": [
+          "The place is situated in the rice-fields, it offers amazing view of the volcano or local areas.",
+          "The resort is remote that means it deep within the jungle, from access to everything, just want you need to relax and not be distrubed from outside drama.",
+          "Close to scenic places with a car."
+        ],
+        "neg_quotes": [
+          "The road going here its quite small"
+        ]
+      },
+      "sleep_quality": {
+        "pos": 25,
+        "neg": 1,
+        "neg_pos": 1,
+        "neut": 68,
+        "mentioned": 27,
+        "mention_rate": 0.284,
+        "smoothed_pos_rate": 0.887,
+        "pos_quotes": [
+          "bed very comfy",
+          "Peaceful",
+          "It's really the most comfortable place I've ever lived in Bali"
+        ],
+        "neg_quotes": [
+          "Only one thing needs improving is the sound proof. Maybe its because of the bamboo construction. U can hear noises from outside and over the room"
+        ]
+      }
+    }
+  },
+  "osm-6773771717": {
+    "n_reviews_extracted": 82,
+    "aspects": {
+      "ac": {
+        "pos": 1,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 81,
+        "mentioned": 1,
+        "mention_rate": 0.012,
+        "smoothed_pos_rate": 0.6,
+        "pos_quotes": [
+          "lovely big room with aircon"
+        ],
+        "neg_quotes": []
+      },
+      "air_panas": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 82,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "bau": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 82,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "general": {
+        "pos": 76,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 6,
+        "mentioned": 76,
+        "mention_rate": 0.927,
+        "smoothed_pos_rate": 0.975,
+        "pos_quotes": [
+          "I highly recommend this wonderful place.",
+          "Better than I could have ever imagined! DO YOURSELF A FAVOUR & BOOK SUN SUKO NOW! I honestly cannot recommend Sun Suko enough!",
+          "We highly recommend this small hotel of great charm and we are already looking forward to returning."
+        ],
+        "neg_quotes": []
+      },
+      "kebersihan": {
+        "pos": 25,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 57,
+        "mentioned": 25,
+        "mention_rate": 0.305,
+        "smoothed_pos_rate": 0.931,
+        "pos_quotes": [
+          "The hotel is very clean",
+          "All was exceptionally clean and well maintained.",
+          "everything is clean and so chic"
+        ],
+        "neg_quotes": []
+      },
+      "linen": {
+        "pos": 1,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 81,
+        "mentioned": 1,
+        "mention_rate": 0.012,
+        "smoothed_pos_rate": 0.6,
+        "pos_quotes": [
+          "Most probably the best beds on the island."
+        ],
+        "neg_quotes": []
+      },
+      "service": {
+        "pos": 73,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 9,
+        "mentioned": 73,
+        "mention_rate": 0.89,
+        "smoothed_pos_rate": 0.974,
+        "pos_quotes": [
+          "the team made you feel like a family",
+          "the staff go above & beyond to ensure that you are comfortable & being taken care of",
+          "The kindness of the staff is to be highlighted."
+        ],
+        "neg_quotes": []
+      },
+      "sunrise_meal": {
+        "pos": 65,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 17,
+        "mentioned": 65,
+        "mention_rate": 0.793,
+        "smoothed_pos_rate": 0.971,
+        "pos_quotes": [
+          "The food was great",
+          "Food in Sun Suko was so delicious!",
+          "The food prepared on the spot is delicious."
+        ],
+        "neg_quotes": []
+      },
+      "tv": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 82,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "wifi": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 82,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "value": {
+        "pos": 6,
+        "neg": 1,
+        "neg_pos": 1,
+        "neut": 74,
+        "mentioned": 8,
+        "mention_rate": 0.098,
+        "smoothed_pos_rate": 0.708,
+        "pos_quotes": [
+          "It is quite expensive however its worthy",
+          "Great value",
+          "the food is so well priced"
+        ],
+        "neg_quotes": [
+          "This is the most expensive place we had stayed in during our trip through Indonesia."
+        ]
+      },
+      "accessibility": {
+        "pos": 33,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 49,
+        "mentioned": 33,
+        "mention_rate": 0.402,
+        "smoothed_pos_rate": 0.946,
+        "pos_quotes": [
+          "The Location and atmosphere is amazing.",
+          "A great location if you want to be away from the crazy city life but still has plenty in terms of bars, restaurants, ATMs, supermarkets, the beach, etc.",
+          "The beaches are close by and you can get there on foot or by bicycle."
+        ],
+        "neg_quotes": []
+      },
+      "sleep_quality": {
+        "pos": 26,
+        "neg": 1,
+        "neg_pos": 1,
+        "neut": 54,
+        "mentioned": 28,
+        "mention_rate": 0.341,
+        "smoothed_pos_rate": 0.891,
+        "pos_quotes": [
+          "The area is at a calm and spiritual place.",
+          "A small corner of paradise for a total rest.",
+          "It is a oasis of calm in Pemuteran."
+        ],
+        "neg_quotes": [
+          "The only flaw was neighbour’s horny male goat making really strange noises in the morning."
+        ]
+      }
+    }
+  },
+  "nusa-dua-beach-hotel-and-spa": {
+    "n_reviews_extracted": 228,
+    "aspects": {
+      "ac": {
+        "pos": 11,
+        "neg": 5,
+        "neg_pos": 0,
+        "neut": 212,
+        "mentioned": 16,
+        "mention_rate": 0.07,
+        "smoothed_pos_rate": 0.65,
+        "pos_quotes": [
+          "excellent aircon",
+          "The aircon, hot shower all went very well",
+          "Room is quite chill"
+        ],
+        "neg_quotes": [
+          "We twice had to get maintenance to come up due to water leaking from a vent.",
+          "the room ac is not cold",
+          "Air con continually left running 24 hours per day, causing a damp feeing in the bed sheets."
+        ]
+      },
+      "air_panas": {
+        "pos": 2,
+        "neg": 1,
+        "neg_pos": 1,
+        "neut": 224,
+        "mentioned": 4,
+        "mention_rate": 0.018,
+        "smoothed_pos_rate": 0.562,
+        "pos_quotes": [
+          "hot shower all went very well",
+          "nice showers"
+        ],
+        "neg_quotes": [
+          "Water pressure was ridiculous at all times if the day and night in both the rooms that we occupied."
+        ]
+      },
+      "bau": {
+        "pos": 1,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 227,
+        "mentioned": 1,
+        "mention_rate": 0.004,
+        "smoothed_pos_rate": 0.6,
+        "pos_quotes": [
+          "no smell or dampness"
+        ],
+        "neg_quotes": []
+      },
+      "general": {
+        "pos": 171,
+        "neg": 2,
+        "neg_pos": 1,
+        "neut": 54,
+        "mentioned": 174,
+        "mention_rate": 0.763,
+        "smoothed_pos_rate": 0.975,
+        "pos_quotes": [
+          "Probably the best hotel I've ever been to.",
+          "it turned out that I love it",
+          "The whole experience proved me wrong and we had a wonderful three nights at this Resort."
+        ],
+        "neg_quotes": [
+          "Very ordinary place but costly",
+          "Would be cautious when recommending to friends"
+        ]
+      },
+      "kebersihan": {
+        "pos": 104,
+        "neg": 3,
+        "neg_pos": 4,
+        "neut": 117,
+        "mentioned": 111,
+        "mention_rate": 0.487,
+        "smoothed_pos_rate": 0.939,
+        "pos_quotes": [
+          "It was spotlessly clean",
+          "The room was very clean, and was cleaned daily.",
+          "The hotel keeps the beach and area,s around the hotel very clean and tidy."
+        ],
+        "neg_quotes": [
+          "The window boxes were full of weeds and the balcony could have done with a power wash.",
+          "The rooms could go with some extra care in the cleaning department!",
+          "I initially had few issues with the room that which fell below standard"
+        ]
+      },
+      "linen": {
+        "pos": 19,
+        "neg": 2,
+        "neg_pos": 0,
+        "neut": 207,
+        "mentioned": 21,
+        "mention_rate": 0.092,
+        "smoothed_pos_rate": 0.84,
+        "pos_quotes": [
+          "some days our towels were changed 3 times if we used them",
+          "linen changed daily",
+          "the towels for swimming pool"
+        ],
+        "neg_quotes": [
+          "towels & bedding which were discoloured",
+          "causing a damp feeing in the bed sheets."
+        ]
+      },
+      "service": {
+        "pos": 67,
+        "neg": 2,
+        "neg_pos": 2,
+        "neut": 157,
+        "mentioned": 71,
+        "mention_rate": 0.311,
+        "smoothed_pos_rate": 0.933,
+        "pos_quotes": [
+          "hank you Nusa Dua Beach Hotel & Spa (and everybody who works there) for making this an adventure to never forget!!!!",
+          "The rooms were large, well services",
+          "nice and warm smiles from the staff"
+        ],
+        "neg_quotes": [
+          "Drinks service around the pool could be improved upon.",
+          "they missed refilling the mini bar 50% week"
+        ]
+      },
+      "sunrise_meal": {
+        "pos": 97,
+        "neg": 3,
+        "neg_pos": 4,
+        "neut": 124,
+        "mentioned": 104,
+        "mention_rate": 0.456,
+        "smoothed_pos_rate": 0.935,
+        "pos_quotes": [
+          "the breakfast was absolutely amazing",
+          "The breakfast is nice, a lot of choices",
+          "The food is divers and very good of kwality."
+        ],
+        "neg_quotes": [
+          "Just miss the bacon and pork and wonder why it’s gone.",
+          "upgrading the variety and the taste of breakfast",
+          "fairly expensive drinks and meals"
+        ]
+      },
+      "tv": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 228,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "wifi": {
+        "pos": 4,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 224,
+        "mentioned": 4,
+        "mention_rate": 0.018,
+        "smoothed_pos_rate": 0.75,
+        "pos_quotes": [
+          "WiFi works fine.",
+          "wifi which was limited before",
+          "good WIFI everwhere"
+        ],
+        "neg_quotes": []
+      },
+      "value": {
+        "pos": 30,
+        "neg": 21,
+        "neg_pos": 1,
+        "neut": 176,
+        "mentioned": 52,
+        "mention_rate": 0.228,
+        "smoothed_pos_rate": 0.58,
+        "pos_quotes": [
+          "We took the all inclusive package with Luxury Escapes and was a great decision.",
+          "The restaurants are reasonably and offer a range of choice.",
+          "Affordable price for *5 star hotel.."
+        ],
+        "neg_quotes": [
+          "very expensive now with the 21% service charge & government tax.",
+          "we ate out every night due to the high prices of the bars restaurants in the hotel.",
+          "they were expensive"
+        ]
+      },
+      "accessibility": {
+        "pos": 87,
+        "neg": 1,
+        "neg_pos": 1,
+        "neut": 139,
+        "mentioned": 89,
+        "mention_rate": 0.39,
+        "smoothed_pos_rate": 0.962,
+        "pos_quotes": [
+          "beach which was a few metres away",
+          "It’s in a great location",
+          "The hotel was in a lovely location literally on the beach"
+        ],
+        "neg_quotes": [
+          "it take at least 20-30 min to walk to shops restaurants nearby"
+        ]
+      },
+      "sleep_quality": {
+        "pos": 36,
+        "neg": 2,
+        "neg_pos": 0,
+        "neut": 190,
+        "mentioned": 38,
+        "mention_rate": 0.167,
+        "smoothed_pos_rate": 0.905,
+        "pos_quotes": [
+          "Lovely quiet relaxing hotel",
+          "beds are really comfortable",
+          "The hotel rooms are very comfortable"
+        ],
+        "neg_quotes": [
+          "My bed was cracked on the base also.",
+          "the humidity was very high and we asked a dehumidifier. Even our clean clothes in the wardrobe were always humid."
+        ]
+      }
+    }
+  },
+  "anantara-uluwatu-bali-resort": {
+    "n_reviews_extracted": 116,
+    "aspects": {
+      "ac": {
+        "pos": 1,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 114,
+        "mentioned": 2,
+        "mention_rate": 0.017,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [
+          "Wonderful and great air conditioning in our room."
+        ],
+        "neg_quotes": [
+          "the only problem is the Aircon is bad"
+        ]
+      },
+      "air_panas": {
+        "pos": 8,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 108,
+        "mentioned": 8,
+        "mention_rate": 0.069,
+        "smoothed_pos_rate": 0.833,
+        "pos_quotes": [
+          "complete with very strong water pressure for super shower experience",
+          "Private Hot Tub Facing The Ocean",
+          "very delightful for the bath up"
+        ],
+        "neg_quotes": []
+      },
+      "bau": {
+        "pos": 0,
+        "neg": 2,
+        "neg_pos": 0,
+        "neut": 114,
+        "mentioned": 2,
+        "mention_rate": 0.017,
+        "smoothed_pos_rate": 0.333,
+        "pos_quotes": [],
+        "neg_quotes": [
+          "one of the bathrooms had a damp/plumbing smell",
+          "1 room was soo stink! so we could not use the room at all… it was so damp and the smell so disturbing."
+        ]
+      },
+      "general": {
+        "pos": 87,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 28,
+        "mentioned": 88,
+        "mention_rate": 0.759,
+        "smoothed_pos_rate": 0.967,
+        "pos_quotes": [
+          "we’d definitely stay again in the future",
+          "I would definitely recommend this resort for those looking to getaway and indulge.",
+          "Hope to return again someday soon!"
+        ],
+        "neg_quotes": [
+          "For the amount money we pay the quality of the hotel is not up to our expectations"
+        ]
+      },
+      "kebersihan": {
+        "pos": 33,
+        "neg": 4,
+        "neg_pos": 1,
+        "neut": 78,
+        "mentioned": 38,
+        "mention_rate": 0.328,
+        "smoothed_pos_rate": 0.845,
+        "pos_quotes": [
+          "thoughtfully maintained",
+          "clean",
+          "cleanliness"
+        ],
+        "neg_quotes": [
+          "cleaning staff used to be reminded again sometimes",
+          "the dry leaves always pollute our pool, so we need periodically call the staff to clean.",
+          "shower room a little dirty"
+        ]
+      },
+      "linen": {
+        "pos": 6,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 109,
+        "mentioned": 7,
+        "mention_rate": 0.06,
+        "smoothed_pos_rate": 0.727,
+        "pos_quotes": [
+          "They change bedlinen every second day but after request they change every day.",
+          "Cozy Beds",
+          "complete with very comfortable beddings as well"
+        ],
+        "neg_quotes": [
+          "bed quality"
+        ]
+      },
+      "service": {
+        "pos": 39,
+        "neg": 6,
+        "neg_pos": 0,
+        "neut": 71,
+        "mentioned": 45,
+        "mention_rate": 0.388,
+        "smoothed_pos_rate": 0.837,
+        "pos_quotes": [
+          "A big thank you to Marthin for all of your help during our stay.",
+          "Wawan the hotel manager helped us with everything from a late check out for a reasonable price to organising transportation for us.",
+          "Thankful to the team for making our stay so lovely."
+        ],
+        "neg_quotes": [
+          "we found the hotel services such as food, drinks and laundry were quite expensive",
+          "house keeping services used to take a lot of time",
+          "receiving the complimentary picture during checkout took quite a while"
+        ]
+      },
+      "sunrise_meal": {
+        "pos": 47,
+        "neg": 5,
+        "neg_pos": 0,
+        "neut": 64,
+        "mentioned": 52,
+        "mention_rate": 0.448,
+        "smoothed_pos_rate": 0.875,
+        "pos_quotes": [
+          "The breakfast buffet and lunch/dinner at 360 was also amazing; great spread & quality.",
+          "food",
+          "The breakfast buffet had endless options."
+        ],
+        "neg_quotes": [
+          "The breakfast are not that good A bit blend taste",
+          "Please do the breakfast much better for the variety of food and beverage.",
+          "The f&b is not excellent but okay and quite expensive."
+        ]
+      },
+      "tv": {
+        "pos": 1,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 115,
+        "mentioned": 1,
+        "mention_rate": 0.009,
+        "smoothed_pos_rate": 0.6,
+        "pos_quotes": [
+          "the room were huge and completed with Bose home theatre each television."
+        ],
+        "neg_quotes": []
+      },
+      "wifi": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 116,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "value": {
+        "pos": 13,
+        "neg": 4,
+        "neg_pos": 1,
+        "neut": 98,
+        "mentioned": 18,
+        "mention_rate": 0.155,
+        "smoothed_pos_rate": 0.705,
+        "pos_quotes": [
+          "Our private pool ocean view suite was affordable and a great value for the money.",
+          "Quite expensive but you get what you pay for!",
+          "it's definitely worth for the price."
+        ],
+        "neg_quotes": [
+          "we found the hotel services such as food, drinks and laundry were quite expensive",
+          "the complementary photoshoot only includes 2 free images and the hotel asks you to pay for the rest",
+          "The f&b is not excellent but okay and quite expensive."
+        ]
+      },
+      "accessibility": {
+        "pos": 20,
+        "neg": 13,
+        "neg_pos": 1,
+        "neut": 82,
+        "mentioned": 34,
+        "mention_rate": 0.293,
+        "smoothed_pos_rate": 0.592,
+        "pos_quotes": [
+          "Anantara Uluwatu is a great location to unwind in paradise away from the bustling activity of Seminyak and Canggu.",
+          "Anantara is really located in Uluwatu and at the side of the cliffs",
+          "Location"
+        ],
+        "neg_quotes": [
+          "walking up and down a whole bunch of stairs is kind of a have to",
+          "the stairs are unbelievable",
+          "The stairs are something you must fight for, there are lots and lots stairs like to everywhere haha."
+        ]
+      },
+      "sleep_quality": {
+        "pos": 10,
+        "neg": 4,
+        "neg_pos": 0,
+        "neut": 102,
+        "mentioned": 14,
+        "mention_rate": 0.121,
+        "smoothed_pos_rate": 0.667,
+        "pos_quotes": [
+          "great bed for great sleep quality",
+          "a comfortable bed to sleep in",
+          "King size bed is very confortable."
+        ],
+        "neg_quotes": [
+          "some crowds in other rooms that were noisy and made sleeping hard",
+          "it wasnt really soundproof, you can totally hear the next door music",
+          "with the restaurant upstairs, there were the constant sound of footsteps from early morning until late at night."
+        ]
+      }
+    }
+  },
+  "the-apurva-kempinski": {
+    "n_reviews_extracted": 19,
+    "aspects": {
+      "ac": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 19,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "air_panas": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 19,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "bau": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 19,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "general": {
+        "pos": 16,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 3,
+        "mentioned": 16,
+        "mention_rate": 0.842,
+        "smoothed_pos_rate": 0.9,
+        "pos_quotes": [
+          "All in all it’s a beautiful hotel second to none and I hope we will back again soon.",
+          "But this place really took it to a whole new level....and then some.",
+          "Kempinski Bali is the best hotel among the hotels I have ever visited in Bali."
+        ],
+        "neg_quotes": []
+      },
+      "kebersihan": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 19,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "linen": {
+        "pos": 1,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 17,
+        "mentioned": 2,
+        "mention_rate": 0.105,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [
+          "Nice and firm bed and the hotel has a pillow menu!"
+        ],
+        "neg_quotes": [
+          "towel supplies at the pool may come short at times"
+        ]
+      },
+      "service": {
+        "pos": 13,
+        "neg": 0,
+        "neg_pos": 1,
+        "neut": 5,
+        "mentioned": 14,
+        "mention_rate": 0.737,
+        "smoothed_pos_rate": 0.861,
+        "pos_quotes": [
+          "The house keeping staff Pirata and Putri were especially lovely and attended to all our needs in room 6253. They could not do enough for us.",
+          "Thank to Farrah and her teams, we have a wonderful time at the resort!",
+          "We liked overall service, people and service staff were very friendly."
+        ],
+        "neg_quotes": []
+      },
+      "sunrise_meal": {
+        "pos": 6,
+        "neg": 0,
+        "neg_pos": 1,
+        "neut": 12,
+        "mentioned": 7,
+        "mention_rate": 0.368,
+        "smoothed_pos_rate": 0.773,
+        "pos_quotes": [
+          "the food are delicious especially the local cuisine and the amazing hotpot experience",
+          "I love the food and the ambience in there",
+          "great breakfast"
+        ],
+        "neg_quotes": []
+      },
+      "tv": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 19,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "wifi": {
+        "pos": 0,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 19,
+        "mentioned": 0,
+        "mention_rate": 0.0,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [],
+        "neg_quotes": []
+      },
+      "value": {
+        "pos": 1,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 17,
+        "mentioned": 2,
+        "mention_rate": 0.105,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [
+          "The deposit was reasonable."
+        ],
+        "neg_quotes": [
+          "We did not like Coral restaurant too much - it was clearly overpriced."
+        ]
+      },
+      "accessibility": {
+        "pos": 1,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 17,
+        "mentioned": 2,
+        "mention_rate": 0.105,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [
+          "The location is amazing - with a view to the ocean."
+        ],
+        "neg_quotes": [
+          "The hotel can be difficult to navigate/access depending on room location."
+        ]
+      },
+      "sleep_quality": {
+        "pos": 1,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 17,
+        "mentioned": 2,
+        "mention_rate": 0.105,
+        "smoothed_pos_rate": 0.5,
+        "pos_quotes": [
+          "Nice place to rest"
+        ],
+        "neg_quotes": [
+          "Four outdoor-marquee weddings in 10 days caused intrusive construction activity, noise around the pool"
+        ]
+      }
+    }
+  },
+  "atanaya-hotel": {
+    "n_reviews_extracted": 460,
+    "aspects": {
+      "ac": {
+        "pos": 16,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 444,
+        "mentioned": 16,
+        "mention_rate": 0.035,
+        "smoothed_pos_rate": 0.9,
+        "pos_quotes": [
+          "working showers and AC",
+          "AC worked well",
+          "The air conditioner works well to cope with Bali's air in dry season"
+        ],
+        "neg_quotes": []
+      },
+      "air_panas": {
+        "pos": 17,
+        "neg": 9,
+        "neg_pos": 1,
+        "neut": 433,
+        "mentioned": 27,
+        "mention_rate": 0.059,
+        "smoothed_pos_rate": 0.629,
+        "pos_quotes": [
+          "working showers",
+          "clean water",
+          "The shower and the water heater system works stably, very well"
+        ],
+        "neg_quotes": [
+          "water quality is poor (greasy)",
+          "the quality of water is low",
+          "feel something weird with the water, kind of oily"
+        ]
+      },
+      "bau": {
+        "pos": 4,
+        "neg": 6,
+        "neg_pos": 0,
+        "neut": 450,
+        "mentioned": 10,
+        "mention_rate": 0.022,
+        "smoothed_pos_rate": 0.429,
+        "pos_quotes": [
+          "smells realy nice",
+          "smells good. - elevator smells like fruits.",
+          "No annoying smells or anything."
+        ],
+        "neg_quotes": [
+          "one of the room doesn't has windows and kind a smelly",
+          "room smells bit of cigarettes",
+          "the room was a little bit smell just because close to the kitchen"
+        ]
+      },
+      "general": {
+        "pos": 357,
+        "neg": 0,
+        "neg_pos": 1,
+        "neut": 102,
+        "mentioned": 358,
+        "mention_rate": 0.778,
+        "smoothed_pos_rate": 0.993,
+        "pos_quotes": [
+          "Had a really great stay at Atanaya Kuta Bali!",
+          "There will be a moment we go back to this great hotel!",
+          "We will definitely come back in the future"
+        ],
+        "neg_quotes": []
+      },
+      "kebersihan": {
+        "pos": 192,
+        "neg": 11,
+        "neg_pos": 4,
+        "neut": 253,
+        "mentioned": 207,
+        "mention_rate": 0.45,
+        "smoothed_pos_rate": 0.929,
+        "pos_quotes": [
+          "Room is clean",
+          "the room is clean",
+          "The rooms are clean and big"
+        ],
+        "neg_quotes": [
+          "we saw some Room Boys not wearing masks in the Corridor",
+          "we saw some Room Boys not wearing masks in the Corridor",
+          "Corridor looks old and need to retouch"
+        ]
+      },
+      "linen": {
+        "pos": 27,
+        "neg": 10,
+        "neg_pos": 1,
+        "neut": 422,
+        "mentioned": 38,
+        "mention_rate": 0.083,
+        "smoothed_pos_rate": 0.702,
+        "pos_quotes": [
+          "Excellent cleanliness of the room, the beds, and the bathroom",
+          "Linens, pillows and bed are soft and comfortable.",
+          "their provide towel too"
+        ],
+        "neg_quotes": [
+          "the bath towel is very bad",
+          "a little bit disappoint when realize that my bed is 2 twin bed that joined into 1 large bed",
+          "The towel weren't ready yet when we checked in. It took 2 hours to deliver it to our room."
+        ]
+      },
+      "service": {
+        "pos": 340,
+        "neg": 10,
+        "neg_pos": 14,
+        "neut": 96,
+        "mentioned": 364,
+        "mention_rate": 0.791,
+        "smoothed_pos_rate": 0.948,
+        "pos_quotes": [
+          "All staff are very friendly and helpful!",
+          "They're very helpful, CUSTOMER ORIENTED, and the staff have a good initiative! ... Their service went above and beyond our expectations!!",
+          "They have a great service"
+        ],
+        "neg_quotes": [
+          "we saw some Room Boys not wearing masks in the Corridor",
+          "The only disappointment was the request of preference in getting room in high floor cannot be accommodated.",
+          "we saw some Room Boys not wearing masks in the Corridor"
+        ]
+      },
+      "sunrise_meal": {
+        "pos": 230,
+        "neg": 20,
+        "neg_pos": 12,
+        "neut": 198,
+        "mentioned": 262,
+        "mention_rate": 0.57,
+        "smoothed_pos_rate": 0.895,
+        "pos_quotes": [
+          "Yummy breakfast! Love the awesome porridge.",
+          "We love their porridge and Waffles!!!",
+          "a really good kitchen"
+        ],
+        "neg_quotes": [
+          "Breakfast menu n taste so so, dont know how they could got award for best food category.",
+          "the breakfast wasn’t what we expect need to improve",
+          "Maybe what's need to be improved is the breakfast, possibly with more variations."
+        ]
+      },
+      "tv": {
+        "pos": 10,
+        "neg": 3,
+        "neg_pos": 0,
+        "neut": 447,
+        "mentioned": 13,
+        "mention_rate": 0.028,
+        "smoothed_pos_rate": 0.706,
+        "pos_quotes": [
+          "Aircon and TV were good",
+          "AC & TV are working well",
+          "Lots of TV channels."
+        ],
+        "neg_quotes": [
+          "The television quite small.",
+          "At deluxe room, they only have one channel movie.",
+          "TV channel for kids program also limited"
+        ]
+      },
+      "wifi": {
+        "pos": 31,
+        "neg": 14,
+        "neg_pos": 3,
+        "neut": 412,
+        "mentioned": 48,
+        "mention_rate": 0.104,
+        "smoothed_pos_rate": 0.663,
+        "pos_quotes": [
+          "Internet connection was OK.",
+          "Free wifi provided",
+          "Wifi was great and stable."
+        ],
+        "neg_quotes": [
+          "Wifi is patchy at best. Often times we couldn't get anything loaded.",
+          "There is some work to do on the Wifi service",
+          "WIFI is poor"
+        ]
+      },
+      "value": {
+        "pos": 127,
+        "neg": 0,
+        "neg_pos": 2,
+        "neut": 331,
+        "mentioned": 129,
+        "mention_rate": 0.28,
+        "smoothed_pos_rate": 0.977,
+        "pos_quotes": [
+          "value for money",
+          "The price was so affordable.",
+          "worth prices"
+        ],
+        "neg_quotes": []
+      },
+      "accessibility": {
+        "pos": 239,
+        "neg": 19,
+        "neg_pos": 17,
+        "neut": 185,
+        "mentioned": 275,
+        "mention_rate": 0.598,
+        "smoothed_pos_rate": 0.894,
+        "pos_quotes": [
+          "Very strategic location, close to shops and restaurants!",
+          "A strategic place to strolling around!!",
+          "Atanaya Hotel is a nice hotel at sunset road, near to the best places in Bali."
+        ],
+        "neg_quotes": [
+          "The only downside to this hotel is its location.",
+          "it did not have a nice view in this hotel",
+          "it was really difficult to find the car park because they had a really small parking lot"
+        ]
+      },
+      "sleep_quality": {
+        "pos": 49,
+        "neg": 29,
+        "neg_pos": 2,
+        "neut": 380,
+        "mentioned": 80,
+        "mention_rate": 0.174,
+        "smoothed_pos_rate": 0.619,
+        "pos_quotes": [
+          "comfortable",
+          "The Room was very comfortable",
+          "Rooms were comfy"
+        ],
+        "neg_quotes": [
+          "some of the lights not working",
+          "when in the night time , you can hear motorcycle/car noise which is sometimes very loud and disturbing",
+          "not soundproof"
+        ]
+      }
+    }
+  },
+  "the-anvaya-beach-resort": {
+    "n_reviews_extracted": 1093,
+    "aspects": {
+      "ac": {
+        "pos": 26,
+        "neg": 5,
+        "neg_pos": 3,
+        "neut": 1059,
+        "mentioned": 34,
+        "mention_rate": 0.031,
+        "smoothed_pos_rate": 0.776,
+        "pos_quotes": [
+          "fully air conditioned",
+          "Air conditioning works very well.",
+          "the AC worked fine"
+        ],
+        "neg_quotes": [
+          "can be a bit noisy and hot",
+          "the only thing about the room is it felt like the air was on and blowing but was not getting as cool as i set the temperature to be",
+          "AC"
+        ]
+      },
+      "air_panas": {
+        "pos": 16,
+        "neg": 2,
+        "neg_pos": 0,
+        "neut": 1075,
+        "mentioned": 18,
+        "mention_rate": 0.016,
+        "smoothed_pos_rate": 0.818,
+        "pos_quotes": [
+          "the water hot",
+          "amazing shower",
+          "rain shower with easy hot water"
+        ],
+        "neg_quotes": [
+          "the shower has a drainage issue that flooded the bathroom",
+          "No shower thou"
+        ]
+      },
+      "bau": {
+        "pos": 6,
+        "neg": 5,
+        "neg_pos": 1,
+        "neut": 1081,
+        "mentioned": 12,
+        "mention_rate": 0.011,
+        "smoothed_pos_rate": 0.531,
+        "pos_quotes": [
+          "room is good maintain from humidity",
+          "Light smell of incense",
+          "I don't use the shower gel, shampoo and conditioner provided by the hotels because it doesn't smell good but theirs is an exception"
+        ],
+        "neg_quotes": [
+          "it has smell",
+          "after we did at toilet the smell still and took long time till disappeared",
+          "There are smokers by the pool, on the balconies, in all outdoor eating areas and we often had to move or rush our food."
+        ]
+      },
+      "general": {
+        "pos": 879,
+        "neg": 2,
+        "neg_pos": 1,
+        "neut": 211,
+        "mentioned": 882,
+        "mention_rate": 0.807,
+        "smoothed_pos_rate": 0.995,
+        "pos_quotes": [
+          "Our stay at The Anvaya was memorable. Perfect from all perspectives for the value.",
+          "Thank u Anvaya!! Cant wait to our next meet up",
+          "The Anvaya could be one of the best hotels I've stayed in Bali."
+        ],
+        "neg_quotes": [
+          "With so many nice hotels in Kuta I would suggest you look around until the hotel management get there act together",
+          "Average stay does not feel like a 5* resort."
+        ]
+      },
+      "kebersihan": {
+        "pos": 392,
+        "neg": 14,
+        "neg_pos": 4,
+        "neut": 683,
+        "mentioned": 410,
+        "mention_rate": 0.375,
+        "smoothed_pos_rate": 0.957,
+        "pos_quotes": [
+          "Rooms were luxurious and very clean and well maintained.",
+          "The grounds were superbly clean",
+          "very clean"
+        ],
+        "neg_quotes": [
+          "housekeeping was overwhelmed",
+          "General cleanliness and ageing facility needs a little bit of work.",
+          "The beach was amazing but needed a bit of cleaning."
+        ]
+      },
+      "linen": {
+        "pos": 107,
+        "neg": 4,
+        "neg_pos": 2,
+        "neut": 980,
+        "mentioned": 113,
+        "mention_rate": 0.103,
+        "smoothed_pos_rate": 0.94,
+        "pos_quotes": [
+          "The super king bed goosshh!!amazing!!",
+          "The super king bed goosshh!!amazing!!",
+          "comfortable bed"
+        ],
+        "neg_quotes": [
+          "I found trying to get an extra pillow a bit of a mission and getting 3 of everything in the room wasn't easy either",
+          "my daughter sadly ruined the bed sheets",
+          "It's a v.good room except for the pillows."
+        ]
+      },
+      "service": {
+        "pos": 847,
+        "neg": 27,
+        "neg_pos": 29,
+        "neut": 190,
+        "mentioned": 903,
+        "mention_rate": 0.826,
+        "smoothed_pos_rate": 0.952,
+        "pos_quotes": [
+          "We give our high appreciation for Ngurah Okayana at the Sand Restuarant. We also provide regards for the service provided by Dewa (Manager) at the Sands restuarant.",
+          "the lovely receptionist Miss Ketutpadmasari (sorry if misspelled) very helpful very nice",
+          "The staff here are unbelievably good, kudos to management - everyone here goes above and beyond, they are next level in my opinion."
+        ],
+        "neg_quotes": [
+          "check in pretty slow due to only 1 receptionis",
+          "Check in was slow process",
+          "When the room was ready they just said here are your keys. No direction to room , no further instructions on where breakfast is and time and pool towels etc."
+        ]
+      },
+      "sunrise_meal": {
+        "pos": 669,
+        "neg": 25,
+        "neg_pos": 27,
+        "neut": 372,
+        "mentioned": 721,
+        "mention_rate": 0.66,
+        "smoothed_pos_rate": 0.944,
+        "pos_quotes": [
+          "breakfast also good,variety of foods!!",
+          "Breakfast here is superb - the best buffet spread I have ever had",
+          "superb breakfast"
+        ],
+        "neg_quotes": [
+          "the breakfast restaurant is always overcrowded",
+          "The only thing needs to be upgrade is the variety of the food at breakfast.",
+          "breakfast was so so because they only provide limited selection"
+        ]
+      },
+      "tv": {
+        "pos": 20,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 1072,
+        "mentioned": 21,
+        "mention_rate": 0.019,
+        "smoothed_pos_rate": 0.88,
+        "pos_quotes": [
+          "tv above bath",
+          "big TV",
+          "smart TV"
+        ],
+        "neg_quotes": [
+          "The conference room projectors were blurry"
+        ]
+      },
+      "wifi": {
+        "pos": 17,
+        "neg": 6,
+        "neg_pos": 1,
+        "neut": 1069,
+        "mentioned": 24,
+        "mention_rate": 0.022,
+        "smoothed_pos_rate": 0.696,
+        "pos_quotes": [
+          "In the complete hotel is very fast Wi-Fi available for free.",
+          "The hotel information, WiFi detail and room service are all accessible via the TV in the room",
+          "It has wi-fi all over the hotel and at beach also."
+        ],
+        "neg_quotes": [
+          "What surprised me was the difficulty of connecting to the internet.",
+          "I started having a lot of issues and ended up having to use my data the whole time which was disappointing",
+          "WiFi is an issue and gets disconnected every now and then."
+        ]
+      },
+      "value": {
+        "pos": 116,
+        "neg": 12,
+        "neg_pos": 3,
+        "neut": 962,
+        "mentioned": 131,
+        "mention_rate": 0.12,
+        "smoothed_pos_rate": 0.885,
+        "pos_quotes": [
+          "Perfect from all perspectives for the value.",
+          "Food and beverages were well priced and excellent.",
+          "Perfect from all perspectives for the value."
+        ],
+        "neg_quotes": [
+          "The problem was with the hotel store that settled twice the amount on the card!",
+          "A bit underwhelming for the price charged.",
+          "a little bit pricey"
+        ]
+      },
+      "accessibility": {
+        "pos": 493,
+        "neg": 12,
+        "neg_pos": 6,
+        "neut": 582,
+        "mentioned": 511,
+        "mention_rate": 0.468,
+        "smoothed_pos_rate": 0.967,
+        "pos_quotes": [
+          "uniquely located in central Kuta",
+          "close to waterbom and Kuta beach",
+          "Being close to the airport, it was good way for me to start and finish my trip."
+        ],
+        "neg_quotes": [
+          "quite far if you were looking for traditional food for meals",
+          "This hotel is not in my favourite location as i like to stay more North like Legian.",
+          "very far from the beach and the main pool"
+        ]
+      },
+      "sleep_quality": {
+        "pos": 147,
+        "neg": 21,
+        "neg_pos": 4,
+        "neut": 921,
+        "mentioned": 172,
+        "mention_rate": 0.157,
+        "smoothed_pos_rate": 0.858,
+        "pos_quotes": [
+          "quiet",
+          "The hotel is in a quiet part of Kuta",
+          "the bed was huge and very comfortable"
+        ],
+        "neg_quotes": [
+          "One night the fire alarm in my wing went on/off many times.",
+          "unfortunately the room is not that sound proofed. So we can bit hear the noise from next door or hallway.",
+          "we were woken a lot of nights/early morning by the other guests yelling up and down to their friends and their kids running through the hall ways"
+        ]
+      }
+    }
+  },
+  "adiwana-bisma-ubud": {
+    "n_reviews_extracted": 331,
+    "aspects": {
+      "ac": {
+        "pos": 2,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 329,
+        "mentioned": 2,
+        "mention_rate": 0.006,
+        "smoothed_pos_rate": 0.667,
+        "pos_quotes": [
+          "The wifi and AC worked well.",
+          "air-con works well"
+        ],
+        "neg_quotes": []
+      },
+      "air_panas": {
+        "pos": 16,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 315,
+        "mentioned": 16,
+        "mention_rate": 0.048,
+        "smoothed_pos_rate": 0.9,
+        "pos_quotes": [
+          "Shower is super amazing",
+          "amazing shower",
+          "most powerful shower we’ve ever had"
+        ],
+        "neg_quotes": []
+      },
+      "bau": {
+        "pos": 4,
+        "neg": 1,
+        "neg_pos": 1,
+        "neut": 325,
+        "mentioned": 6,
+        "mention_rate": 0.018,
+        "smoothed_pos_rate": 0.65,
+        "pos_quotes": [
+          "Loving all the smells.",
+          "nice smelling soaps",
+          "They also provide lavender lotion which smells so good!"
+        ],
+        "neg_quotes": [
+          "need to improve the linen smell"
+        ]
+      },
+      "general": {
+        "pos": 287,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 44,
+        "mentioned": 287,
+        "mention_rate": 0.867,
+        "smoothed_pos_rate": 0.993,
+        "pos_quotes": [
+          "The facilities and atmosphere of the hotel were very satisfactory",
+          "We’ve had a great stay at the Adiwana Bisma!",
+          "We loved our stay here!"
+        ],
+        "neg_quotes": []
+      },
+      "kebersihan": {
+        "pos": 176,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 155,
+        "mentioned": 176,
+        "mention_rate": 0.532,
+        "smoothed_pos_rate": 0.989,
+        "pos_quotes": [
+          "The rooms were modern and well maintained.",
+          "Clean rooms",
+          "My room was spacious and clean."
+        ],
+        "neg_quotes": []
+      },
+      "linen": {
+        "pos": 27,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 303,
+        "mentioned": 28,
+        "mention_rate": 0.085,
+        "smoothed_pos_rate": 0.906,
+        "pos_quotes": [
+          "We’re going to miss returning from our evening meal to have our bed turned down and with a slinky dressing gown and slippers waiting for us!",
+          "the bed was very comfortable and the pillows were heaven",
+          "the robes in the room were really nice"
+        ],
+        "neg_quotes": [
+          "need to improve the linen smell"
+        ]
+      },
+      "service": {
+        "pos": 137,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 194,
+        "mentioned": 137,
+        "mention_rate": 0.414,
+        "smoothed_pos_rate": 0.986,
+        "pos_quotes": [
+          "The staff were very friendly and their service was very professional.",
+          "The staff are second to none, so welcoming, polite and friendly.",
+          "The staff was friendly, helpful and kind."
+        ],
+        "neg_quotes": []
+      },
+      "sunrise_meal": {
+        "pos": 165,
+        "neg": 1,
+        "neg_pos": 1,
+        "neut": 164,
+        "mentioned": 167,
+        "mention_rate": 0.505,
+        "smoothed_pos_rate": 0.98,
+        "pos_quotes": [
+          "great food",
+          "Restaurant also has great staff and good food.",
+          "we liked the allday breakfast."
+        ],
+        "neg_quotes": [
+          "breakfast was a bit slow"
+        ]
+      },
+      "tv": {
+        "pos": 0,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 330,
+        "mentioned": 1,
+        "mention_rate": 0.003,
+        "smoothed_pos_rate": 0.4,
+        "pos_quotes": [],
+        "neg_quotes": [
+          "the TV is not a smart TV so you can’t cast from your phone or laptop"
+        ]
+      },
+      "wifi": {
+        "pos": 8,
+        "neg": 2,
+        "neg_pos": 1,
+        "neut": 320,
+        "mentioned": 11,
+        "mention_rate": 0.033,
+        "smoothed_pos_rate": 0.7,
+        "pos_quotes": [
+          "Wifi is good!",
+          "The wifi and AC worked well.",
+          "Wifi was veryyyy fast"
+        ],
+        "neg_quotes": [
+          "The wifi a bit slow",
+          "The wifi a bit slow even for browsing and sometime the connection disappear."
+        ]
+      },
+      "value": {
+        "pos": 21,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 310,
+        "mentioned": 21,
+        "mention_rate": 0.063,
+        "smoothed_pos_rate": 0.92,
+        "pos_quotes": [
+          "low cost",
+          "the prices were so reasonable that we didn't expect the high quality we received.",
+          "The price worth the experience."
+        ],
+        "neg_quotes": []
+      },
+      "accessibility": {
+        "pos": 135,
+        "neg": 2,
+        "neg_pos": 1,
+        "neut": 193,
+        "mentioned": 138,
+        "mention_rate": 0.417,
+        "smoothed_pos_rate": 0.968,
+        "pos_quotes": [
+          "The location of the accommodation was close enough to the centre of Ubud (approx 15 minute walk)",
+          "Good location close to ubud.",
+          "Nice places to shop and eat nearby, too."
+        ],
+        "neg_quotes": [
+          "the room felt far from the front of the hotel",
+          "It's barely enough for two cars."
+        ]
+      },
+      "sleep_quality": {
+        "pos": 58,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 272,
+        "mentioned": 59,
+        "mention_rate": 0.178,
+        "smoothed_pos_rate": 0.952,
+        "pos_quotes": [
+          "far enough away to create a quite and relaxing haven.",
+          "extremely comfortable beds",
+          "on a quiet road"
+        ],
+        "neg_quotes": [
+          "because of the holidays it was a bit loud"
+        ]
+      }
+    }
+  },
+  "maya-sanur-resort-and-spa": {
+    "n_reviews_extracted": 451,
+    "aspects": {
+      "ac": {
+        "pos": 11,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 439,
+        "mentioned": 12,
+        "mention_rate": 0.027,
+        "smoothed_pos_rate": 0.812,
+        "pos_quotes": [
+          "quiet air con (rare in Bali)",
+          "quiet air con (rare in Bali)",
+          "strong air cond"
+        ],
+        "neg_quotes": [
+          "the room felt warm at times ( despite the aircon staying on 22 degrees)"
+        ]
+      },
+      "air_panas": {
+        "pos": 8,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 442,
+        "mentioned": 9,
+        "mention_rate": 0.02,
+        "smoothed_pos_rate": 0.769,
+        "pos_quotes": [
+          "the shower was fabulous and the bath was glorious fir a long soak",
+          "Nice big bathroom with hot shower water.",
+          "Luxurious bathroom with deep round bath that didn’t take forever to fill"
+        ],
+        "neg_quotes": [
+          "we couldn't work the shower out so had no hot water for the first 3 days"
+        ]
+      },
+      "bau": {
+        "pos": 1,
+        "neg": 2,
+        "neg_pos": 0,
+        "neut": 448,
+        "mentioned": 3,
+        "mention_rate": 0.007,
+        "smoothed_pos_rate": 0.429,
+        "pos_quotes": [
+          "The scent of the shower amenities also really nice."
+        ],
+        "neg_quotes": [
+          "i had a bad smell of mold in the room",
+          "there was a strange ordor in the bathroom"
+        ]
+      },
+      "general": {
+        "pos": 340,
+        "neg": 2,
+        "neg_pos": 2,
+        "neut": 107,
+        "mentioned": 344,
+        "mention_rate": 0.763,
+        "smoothed_pos_rate": 0.986,
+        "pos_quotes": [
+          "it never gets old nor disappoints",
+          "Would recommend for a family stay.",
+          "Would definitely recommend to anyone staying in Sanur."
+        ],
+        "neg_quotes": [
+          "Because of this we probably wouldn't return.",
+          "We felt a litle let down from this hotel"
+        ]
+      },
+      "kebersihan": {
+        "pos": 173,
+        "neg": 3,
+        "neg_pos": 2,
+        "neut": 273,
+        "mentioned": 178,
+        "mention_rate": 0.395,
+        "smoothed_pos_rate": 0.967,
+        "pos_quotes": [
+          "The impressive nest suite was big and clean.",
+          "Beautifully designed and maintained.",
+          "it was clean and fresh"
+        ],
+        "neg_quotes": [
+          "Excellent beach but a bit dirty.",
+          "cleaning is not the best, stains on besisde table and bathroom sides",
+          "it was so dusty under the bed"
+        ]
+      },
+      "linen": {
+        "pos": 34,
+        "neg": 3,
+        "neg_pos": 0,
+        "neut": 414,
+        "mentioned": 37,
+        "mention_rate": 0.082,
+        "smoothed_pos_rate": 0.878,
+        "pos_quotes": [
+          "Super relaxing, comfortable King Size bed and pillows of superior comfort to match.",
+          "We had towel’s replenished everyday",
+          "Super relaxing, comfortable King Size bed and pillows of superior comfort to match."
+        ],
+        "neg_quotes": [
+          "It would be good to have some towels at this pool",
+          "the bath towels were a bit thin",
+          "bed & pillow not so comfy"
+        ]
+      },
+      "service": {
+        "pos": 120,
+        "neg": 9,
+        "neg_pos": 4,
+        "neut": 318,
+        "mentioned": 133,
+        "mention_rate": 0.295,
+        "smoothed_pos_rate": 0.905,
+        "pos_quotes": [
+          "the staff are always available to help.",
+          "always well serviced",
+          "The staff are all amazing at this hotel, so helpful and friendly."
+        ],
+        "neg_quotes": [
+          "they could implement the use of \"Do Not Disturb/Please Make Up My Room\" door cards rather than ringing the room bell to see if you're there.",
+          "concierge needs to be more proactive towards incoming guests",
+          "The amenities were not seen on the bathroom, we'd have to ask for it if we need it."
+        ]
+      },
+      "sunrise_meal": {
+        "pos": 169,
+        "neg": 9,
+        "neg_pos": 1,
+        "neut": 272,
+        "mentioned": 179,
+        "mention_rate": 0.397,
+        "smoothed_pos_rate": 0.937,
+        "pos_quotes": [
+          "delicious food",
+          "amazing breakfast",
+          "The breakfast variety was superb"
+        ],
+        "neg_quotes": [
+          "My husband ordered the Eggs Benedict for breakfast which unfortunately gave his food poisoning.",
+          "Boiled egg, croissant and a juice - that's what you'll get.",
+          "the breakfast is too average for a luxurious hotel."
+        ]
+      },
+      "tv": {
+        "pos": 8,
+        "neg": 2,
+        "neg_pos": 0,
+        "neut": 441,
+        "mentioned": 10,
+        "mention_rate": 0.022,
+        "smoothed_pos_rate": 0.714,
+        "pos_quotes": [
+          "HMDI input to the TV",
+          "The TV in the room has good channels to catch a film late at night out when your getting ready for an evening.",
+          "The room has a large size tv"
+        ],
+        "neg_quotes": [
+          "shocked that the TV channel was so limited",
+          "could use with a bit more choices for television channels"
+        ]
+      },
+      "wifi": {
+        "pos": 9,
+        "neg": 2,
+        "neg_pos": 0,
+        "neut": 440,
+        "mentioned": 11,
+        "mention_rate": 0.024,
+        "smoothed_pos_rate": 0.733,
+        "pos_quotes": [
+          "Great wifi",
+          "Lighting, AC and Wi-Fi were excellent.",
+          "good Wi-Fi"
+        ],
+        "neg_quotes": [
+          "wifi is unstable",
+          "The wifi is in need for a serious speed up grade."
+        ]
+      },
+      "value": {
+        "pos": 56,
+        "neg": 4,
+        "neg_pos": 3,
+        "neut": 388,
+        "mentioned": 63,
+        "mention_rate": 0.14,
+        "smoothed_pos_rate": 0.888,
+        "pos_quotes": [
+          "totally worth the $1300 we paid for 5 nights",
+          "We really got more than we expected",
+          "the value-for-money equation is wonderful. Even at full priced rack-rate its worth the stay."
+        ],
+        "neg_quotes": [
+          "Happy hour is still too expensive even at half price when you add on the tax.",
+          "expensive for what it is",
+          "The spa - had treatments there to compare to the much cheaper prices around the hotel. Unfortunately the treatments did not compare."
+        ]
+      },
+      "accessibility": {
+        "pos": 213,
+        "neg": 5,
+        "neg_pos": 1,
+        "neut": 232,
+        "mentioned": 219,
+        "mention_rate": 0.486,
+        "smoothed_pos_rate": 0.966,
+        "pos_quotes": [
+          "Walking distance to great restaurants and ammenities",
+          "It is also very handy having the resort right on the beach!",
+          "easy access to Sanur Beach"
+        ],
+        "neg_quotes": [
+          "The beach connected to this hotel is bad",
+          "So we had to go down 3 floors and walk a fair way to the main pool every day with two kids. Not ideal.",
+          "The beach is very small and not that clean."
+        ]
+      },
+      "sleep_quality": {
+        "pos": 70,
+        "neg": 7,
+        "neg_pos": 0,
+        "neut": 374,
+        "mentioned": 77,
+        "mention_rate": 0.171,
+        "smoothed_pos_rate": 0.889,
+        "pos_quotes": [
+          "Sanur is a quiet fishing village and the Maya sits as a beautiful, tranquil gem amongst",
+          "Super relaxing",
+          "Sanur is a quiet fishing village and the Maya sits as a beautiful, tranquil gem amongst"
+        ],
+        "neg_quotes": [
+          "don't forget to ask for a room that is not connected to the room next door as you can score some noisy neighbours!",
+          "we found it very difficult to sleep due to the very noisy Chinese guests who were partying until 3am each morning in the lagoon",
+          "our room was close to the Reef restaurant so on occasions it was quite noisy"
+        ]
+      }
+    }
+  },
+  "the-stones-hotel-legian-bali": {
+    "n_reviews_extracted": 525,
+    "aspects": {
+      "ac": {
+        "pos": 13,
+        "neg": 1,
+        "neg_pos": 1,
+        "neut": 510,
+        "mentioned": 15,
+        "mention_rate": 0.029,
+        "smoothed_pos_rate": 0.816,
+        "pos_quotes": [
+          "great air con",
+          "cool AC",
+          "everything works"
+        ],
+        "neg_quotes": [
+          "Have some issues with ... AC in our room"
+        ]
+      },
+      "air_panas": {
+        "pos": 7,
+        "neg": 4,
+        "neg_pos": 1,
+        "neut": 513,
+        "mentioned": 12,
+        "mention_rate": 0.023,
+        "smoothed_pos_rate": 0.594,
+        "pos_quotes": [
+          "the shower was clean and had great water pressure",
+          "The pool is beautiful and has a hot jacuzzi which was nice",
+          "i really enjoyed hot bath there"
+        ],
+        "neg_quotes": [
+          "The shower on/off is very slippery to turn on and off.",
+          "Have some issues with hot water",
+          "The only thing I would have wanted would be for the dip pool connected to our room to be warmer."
+        ]
+      },
+      "bau": {
+        "pos": 6,
+        "neg": 4,
+        "neg_pos": 0,
+        "neut": 515,
+        "mentioned": 10,
+        "mention_rate": 0.019,
+        "smoothed_pos_rate": 0.571,
+        "pos_quotes": [
+          "have a good aromatherapy smell",
+          "When we first walked in to our room the smell was so fresh and clean.",
+          "the rooms don't smell damp like most places in Bali"
+        ],
+        "neg_quotes": [
+          "bad smells",
+          "the water in the shower sometimes smell a little earthy",
+          "You will just need to endure breathing in all the exhaust from the cars and motorcycles sitting in the traffic while walking!"
+        ]
+      },
+      "general": {
+        "pos": 384,
+        "neg": 5,
+        "neg_pos": 2,
+        "neut": 134,
+        "mentioned": 391,
+        "mention_rate": 0.745,
+        "smoothed_pos_rate": 0.98,
+        "pos_quotes": [
+          "overall a five star experience",
+          "I have stayed in many hotels around the Legian area, but this is the best.",
+          "Thank you team The Stones Legian Bali , you are our part of our journey."
+        ],
+        "neg_quotes": [
+          "Courtyards room is way better and cleaner, and cheaper too.",
+          "If u looking for a comfy and luxurious hotel this is not a good choice.",
+          "For a Hotel that is only 4 1/2 years old, it is a bit tired."
+        ]
+      },
+      "kebersihan": {
+        "pos": 257,
+        "neg": 12,
+        "neg_pos": 4,
+        "neut": 252,
+        "mentioned": 273,
+        "mention_rate": 0.52,
+        "smoothed_pos_rate": 0.942,
+        "pos_quotes": [
+          "Clean hotel.",
+          "pool is clean",
+          "In terms of cleanliness"
+        ],
+        "neg_quotes": [
+          "The towel hanger is a bit rusty.",
+          "Room was not well clean, tidy",
+          "housekeeping. Why have housekeepers that intentionally ignore visible dirty spots on the room ceiling and green mold in the bathroom shower head."
+        ]
+      },
+      "linen": {
+        "pos": 55,
+        "neg": 1,
+        "neg_pos": 0,
+        "neut": 469,
+        "mentioned": 56,
+        "mention_rate": 0.107,
+        "smoothed_pos_rate": 0.95,
+        "pos_quotes": [
+          "Bed linen and bed are comfortable, towels and robes are clean and lovely.",
+          "towels are provide",
+          "Bed linen and bed are comfortable, towels and robes are clean and lovely."
+        ],
+        "neg_quotes": [
+          "comfy bed but not for their pillows"
+        ]
+      },
+      "service": {
+        "pos": 238,
+        "neg": 16,
+        "neg_pos": 14,
+        "neut": 257,
+        "mentioned": 268,
+        "mention_rate": 0.51,
+        "smoothed_pos_rate": 0.908,
+        "pos_quotes": [
+          "Outstanding service from the staff for their lovely smile from the gate to the restaurant.",
+          "service and drinks were on point",
+          "Super excellent services."
+        ],
+        "neg_quotes": [
+          "Stones didn't give us any. Maybe the receptionist who checked us in is still trainee.",
+          "My only complain is the hotel housekeeping.",
+          "After speaking to the supervisor that night they stated that they couldn't offer this to us as the hotel was fully booked."
+        ]
+      },
+      "sunrise_meal": {
+        "pos": 318,
+        "neg": 11,
+        "neg_pos": 12,
+        "neut": 184,
+        "mentioned": 341,
+        "mention_rate": 0.65,
+        "smoothed_pos_rate": 0.945,
+        "pos_quotes": [
+          "In terms of... the food. I am a vegetarian, and they really looked after me and my husband.",
+          "In terms of... the food. I am a vegetarian, and they really looked after me and my husband.",
+          "The breakfast Buffett was delicious!!!"
+        ],
+        "neg_quotes": [
+          "We didn’t have breakfast or airport transfers included in our price which was disappointing",
+          "except for the breakfast very little choice or not good for Indian vegetarian people",
+          "The breakfast was not so tasty"
+        ]
+      },
+      "tv": {
+        "pos": 3,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 522,
+        "mentioned": 3,
+        "mention_rate": 0.006,
+        "smoothed_pos_rate": 0.714,
+        "pos_quotes": [
+          "cable Tv",
+          "big TV",
+          "The suite had 2 TVs"
+        ],
+        "neg_quotes": []
+      },
+      "wifi": {
+        "pos": 18,
+        "neg": 0,
+        "neg_pos": 0,
+        "neut": 507,
+        "mentioned": 18,
+        "mention_rate": 0.034,
+        "smoothed_pos_rate": 0.909,
+        "pos_quotes": [
+          "Wifi great.",
+          "great wifi",
+          "great gym and internet"
+        ],
+        "neg_quotes": []
+      },
+      "value": {
+        "pos": 84,
+        "neg": 22,
+        "neg_pos": 5,
+        "neut": 414,
+        "mentioned": 111,
+        "mention_rate": 0.211,
+        "smoothed_pos_rate": 0.77,
+        "pos_quotes": [
+          "can’t complain about cheap drinks",
+          "was good",
+          "we got a good deal"
+        ],
+        "neg_quotes": [
+          "Courtyards room is way better and cleaner, and cheaper too.",
+          "Rooms are pricy when no specials.",
+          "The drinks are a little bit pricey"
+        ]
+      },
+      "accessibility": {
+        "pos": 380,
+        "neg": 15,
+        "neg_pos": 17,
+        "neut": 113,
+        "mentioned": 412,
+        "mention_rate": 0.785,
+        "smoothed_pos_rate": 0.939,
+        "pos_quotes": [
+          "It is a great hotel in a great location.",
+          "good location near to the beach,restaurant,and shopping market.",
+          "good location and plenty of food around"
+        ],
+        "neg_quotes": [
+          "the only minus point is the location ....its a long walk to reach the shopping street",
+          "The hotel is away from the beach (no view)",
+          "Legian especially in front of Kuta beach, is very, like VERY crowded and heavy traffic jam"
+        ]
+      },
+      "sleep_quality": {
+        "pos": 61,
+        "neg": 19,
+        "neg_pos": 6,
+        "neut": 439,
+        "mentioned": 86,
+        "mention_rate": 0.164,
+        "smoothed_pos_rate": 0.733,
+        "pos_quotes": [
+          "The bed was very comfortable.",
+          "far enough back from the road that it is really quiet and chill",
+          "Hotel was quiet"
+        ],
+        "neg_quotes": [
+          "The music from the pool bar is suited to a younger crowd, it was very loud and not easy to relax",
+          "the motorised and pedestrian traffic accessing the hotel is frenetic to say the least from the main road Jalan Pantai Kuta.",
+          "My only problem was the loud music which could be heard inside room with doors closed."
+        ]
+      }
+    }
+  }
+}
