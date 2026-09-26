@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TanyaInap</title>
+<title>Nginep</title>
 <style>
   :root {
     --ink: #0b0b0b; --ink-secondary: #52514e; --ink-muted: #898781;
@@ -18,10 +18,7 @@
     padding: 24px 16px 64px;
   }
   .wrap { max-width: 720px; margin: 0 auto; }
-  h1 { font-size: 1.5rem; margin: 0 0 4px; }
-  /* bold system-ui renders capital I almost identical to lowercase l --
-     "TanyaInap" reads as "Tanyalnap" at a glance without this */
-  .brand-i { color: var(--blue); }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; color: var(--blue-dark); }
   .tagline { color: var(--ink-secondary); margin: 0 0 24px; font-size: 0.95rem; }
   form { display: flex; gap: 8px; margin-bottom: 8px; }
   input[type=text] {
@@ -90,19 +87,19 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>Tanya<span class="brand-i">I</span>nap</h1>
-  <p class="tagline">Cari hotel di Bali pakai bahasa sehari-hari, lengkap dengan bukti dari ulasan asli.</p>
+  <h1>nginep</h1>
+  <p class="tagline">cari hotel di bali pakai bahasa sehari-hari, lengkap dengan bukti dari ulasan asli</p>
 
   <form id="searchForm">
-    <input type="text" id="q" placeholder="hotel tenang di Ubud, wifi kencang, sarapan enak" autocomplete="off">
-    <button type="submit" id="submitBtn">Cari</button>
+    <input type="text" id="q" placeholder="hotel tenang di ubud" autocomplete="off">
+    <button type="submit" id="submitBtn">cari</button>
   </form>
-  <p class="hint">Contoh: 'hotel di Legian, servicenya ramah' atau 'quiet hotel in Sanur with good breakfast'</p>
+  <p class="hint">contoh: 'hotel murah di legian' atau 'quiet hotel in sanur'</p>
 
   <div class="parsed" id="parsed"></div>
   <div id="results"></div>
 </div>
-<footer>Data ulasan: Mendeley Bali Hotel Reviews (CC BY 4.0), lokasi: OpenStreetMap</footer>
+<footer>ulasan dari mendeley (cc by 4.0), lokasi dari openstreetmap</footer>
 
 <script>
 const form = document.getElementById('searchForm');
@@ -116,7 +113,7 @@ form.addEventListener('submit', async (e) => {
   const q = input.value.trim();
   if (!q) return;
   btn.disabled = true;
-  btn.textContent = 'Mencari...';
+  btn.textContent = 'mencari...';
   resultsBox.innerHTML = '';
   parsedBox.style.display = 'none';
   try {
@@ -126,11 +123,11 @@ form.addEventListener('submit', async (e) => {
     renderParsed(data.parsed);
     renderResults(data.results, data.also_nearby || []);
   } catch (err) {
-    resultsBox.innerHTML = '<p class="empty">Ada masalah saat mencari, coba lagi ya.</p>';
+    resultsBox.innerHTML = '<p class="empty">ada masalah saat mencari, coba lagi ya</p>';
     console.error(err);
   } finally {
     btn.disabled = false;
-    btn.textContent = 'Cari';
+    btn.textContent = 'cari';
   }
 });
 
@@ -151,13 +148,13 @@ function renderParsed(p) {
   if (p.purpose) bits.push(`<b>konteks:</b> ${escapeHtml(p.purpose)}`);
   if (p.price_max_idr) bits.push(`<b>maks harga:</b> Rp${p.price_max_idr.toLocaleString('id-ID')} (harga belum tersedia di data ini)`);
   if (!bits.length) { parsedBox.style.display = 'none'; return; }
-  parsedBox.innerHTML = 'Dipahami sebagai: ' + bits.join(', ');
+  parsedBox.innerHTML = 'dipahami sebagai: ' + bits.join(', ');
   parsedBox.style.display = 'block';
 }
 
 function renderResults(results, alsoNearby) {
   if (!results.length && !alsoNearby.length) {
-    resultsBox.innerHTML = '<p class="empty">Belum ada hotel yang cocok.</p>';
+    resultsBox.innerHTML = '<p class="empty">belum ada hotel yang cocok</p>';
     return;
   }
   resultsBox.innerHTML = results.map(r => `
@@ -179,7 +176,7 @@ function renderResults(results, alsoNearby) {
 
 function renderEvidence(evidence) {
   if (!evidence || !evidence.length) {
-    return '<div class="no-evidence">Belum ada cukup ulasan yang membahas apa yang kamu cari.</div>';
+    return '<div class="no-evidence">belum ada cukup ulasan yang membahas apa yang kamu cari</div>';
   }
   return '<div class="evidence">' + evidence.map(ev => `
     <div>
@@ -198,7 +195,7 @@ function renderAlsoNearby(hotels) {
   const names = hotels.map(h => escapeHtml(h.name)).join(', ');
   return `
     <div class="also-nearby">
-      <div class="also-nearby-title">Juga ada di area ini, belum ada ulasan:</div>
+      <div class="also-nearby-title">juga ada di area ini, belum ada ulasan:</div>
       <div class="also-nearby-list">${names}</div>
     </div>
   `;
@@ -209,7 +206,7 @@ const PIN_SVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.1
 function mapsLink(lat, lon) {
   if (lat == null || lon == null) return '';
   const url = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
-  return `<a class="badge badge-maps" href="${url}" target="_blank" rel="noopener">${PIN_SVG} Lihat lokasi</a>`;
+  return `<a class="badge badge-maps" href="${url}" target="_blank" rel="noopener">${PIN_SVG} lihat lokasi</a>`;
 }
 
 function escapeHtml(s) {

@@ -1,4 +1,4 @@
-"""TanyaInap web API. Loads hotel + aspect data once at startup (not per
+"""Nginep web API. Loads hotel + aspect data once at startup (not per
 request), and reuses one Vertex AI client for the process lifetime.
 
 Run: .venv/bin/uvicorn app.main:app --reload --port 8000
@@ -37,7 +37,7 @@ async def lifespan(app: FastAPI):
     _state.clear()
 
 
-app = FastAPI(title="TanyaInap API", lifespan=lifespan)
+app = FastAPI(title="Nginep API", lifespan=lifespan)
 
 
 @app.get("/api/search", dependencies=[Depends(rate_limit)])

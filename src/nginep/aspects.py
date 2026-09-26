@@ -1,4 +1,4 @@
-"""Shared aspect taxonomy for TanyaInap.
+"""Shared aspect taxonomy for Nginep.
 
 10 of the 13 aspects are named to match HoASA exactly (ac, air_panas, bau,
 general, kebersihan, linen, service, sunrise_meal, tv, wifi) on purpose: it

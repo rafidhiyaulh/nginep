@@ -1,7 +1,7 @@
 [project]
 name = "nginep"
 version = "0.1.0"
-description = "TanyaInap -- natural-language hotel search for Bali (Traveloka DS portfolio project)"
+description = "Nginep -- natural-language hotel search for Bali (Traveloka DS portfolio project)"
 requires-python = ">=3.11"
 
 [tool.pytest.ini_options]

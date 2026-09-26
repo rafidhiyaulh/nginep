@@ -1,6 +1,6 @@
 # Deployment (Cloud Run)
 
-Live: https://tanyainap-610631276830.asia-southeast2.run.app
+Live: https://nginep-610631276830.asia-southeast2.run.app
 
 ## Why Cloud Run
 
@@ -40,12 +40,14 @@ demo's traffic.
 ## Redeploying after a data/code change
 
 ```
-gcloud run deploy tanyainap --source . --project=nginep-tanyainap \
+gcloud run deploy nginep --source . --project=nginep-tanyainap \
   --region=asia-southeast2 \
   --service-account=tanyainap-cloudrun@nginep-tanyainap.iam.gserviceaccount.com \
   --allow-unauthenticated --max-instances=1 --min-instances=0 \
   --memory=512Mi --cpu=1
 ```
+
+(The GCP project and service account keep their original `nginep-tanyainap`/`tanyainap-cloudrun` names -- internal IAM identifiers, renamed once already for the Cloud Run service itself since that's what shows up in the live URL and is worth keeping aligned with the product name.)
 
 ## Known limitation
 

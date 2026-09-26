@@ -1,14 +1,14 @@
-# TanyaInap
+# Nginep
 
 Natural language hotel search for Bali. Type what you need, get hotels ranked with real proof from real reviews.
 
-Try it: **https://tanyainap-610631276830.asia-southeast2.run.app**
+Try it: **https://nginep-610631276830.asia-southeast2.run.app**
 
 ## Why this exists
 
 I'm applying for a Data Science role at Traveloka. Their job posting asks for LLM based structured extraction, ranking, and real evaluation, not just a slide deck about it. So I built a real, working product instead.
 
-Hotel search is usually checkboxes. What people actually want is more specific, like "quiet hotel in Ubud for remote work, fast wifi." Reading a hundred reviews yourself to check takes forever. TanyaInap does that reading for you, and shows the real quote as proof, not a made up summary.
+Hotel search is usually checkboxes. What people actually want is more specific, like "quiet hotel in Ubud for remote work, fast wifi." Reading a hundred reviews yourself to check takes forever. Nginep does that reading for you, and shows the real quote as proof, not a made up summary.
 
 ## Who this is for
 

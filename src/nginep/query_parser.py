@@ -1,7 +1,7 @@
 """Turn a free-text search query (Indonesian or English) into a structured
 filter, via the same Vertex AI Gemini setup as the aspect extractor.
 
-This is the "query understanding" half of TanyaInap -- the same class of
+This is the "query understanding" half of Nginep -- the same class of
 problem Traveloka's own Universal Search team solved with NER + a trained
 Product/Subproduct/Action classifier (see their Mar 2020 engineering blog
 post). This takes an LLM-first approach instead: no training data, more
